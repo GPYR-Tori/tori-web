@@ -12,7 +12,7 @@ const Category=()=>{
 
     return(
         <>
-        <GlobalStyle />
+            <GlobalStyle />
             <Container>
                 <CtgHeader/>
                 <div className={'ctgText'}>
