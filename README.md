@@ -1,40 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Git Commit Convention
+| 이모지 | 깃모지 사용 | 타입 | 상황 |
+| --- | --- | --- | --- |
+| 🎨 | : art : | design | CSS 등 사용자 UI 디자인 변경 |
+| 💄 | : lipstick :  | style | 코드 포맷 변경, 세미 콜론 누락, 코드 수정이 없는 경우 |
+| ✨ | : sparkles :  | feat | 새로운 기능 추가, 구현  |
+| 💬 | : speech_balloon : | chore | 텍스트 또는 리터럴 추가 및 수정 |
+| 📝 | : memo : | docs | 문서 파일 추가 및 수정 (readme) |
+| ✏️ | : pencil2 : | chore | 단순 오타 수정 |
+| 🐛 | : bug : | fix | 버그 수정 |
+| 🚚 | : truck : | docs | 파일, 경로, route를 옮기거나 이름 변경 |
+| ♻️ | : recycle : | refactor | 코드 리팩토링 |
+| 🔥 | : fire : | remove | 삭제 (파일, 코드) |
+| 🚚 | : truck : | rename | 파일, 폴더명 수정 |
+| 💡 | : bulb : | comment | 필요한 주석 추가 및 변경 |
