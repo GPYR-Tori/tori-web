@@ -15,14 +15,18 @@ const Login=()=>{
             <Container>
                 <Header />
                 <BodyText />
-                <input
-                    className={'loginInput'}
-                    placeholder={'  아이디를 입력해주세요'}
-                />
-                <input
-                    className={'pwInput'}
-                    placeholder={'  비밀번호를 입력해주세요'}
-                />
+                <div className={'ID'}>
+                    <input
+                        className={'loginInput'}
+                        placeholder={'아이디를 입력해주세요'}
+                    />
+                </div>
+                <div className={'PW'}>
+                    <input
+                        className={'pwInput'}
+                        placeholder={'비밀번호를 입력해주세요'}
+                    />
+                </div>
                 <input
                     className={'LoginBtn'}
                     value={'로그인'}
@@ -41,47 +45,63 @@ const Container=styled.div`
 
   flex-direction: column;
 
-  .loginInput{
+  .ID{
     width: 654px;
     height: 100px;
     flex-shrink: 0;
 
     margin:73px auto 21px 49px ;
 
-    border: none;
-    
-
-    //background-color: darkgrey;
-    background-color: #FAFAFA;;
+    background-color: #FAFAFA;
 
     color: #808080;
-    //font-family: Pretendard;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.56px;
+    .loginInput{
+      width: 464px;
+      height: 100px;
+
+      margin: 0 0 0 33px;
+      
+      border: none;
+      outline: none;
+
+      //background-color: darkgrey;
+      
+      //font-family: Pretendard;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -0.56px;
+    }
   }
 
-  .pwInput{
+  .PW{
     width: 654px;
     height: 100px;
     flex-shrink: 0;
 
     margin: 21px auto 36px 49px;
 
-    border: none;
-    
-    //background-color: darkgrey;
     background-color: #FAFAFA;;
-    
+
     color: #808080;
-    //font-family: Pretendard;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.56px;
+    .pwInput{
+      width: 464px;
+      height: 100px;
+      margin: 0 0 0 33px;
+
+      border: none;
+      outline: none;
+
+      //background-color: darkgrey;
+      
+      //font-family: Pretendard;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -0.56px;
+    }
   }
 
   .LoginBtn{
