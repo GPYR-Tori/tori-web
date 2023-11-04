@@ -43,7 +43,7 @@ function TripReviewBar(props) {
                         <button>상품정보</button>
                 </Bar>
                 <Bar>
-                    <Link href="/landmarks/reviews">
+                    <Link href="/reviews">
                         <button>리뷰 {props.reviewTotal}</button>
                     </Link>
                 </Bar>
