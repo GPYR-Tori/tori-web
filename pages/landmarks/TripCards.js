@@ -1,11 +1,24 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
+import FavoriteBtn from "@/pages/favorites/FavoriteBtn";
 
 const Wrapper = styled.div`
   width: 19.8125rem;
   height: 22.9375rem;
   margin-bottom: 2.5rem;
   margin-right: 1.2rem;
+`;
+
+
+const ImgWrap = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -4rem;
+  color: #BABABA;
+  
+  :hover{
+    color:#009A78;
+  }
 `;
 
 const Img = styled.img`
@@ -53,7 +66,11 @@ const Category = styled.div`
 function TripCards(props) {
     return (
         <Wrapper>
-            <Img src={props.img} alt="사진" />
+                <Img src={props.img} alt="사진" />
+            <ImgWrap>
+                <FavoriteBtn />
+            </ImgWrap>
+
             <Title>{props.name}</Title>
             <CategoryWrap>
                 <Category>
