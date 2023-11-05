@@ -39,8 +39,11 @@ function TripReviewBar(props) {
     return (
         <>
             <Wrapper>
+
                 <Bar>
+                    <Link href='/landmarks/checkTrip'>
                         <button>상품정보</button>
+                    </Link>
                 </Bar>
                 <Bar>
                     <Link href="/reviews">
