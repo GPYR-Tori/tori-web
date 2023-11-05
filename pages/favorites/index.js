@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled";
-import FavoriteBtn from "@/pages/favorites/FavoriteBtn";
 import TripCards from "@/pages/landmarks/TripCards";
 
 
