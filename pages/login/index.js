@@ -11,26 +11,25 @@ import { GlobalStyle } from "@/styles/GlobalStyle";
 const Login=()=>{
     return (
         <>
-          <GlobalStyle/>
+            <GlobalStyle/>
             <Container>
                 <Header />
                 <BodyText />
-                <div className={'ID'}>
-                    <input
-                        className={'loginInput'}
-                        placeholder={'아이디를 입력해주세요'}
-                    />
+                <div className={'inputDiv'}>
+                    <div className={'ID'}>
+                        <input
+                            className={'loginInput'}
+                            placeholder={'아이디를 입력해주세요'}
+                        />
+                    </div>
+                    <div className={'PW'}>
+                        <input
+                            className={'pwInput'}
+                            placeholder={'비밀번호를 입력해주세요'}
+                        />
+                    </div>
+                    <button className={'LoginBtn'} >로그인</button>
                 </div>
-                <div className={'PW'}>
-                    <input
-                        className={'pwInput'}
-                        placeholder={'비밀번호를 입력해주세요'}
-                    />
-                </div>
-                <input
-                    className={'LoginBtn'}
-                    value={'로그인'}
-                />
                 <p className={'SignInBtn'}>회원 가입</p>
             </Container>
         </>
@@ -38,106 +37,107 @@ const Login=()=>{
 }
 
 const Container=styled.div`
-  width: 750px;
-  height: 1624px;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   //align-items: center;
 
   flex-direction: column;
 
-  .ID{
-    width: 654px;
-    height: 100px;
-    flex-shrink: 0;
+  .inputDiv{
+    margin: 4.56rem auto 0 3rem;
+    .ID{
+      width: 40.875rem;
+      height: 6.25rem;
+      flex-shrink: 0;
 
-    margin:73px auto 21px 49px ;
+      border-radius: 0.5rem;
+      background: #FAFAFA;
 
-    background-color: #FAFAFA;
-
-    color: #808080;
-    .loginInput{
-      width: 464px;
-      height: 100px;
-
-      margin: 0 0 0 33px;
+      color: #808080;
       
+      margin-bottom: 1.31rem;
+      .loginInput{
+        width: 38.185rem;
+        height: 6.25rem;
+        flex-shrink: 0;
+
+        margin-right: 2.69rem;
+
+        border: none;
+        outline: none;
+
+        color: #808080;
+        font-size: 1.75rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.035rem;
+      }
+    }
+    .PW{
+      width: 40.875rem;
+      height: 6.25rem;
+      flex-shrink: 0;
+
+      border-radius: 0.5rem;
+      background: #FAFAFA;
+      color: #808080;
+      
+      margin-bottom: 4.87rem;
+      .pwInput{
+        width: 38.185rem;
+        height: 6.25rem;
+        flex-shrink: 0;
+
+        margin-right: 2.69rem;
+
+        border: none;
+        outline: none;
+
+        color: #808080;
+        font-size: 1.75rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.035rem;
+      }
+    }
+
+    .LoginBtn{
+      width: 40.875rem;
+      height: 6.25rem;
+      flex-shrink: 0;
+
+      text-align: center;
+
+      border-radius: 0.5rem;
+      background: #009A78;
+
+      color: #FFF;
+      //font-family: Inter;
+      font-size: 2.125rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 3.125rem; /* 147.059% */
+
       border: none;
       outline: none;
-
-      //background-color: darkgrey;
       
-      //font-family: Pretendard;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      letter-spacing: -0.56px;
+      margin-bottom: 22.25rem;
     }
-  }
-
-  .PW{
-    width: 654px;
-    height: 100px;
-    flex-shrink: 0;
-
-    margin: 21px auto 36px 49px;
-
-    background-color: #FAFAFA;;
-
-    color: #808080;
-    .pwInput{
-      width: 464px;
-      height: 100px;
-      margin: 0 0 0 33px;
-
-      border: none;
-      outline: none;
-
-      //background-color: darkgrey;
-      
-      //font-family: Pretendard;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      letter-spacing: -0.56px;
-    }
-  }
-
-  .LoginBtn{
-    width: 654px;
-    height: 100px;
-    flex-shrink: 0;
-
-    text-align: center;
-    
-    //margin: 76px auto auto 49px;
-    margin: 76px auto 0 49px;
-    border-radius: 8px;
-    background: #009A78;
-    border: none;
-
-    color: white;
-    //font-family: Pretendard;
-    font-size: 34px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 50px; /* 147.059% */
-  
   }
   
   .SignInBtn{
-    //margin-top: 359px;
-    margin: 359px auto 0 auto;
-    
     color: #000;
-    //font-family: Inter;
-    font-size: 28px;
+    font-size: 1.75rem;
     font-style: normal;
-    font-weight: bolder;
+    font-weight: bold;
     line-height: normal;
-    letter-spacing: -1.12px;
+    letter-spacing: -0.07rem;
     
+    margin-bottom: 4.06rem;
   }
 `;
 export default Login;
