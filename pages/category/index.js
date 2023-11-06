@@ -18,8 +18,10 @@ const Category=()=>{
                 <div className={'ctgText'}>
                     <p>카테고리</p>
                 </div>
-                <CtgSelectA />
-                <CtgSelectB />
+                <div className={'CtgSelectDiv'}>
+                    <CtgSelectA />
+                    <CtgSelectB />
+                </div>
                 <CtgPlace />
             </Container>
         </>
@@ -32,21 +34,27 @@ const Container=styled.div`
   
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  //align-items: center;
   
 
   
   .ctgText{
-    margin:137px auto 49px 48px;
+    margin:8.56rem auto 3.06rem 3rem;
     
-    height: 34px;
     color: #000;
-    //font-family: Inter;
-    font-size: 28px;
+    font-size: 1.75rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+  }
+  
+  .CtgSelectDiv{
+    width: 40.9375rem;
+    height: 19.25rem;
+    flex-shrink: 0;
+
+    margin: 0 auto 5rem 3rem;
   }
 `;
 

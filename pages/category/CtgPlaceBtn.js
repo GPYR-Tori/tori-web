@@ -1,15 +1,19 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import {GlobalStyle} from "@/styles/GlobalStyle";
 
 const CtgPlaceBtn=()=>{
     return(
         <>
+            <GlobalStyle />
             <Container>
                 <p className={'placeName'}>지역</p>
-                <button className={'East'}>동부</button>
-                <button className={'Weast'}>서부</button>
-                <button className={'South'}>남부</button>
-                <button className={'North'}>북부</button>
+                <div className={'btnDiv'}>
+                    <button className={'East'}>동부</button>
+                    <button className={'Weast'}>서부</button>
+                    <button className={'South'}>남부</button>
+                    <button className={'North'}>북부</button>
+                </div>
             </Container>
         </>
     )
@@ -17,178 +21,145 @@ const CtgPlaceBtn=()=>{
 
 const Container=styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  
-  margin-top: 39px ;
+  text-align: center;
 
-  width: 654px;
-  height: 100px;
+  width: 40.875rem;
+  height: 6.25rem;
   flex-shrink: 0;
-
-  border-radius: 8px;
-  background: #FAFAFA;
   
+  margin-top: 4.56rem;
+
+
+  border-radius: 0.5rem;
+  background: #FAFAFA;
   .placeName{
-    width: 45px;
-    height: 30px;
-    
     color: #000;
-    //font-family: Inter;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-
-    margin: 0 auto 0 40px;
-    justify-content: center;
-
-    display: flex;
-    flex-direction: row;
     
+    margin-left: 2.5rem;
+    margin-right:1.75rem;
   }
   
-  .East{
-    //display: inline-flex;
+  .btnDiv{
     display: flex;
+    flex: 1;
     flex-direction: row;
-
+    text-align: center;
     justify-content: center;
     align-items: center;
-    gap: 30px;
     
-    margin-left: 28px;
+    .East{
+      margin: 0.5rem;
+      
+      display: inline-flex;
+      padding: 0.6875rem 1.875rem;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 1.875rem;
 
-    width: 105px;
-    height: 51px;
-    flex-shrink: 0;
+      border: none;
+      border-radius: 4.375rem;
+      background: #FFF;
 
-    color: #8A8A8A;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-    background-color: #fff;
-    border-radius: 50px;
-    border: none;
-    
-    &:hover{
-      background-color:#009A78;
-
-      color: #FFF;
-      //font-family: Inter;
-      font-size: 24px;
+      color: #8A8A8A;
+      font-size: 1.5rem;
       font-style: normal;
-      font-weight: 100;
+      font-weight: 400;
       line-height: normal;
+      &:hover{
+        border-radius: 4.375rem;
+        background: #009A78;
+
+        color: white;
+        font-weight:700;
+      }
     }
-  }
+    .Weast{
+      margin: 0.5rem;
+      
+      display: inline-flex;
+      padding: 0.6875rem 1.875rem;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 1.875rem;
 
-  .Weast{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+      border: none;
+      border-radius: 4.375rem;
+      background: #FFF;
 
-    margin-left: 28px;
-    
-    width: 105px;
-    height: 51px;
-    flex-shrink: 0;
-
-    color: #8A8A8A;
-    //font-family: Inter;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-    background-color: #fff;
-    border-radius: 50px;
-    border: none;
-
-    &:hover{
-      background-color:#009A78;
-
-      color: #FFF;
-      //font-family: Inter;
-      font-size: 24px;
+      color: #8A8A8A;
+      font-size: 1.5rem;
       font-style: normal;
-      font-weight: 100;
+      font-weight: 400;
       line-height: normal;
+      &:hover{
+        border-radius: 4.375rem;
+        background: #009A78;
+
+        color: white;
+        font-weight:700;
+      }
     }
-  }
+    .South{
+      margin: 0.5rem;
+      
+      display: inline-flex;
+      padding: 0.6875rem 1.875rem;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 1.875rem;
 
-  .South{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+      border: none;
+      border-radius: 4.375rem;
+      background: #FFF;
 
-    margin-left: 28px;
-    
-    width: 105px;
-    height: 51px;
-    flex-shrink: 0;
-
-    color: #8A8A8A;
-    //font-family: Inter;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-    background-color: #fff;
-    border-radius: 50px;
-    border: none;
-
-    &:hover{
-      background-color:#009A78;
-
-      color: #FFF;
-      //font-family: Inter;
-      font-size: 24px;
+      color: #8A8A8A;
+      font-size: 1.5rem;
       font-style: normal;
-      font-weight: 100;
+      font-weight: 400;
       line-height: normal;
+      &:hover{
+        border-radius: 4.375rem;
+        background: #009A78;
+
+        color: white;
+        font-weight:700;
+      }
     }
-  }
+    .North{
+      margin: 0.5rem;
+      
+      display: inline-flex;
+      padding: 0.6875rem 1.875rem;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 1.875rem;
 
-  .North{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+      border: none;
+      border-radius: 4.375rem;
+      background: #FFF;
 
-    //margin-left: 28px;
-    margin: auto 37px auto 28px;
-    
-    width: 105px;
-    height: 51px;
-    flex-shrink: 0;
-
-    color: #8A8A8A;
-    //font-family: Inter;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-    background-color: #fff;
-    border-radius: 50px;
-    border: none;
-
-    &:hover{
-      background-color:#009A78;
-
-      color: #FFF;
-      //font-family: Inter;
-      font-size: 24px;
+      color: #8A8A8A;
+      font-size: 1.5rem;
       font-style: normal;
-      font-weight: 100;
+      font-weight: 400;
       line-height: normal;
+      &:hover{
+        border-radius: 4.375rem;
+        background: #009A78;
+
+        color: white;
+        font-weight:700;
+      }
     }
   }
 `;
