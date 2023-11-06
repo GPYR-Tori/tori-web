@@ -47,6 +47,7 @@ const Container=styled.div`
       flex-shrink: 0;
       
       
+      
       //margin:0 250px 0 0 ;
     }
 `

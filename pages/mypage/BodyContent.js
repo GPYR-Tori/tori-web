@@ -97,6 +97,7 @@ const BodyCont=styled.div`
       font-weight: 500;
       line-height: 30px; /* 125% */
 
+      
       &:hover{
         color: #009A78;
         font-weight: bold;

@@ -206,6 +206,7 @@ const BtnCont = styled.div`
         font-weight: bold;
       }
     }
+    
     .iconArrow{
       margin: 0 20px 0 auto;
       width: 42px;
