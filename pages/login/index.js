@@ -1,143 +1,91 @@
-import React from "react";
+import React, { useState } from 'react';
 import styled from "@emotion/styled";
 
-import Header from "@/pages/login/Header";
-import BodyText from "@/pages/login/BodyText";
-// import Navbar from "@/components/Navbar";
+const BodyContent = () => {
 
-import { GlobalStyle } from "@/styles/GlobalStyle";
-
-
-const Login=()=>{
     return (
         <>
-          <GlobalStyle/>
-            <Container>
-                <Header />
-                <BodyText />
-                <div className={'ID'}>
-                    <input
-                        className={'loginInput'}
-                        placeholder={'아이디를 입력해주세요'}
-                    />
+            <BodyCont>
+                <div className={'BodyImg'}>
+                    <img src={'https://i.pinimg.com/564x/5c/4e/1f/5c4e1f6e7c116d72d528f1b762720ec2.jpg'}/>
                 </div>
-                <div className={'PW'}>
-                    <input
-                        className={'pwInput'}
-                        placeholder={'비밀번호를 입력해주세요'}
-                    />
+                <div className={'BodyText'}>
+                    <p className={'userName'}>유지희님</p>
+                    <p className={'Welcom'}>환영합니다.</p>
                 </div>
-                <input
-                    className={'LoginBtn'}
-                    value={'로그인'}
-                />
-                <p className={'SignInBtn'}>회원 가입</p>
-            </Container>
+                <div className={'btnLogout'}>로그아웃</div>
+            </BodyCont>
         </>
-    );
+    )
 }
 
-const Container=styled.div`
-  width: 750px;
-  height: 1624px;
-  display: flex;
-  //align-items: center;
-
-  flex-direction: column;
-
-  .ID{
-    width: 654px;
-    height: 100px;
-    flex-shrink: 0;
-
-    margin:73px auto 21px 49px ;
-
-    background-color: #FAFAFA;
-
-    color: #808080;
-    .loginInput{
-      width: 464px;
-      height: 100px;
-
-      margin: 0 0 0 33px;
-      
-      border: none;
-      outline: none;
-
-      //background-color: darkgrey;
-      
-      //font-family: Pretendard;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      letter-spacing: -0.56px;
-    }
-  }
-
-  .PW{
-    width: 654px;
-    height: 100px;
-    flex-shrink: 0;
-
-    margin: 21px auto 36px 49px;
-
-    background-color: #FAFAFA;;
-
-    color: #808080;
-    .pwInput{
-      width: 464px;
-      height: 100px;
-      margin: 0 0 0 33px;
-
-      border: none;
-      outline: none;
-
-      //background-color: darkgrey;
-      
-      //font-family: Pretendard;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      letter-spacing: -0.56px;
-    }
-  }
-
-  .LoginBtn{
-    width: 654px;
-    height: 100px;
-    flex-shrink: 0;
-
-    text-align: center;
-    
-    //margin: 76px auto auto 49px;
-    margin: 76px auto 0 49px;
-    border-radius: 8px;
-    background: #009A78;
-    border: none;
-
-    color: white;
-    //font-family: Pretendard;
-    font-size: 34px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 50px; /* 147.059% */
+const BodyCont=styled.div`
+    margin: 6.88rem auto 0 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
   
-  }
+    .BodyImg{
+      margin-left: 0;
+      width: 8.125rem;
+      height: 8.125rem;
+      flex-shrink: 0;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: fill;
+      }
+    }
   
-  .SignInBtn{
-    //margin-top: 359px;
-    margin: 359px auto 0 auto;
-    
-    color: #000;
-    //font-family: Inter;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: bolder;
-    line-height: normal;
-    letter-spacing: -1.12px;
-    
-  }
+    .BodyText{
+      margin-left: 2.25rem;
+      .userName{
+        color: #009A78;
+        font-size: 2.375rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 3.125rem; /* 131.579% */
+      }
+      .Welcom{
+        color: #191919;
+        font-size: 2.375rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 3.125rem;
+      }
+    }
+    .btnLogout{
+      margin-left: 8.9rem;
+      
+      flex-direction: row;
+      width: 9rem;
+      height: 3.125rem;
+      flex-shrink: 0;
+
+      border-radius: 1.5625rem;
+      border: 1px solid #B7B7B7;
+      
+      //가운데로 정렬
+      padding-top: 0.5rem;
+      
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      
+      color: #8A8A8A;
+      font-size: 1.5rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1.875rem; /* 125% */
+
+      &:hover{
+        color: #009A78;
+        font-weight: bold;
+        border: 2px solid #009A78;
+      }
+    }
 `;
-export default Login;
+
+export default BodyContent;
