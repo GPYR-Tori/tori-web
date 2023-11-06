@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import styled from "@emotion/styled";
+import { GlobalStyle } from "@/styles/GlobalStyle";
 
 const BodyContent = () => {
 
     return (
         <>
+            <GlobalStyle />
             <BodyCont>
                 <div className={'BodyImg'}>
                     <img src={'https://i.pinimg.com/564x/5c/4e/1f/5c4e1f6e7c116d72d528f1b762720ec2.jpg'}/>
@@ -95,6 +97,7 @@ const BodyCont=styled.div`
       font-weight: 500;
       line-height: 30px; /* 125% */
 
+      
       &:hover{
         color: #009A78;
         font-weight: bold;
