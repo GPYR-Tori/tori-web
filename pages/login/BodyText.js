@@ -2,8 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { GlobalStyle } from '@/styles/GlobalStyle';
 
-
-
 const BodyText=()=>{
     return(
         <>
@@ -36,18 +34,17 @@ const LoginBody=styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 
-  margin: 286px auto 50px 49px ;
+  margin: 17.75rem auto 0 3rem;
 
   .LoginImg{
     
   }
   .LoginText{
     color: #333;
-    //font-family: Pretendard;
-    font-size: 54px;
+    font-size: 3rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 65px; /* 120.37% */
+    line-height: 4.0625rem; /* 135.417% */
 
     //줄 띄어쓰기
     white-space: pre-wrap;
@@ -56,16 +53,11 @@ const LoginBody=styled.div`
       font-weight: 500;
     }
     .Text02{
-      font-weight: bolder;
-
-      color: #3A3A3A;
-      //font-family: Pretendard;
-      font-size: 54px;
+      color: #333;
+      font-size: 3rem;
       font-style: normal;
-      font-weight: 700;
-      line-height: 65px;
-
-      white-space: pre-wrap;
+      font-weight: bold;
+      line-height: 4.0625rem; /* 135.417% */
     }
   }
 `;
