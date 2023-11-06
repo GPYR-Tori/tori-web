@@ -20,11 +20,8 @@ const Mypage = () => {
 }
 
 const Container=styled.div`
-  width: 750px;
-  height: 1624px;
   display: flex;
   align-items: center;
-
   flex-direction: column;
 `;
 

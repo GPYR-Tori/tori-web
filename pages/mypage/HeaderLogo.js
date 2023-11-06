@@ -6,9 +6,12 @@ import {BiSearch} from 'react-icons/bi';
 // import Logo from '@/img/Logo.png';
 // import Logo from 'src/img/Logo.png';
 
+import { GlobalStyle } from "@/styles/GlobalStyle";
+
 const HeaderLogo = () => {
     return(
         <>
+            <GlobalStyle />
             <Container>
                 <AiOutlineArrowLeft className={'AllowIcon'}/>
                 <p>로고</p>

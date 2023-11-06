@@ -4,6 +4,8 @@ import {BsFillHeartFill, BsFillPersonFill} from "react-icons/bs";
 import {MdKeyboardArrowRight} from "react-icons/md";
 import {GiAcorn} from "react-icons/gi";
 
+import { GlobalStyle } from "@/styles/GlobalStyle";
+
 const BtnContent = () => {
 
     const ImgPerson = () => (
@@ -43,6 +45,7 @@ const BtnContent = () => {
 
     return (
         <>
+            <GlobalStyle />
             <BtnCont>
                 <div className={'BtnUser'}>
                     <div className={'iconPerson'}>{ImgPerson()}</div>
