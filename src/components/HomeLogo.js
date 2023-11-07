@@ -6,7 +6,8 @@ import logo from '@/src/assets/images/logo_tori.png';
 
 const LogoContainer = styled.div`
   position: absolute;
-  top: 5rem; // 페이지 상단으로 이동
+  top: 3rem; // 페이지 상단으로 이동
+  z-index: 1;
 `;
 
 const HomeLogo = () => {
