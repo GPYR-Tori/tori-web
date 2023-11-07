@@ -1,21 +1,20 @@
+/* 도토리 모으기 페이지 */
+
 import React from 'react';
 import styled from '@emotion/styled';
 import { GlobalStyle } from '@/styles/GlobalStyle';
 import HomeLogo from '@/src/components/HomeLogo';
 import Link from 'next/link';
 
-// 스타일을 전역으로 정의, GlobalStyle을 적용
-const GlobalStyles = () => <GlobalStyle />;
-
 const DotoriPage = () => {
   return (
     <>
-      <GlobalStyles />
+      <GlobalStyle />
       <Container>
         <HomeLogo />
-        <div>
-          <h1>도토리</h1>
-        </div>
+        <MapContainer>
+          <h3>여기 지도 들어갈 자리</h3>
+        </MapContainer>
       </Container>
     </>
   );
@@ -27,10 +26,18 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 45px 50px 0 50px;
+  min-height: 100vh;    // 나중에 봐서 값 수정
+  background-color: #cbcbcbff; //구분 가능하게 임의로 지정해둠
+  position: relative;
 `;
 
+const MapContainer = styled.div`
+  width: 750px;
+  height: 1000px;
+  margin-top: 10rem;
+  background-color: #FFF8EB;
 
+`
 
 
 export default DotoriPage;
