@@ -1,7 +1,39 @@
-import React from "react";
 import styled from "@emotion/styled";
 import EditReviewBtn from "@/pages/reviews/Btn/EditReviewBtn";
-import Link from "next/link";
+import {useState} from "react";
+import EditReview from "@/pages/reviews/EditReview";
+
+function WatchReviews(props) {
+    const [showEditR, setShowEditR] =useState(false);
+    const handleEditR = ()=>{
+        setShowEditR(true)
+        console.log('ㄱ')
+    }
+    return (
+        <Wrapper>
+            <User>
+                <Img
+                    src="https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F8c2f1236-d0db-4ddc-bef1-ca9b7c92dbd6%2F2be1b314-52fa-4798-bb87-1944c0141e37%2FGroup_169_(1).png?table=block&id=22dd0a62-eaf2-48e4-9687-3b8cd4cce7c7&spaceId=8c2f1236-d0db-4ddc-bef1-ca9b7c92dbd6&width=250&userId=b94e2ed2-3b9a-4e03-9432-8ebacdcf4f21&cache=v2"
+                    alt="사용자사진"
+                />
+                <UserInfo>
+                    <Id>{props.id}</Id>
+                    <Item>
+                        <Country>{props.country}</Country>
+                        <Date>{props.date}</Date>
+                    </Item>
+                </UserInfo>
+            </User>
+            <ContentsItem>{props.review}</ContentsItem>
+            <Edit>
+                <EditReviewBtn onClick={handleEditR} />
+            </Edit>
+
+        </Wrapper>
+    );
+}
+
+export default WatchReviews;
 
 const Wrapper = styled.div`
   width: 40.875rem;
@@ -78,30 +110,3 @@ const Edit = styled.div`
   margin-top: -1rem;
   margin-right: 2rem;
 `;
-function WatchReviews(props) {
-    return (
-        <Wrapper>
-            <User>
-                <Img
-                    src="https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F8c2f1236-d0db-4ddc-bef1-ca9b7c92dbd6%2F2be1b314-52fa-4798-bb87-1944c0141e37%2FGroup_169_(1).png?table=block&id=22dd0a62-eaf2-48e4-9687-3b8cd4cce7c7&spaceId=8c2f1236-d0db-4ddc-bef1-ca9b7c92dbd6&width=250&userId=b94e2ed2-3b9a-4e03-9432-8ebacdcf4f21&cache=v2"
-                    alt="사용자사진"
-                />
-                <UserInfo>
-                    <Id>{props.id}</Id>
-                    <Item>
-                        <Country>{props.country}</Country>
-                        <Date>{props.date}</Date>
-                    </Item>
-                </UserInfo>
-            </User>
-            <ContentsItem>{props.review}</ContentsItem>
-            <Link href="/reviews/EditReview">
-                <Edit>
-                    <EditReviewBtn />
-                </Edit>
-            </Link>
-        </Wrapper>
-    );
-}
-
-export default WatchReviews;
