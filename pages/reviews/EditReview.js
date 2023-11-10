@@ -1,7 +1,46 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "@emotion/styled";
 import EditReviewBtn from "@/pages/reviews/Btn/EditReviewBtn";
-import Link from "next/link";
+
+function EditReview({ initialReview, onSave ,onUpdateReview}) {
+    const [editedReview, setEditedReview] = useState(initialReview);
+
+    const handleReviewChange = (e) => {
+        setEditedReview(e.target.value);
+    };
+
+    const handleSave = () => {
+        // Call the onSave prop with the edited review
+        onSave(editedReview);
+        onUpdateReview(editedReview);
+    };
+    return (
+        <>
+        <Wrapper>
+            <User>
+                <Img
+                    src="https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F8c2f1236-d0db-4ddc-bef1-ca9b7c92dbd6%2F2be1b314-52fa-4798-bb87-1944c0141e37%2FGroup_169_(1).png?table=block&id=22dd0a62-eaf2-48e4-9687-3b8cd4cce7c7&spaceId=8c2f1236-d0db-4ddc-bef1-ca9b7c92dbd6&width=250&userId=b94e2ed2-3b9a-4e03-9432-8ebacdcf4f21&cache=v2"
+                    alt="사용자사진"
+                />
+                <UserInfo>
+                    <Id>토리</Id>
+                    <Item>
+                        <Country>대한민국</Country>
+                        <Date>2023-11-02</Date>
+                    </Item>
+                </UserInfo>
+            </User>
+            <ContentsItem value={editedReview} onChange={handleReviewChange}/>
+                <Edit>
+                    <EditReviewBtn onSave={handleSave}  />
+                </Edit>
+        </Wrapper>
+        </>
+    );
+}
+
+
+export default EditReview;
 
 const Wrapper = styled.div`
   width: 40.875rem;
@@ -77,6 +116,7 @@ const ContentsItem = styled.textarea`
   font-weight: 400;
   line-height: 2rem;
   margin-top: 2rem
+  
 `;
 
 const Edit = styled.div`
@@ -85,31 +125,3 @@ const Edit = styled.div`
   margin-top: 2rem;
   margin-right: 2rem;
 `;
-function EditReview(props) {
-    return (
-        <Wrapper>
-            <h1>리뷰 수정</h1>
-            <User>
-                <Img
-                    src="https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F8c2f1236-d0db-4ddc-bef1-ca9b7c92dbd6%2F2be1b314-52fa-4798-bb87-1944c0141e37%2FGroup_169_(1).png?table=block&id=22dd0a62-eaf2-48e4-9687-3b8cd4cce7c7&spaceId=8c2f1236-d0db-4ddc-bef1-ca9b7c92dbd6&width=250&userId=b94e2ed2-3b9a-4e03-9432-8ebacdcf4f21&cache=v2"
-                    alt="사용자사진"
-                />
-                <UserInfo>
-                    <Id>{props.id}</Id>
-                    <Item>
-                        <Country>{props.country}</Country>
-                        <Date>{props.date}</Date>
-                    </Item>
-                </UserInfo>
-            </User>
-            <ContentsItem>{props.review}</ContentsItem>
-            <Link href="/reviews">
-                <Edit>
-                    <EditReviewBtn />
-                </Edit>
-            </Link>
-        </Wrapper>
-    );
-}
-
-export default EditReview;

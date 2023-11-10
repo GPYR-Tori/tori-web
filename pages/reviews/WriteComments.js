@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   display: flex;
 `;
 const Write = styled.textarea`
-  margin: 0 0rem 2rem 1.5rem;
+  margin:2rem 0 2rem 1.5rem;
   border: none;
   outline: none;
   width: 33rem;
