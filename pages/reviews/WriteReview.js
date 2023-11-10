@@ -12,7 +12,7 @@ const Write = styled.textarea`
   resize: none;
   margin-left: 1.5rem;
   width: 37.75rem;
-  height: 40rem;
+  height: 20rem;
   justify-content: center;
   background: #fafafa;
   border: none;
@@ -48,7 +48,6 @@ const Btn = styled.div`
 function WriteReview() {
     return (
         <>
-            <h1>리뷰작성</h1>
             <Wrapper>
                 <Write placeholder="리뷰를 작성해주세요" />
                 <Btn>
