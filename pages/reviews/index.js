@@ -6,7 +6,6 @@ import WriteReview from "@/pages/reviews/WriteReview"
 import TripReviewBar from "@/pages/landmarks/checkTrip/TripReviewBar";
 import WatchComments from "@/pages/reviews/WatchComments";
 import WriteComments from "@/pages/reviews/WriteComments";
-import {GlobalStyle} from "@/styles/GlobalStyle";
 import EditComments from "@/pages/reviews/EditComment";
 
 function Reviews() {
@@ -32,7 +31,7 @@ function Reviews() {
 
     return (
         <>
-            <GlobalStyle/>
+            
             <Wrapper>
                 <TripReviewBar reviewTotal={123} />
                 <SampleReviews

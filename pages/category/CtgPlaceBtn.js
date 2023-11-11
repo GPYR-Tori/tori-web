@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import {GlobalStyle} from "@/styles/GlobalStyle";
 
 const CtgPlaceBtn=()=>{
     return(
         <>
-            <GlobalStyle />
             <Container>
                 <p className={'placeName'}>지역</p>
                 <div className={'btnDiv'}>

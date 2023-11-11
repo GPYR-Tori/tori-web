@@ -5,13 +5,13 @@ import Header from "@/pages/login/Header";
 import BodyText from "@/pages/login/BodyText";
 // import Navbar from "@/components/Navbar";
 
-import { GlobalStyle } from "@/styles/GlobalStyle";
+
 
 
 const Login=()=>{
     return (
         <>
-            <GlobalStyle/>
+            
             <Container>
                 <Header />
                 <BodyText />

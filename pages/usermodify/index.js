@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { GlobalStyle } from "@/styles/GlobalStyle";
 
 import HeaderLogo from "@/pages/mypage/HeaderLogo";
 import InputUserImg from "@/pages/usermodify/InputUserImg";
@@ -14,7 +13,6 @@ import ModifyAge from "@/pages/usermodify/ModifyAge";
 const Mypagemodify = () => {
     return(
         <>
-          <GlobalStyle/>
             <Container>
                 <HeaderLogo />
                 <InputUserImg />

@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import CtgPlaceBtn from "@/pages/category/CtgPlaceBtn";
-import {GlobalStyle} from "@/styles/GlobalStyle";
 
 const CtgPlace=()=>{
     return(
         <>
-            <GlobalStyle />
+          
             <Container>
                 <p>장소</p>
                 <CtgPlaceBtn />

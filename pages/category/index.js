@@ -6,13 +6,13 @@ import CtgPlace from "@/pages/category/CtgPlace";
 import CtgSelectA from "@/pages/category/CtgSelectA";
 import CtgSelectB from "@/pages/category/CtgSelectB";
 // import Navbar from "@/components/Navbar";
-import { GlobalStyle } from '@/styles/GlobalStyle';
+
 
 const Category=()=>{
 
     return(
         <>
-            <GlobalStyle />
+            
             <Container>
                 <CtgHeader/>
                 <div className={'ctgText'}>

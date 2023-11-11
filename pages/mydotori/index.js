@@ -2,13 +2,13 @@
 
 import React from 'react';
 import styled from '@emotion/styled';
-import { GlobalStyle } from '@/styles/GlobalStyle';
-import HomeLogo from '@/src/components/HomeLogo';
+
+import HomeLogo from '@/src/components/AppBar';
 
 const Mydotori = () => {
   return (
     <>
-    <GlobalStyle />
+    
       <Container>
         <HomeLogo />
           <DotoriContainer>

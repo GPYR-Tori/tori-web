@@ -1,12 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
-import { GlobalStyle } from '@/styles/GlobalStyle';
 
 const Header = () => {
     return(
         <>
-            <GlobalStyle />
             <LoginHeader>
                 <AiOutlineArrowLeft className={'AllowIcon'}/>
                 <p className={'HeaderLogin'}>로그인</p>
