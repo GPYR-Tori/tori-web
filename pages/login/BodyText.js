@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { GlobalStyle } from '@/styles/GlobalStyle';
 
 const BodyText=()=>{
     return(
         <>
-            <GlobalStyle/>
             <LoginBody>
                 <div className={'LoginImg'}>
                     <img />

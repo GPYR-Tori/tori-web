@@ -4,10 +4,9 @@ import {BsFillHeartFill, BsFillPersonFill} from "react-icons/bs";
 import {MdKeyboardArrowRight} from "react-icons/md";
 import {GiAcorn} from "react-icons/gi";
 
-import { GlobalStyle } from "@/styles/GlobalStyle";
 
 const BtnContent = () => {
-
+    // 지워도 되는 부분
     const ImgPerson = () => (
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M23.9992 7.63926C23.9993 8.64257 23.7925 9.63607 23.3906 10.563C22.9887 11.49 22.3996 12.3323 21.6569 13.0418C20.9141 13.7513 20.0324 14.3142 19.0619 14.6982C18.0914 15.0823 17.0513 15.28 16.0008 15.2801C13.8793 15.2803 11.8446 14.4756 10.3443 13.0429C8.84401 11.6103 8.00103 9.66709 8.00082 7.64083C8.00071 6.63752 8.20751 5.64402 8.60941 4.71705C9.0113 3.79007 9.60043 2.94779 10.3431 2.23827C11.8431 0.805336 13.8777 0.000207013 15.9992 3.99144e-08C18.1207 -0.000206933 20.1554 0.804525 21.6557 2.23717C23.156 3.66981 23.999 5.613 23.9992 7.63926ZM16 17.6174C4.48085 17.6174 0 24.619 0 27.8764C0 31.1322 9.53855 32 16 32C22.4614 32 32 31.1322 32 27.8764C32 24.619 27.5191 17.6174 16 17.6174Z"
@@ -45,10 +44,14 @@ const BtnContent = () => {
 
     return (
         <>
-            <GlobalStyle />
             <BtnCont>
                 <div className={'BtnUser'}>
-                    <div className={'iconPerson'}>{ImgPerson()}</div>
+                    <div className={'iconPerson'}>
+                      <img
+                        src="/images/img_test.svg"
+                      />
+
+                    </div>
                     {/*{ImgPerson()}*/}
                     <p className={'textPerson'}>회원 정보 수정</p>
                     <MdKeyboardArrowRight className={'iconArrow'}/>

@@ -2,13 +2,12 @@ import React from "react";
 import TripContents from "@/pages/landmarks/checkTrip/TripContents";
 // import TripReviewBar from "@/pages/components/TripReviewBar/TripReviewBar";
 import TripInfo from "@/pages/landmarks/checkTrip/TripInfo";
-import {GlobalStyle} from "@/styles/GlobalStyle";
 import TripReviewBar from "@/pages/landmarks/checkTrip/TripReviewBar";
 
 function CheckTravel() {
   return (
     <>
-      <GlobalStyle />
+    
       <TripContents
         title={"수원 행리단길"}
         category={"쇼핑"}

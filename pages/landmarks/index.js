@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import Link from "next/link";
-import {GlobalStyle} from "@/styles/GlobalStyle";
+
 import TripCards from "@/pages/landmarks/TripCards";
 import TripReviewBar from "@/pages/landmarks/checkTrip/TripReviewBar";
 
@@ -13,7 +13,7 @@ const CardWrap = styled.div`
 function Landmarks() {
     return (
         <>
-            <GlobalStyle/>
+            
             <h1>여행지조회</h1>
             <Link href="/landmarks/checkTrip">
              <CardWrap>

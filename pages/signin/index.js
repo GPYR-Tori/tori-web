@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from "@emotion/styled";
-import { GlobalStyle } from "@/styles/GlobalStyle";
+
 
 // import HeaderLogo from "@/pages/mypage/HeaderLogo";
 
@@ -18,7 +18,7 @@ const Signin = () => {
 
     return (
         <>
-          <GlobalStyle/>
+          
             <Container>
                 {/*<HeaderLogo />*/}
                 <SigninHeader />
