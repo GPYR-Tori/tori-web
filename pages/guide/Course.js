@@ -26,6 +26,7 @@ const Contents = styled.div`
     font-weight: 100;
     line-height: normal;
     padding: 1.5rem 2rem 0;
+    
   }
 `;
 
@@ -49,6 +50,8 @@ const Title = styled.div`
 const Explain = styled.div`
   margin-bottom: 2rem;
   padding-left: 1rem;
+  width: 40.875rem;
+  flex-wrap: wrap;
 `;
 function Course(props) {
     const [guide, setGuide] = useState([]);
