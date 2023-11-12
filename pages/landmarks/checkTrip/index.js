@@ -7,7 +7,6 @@ import TripReviewBar from "@/pages/landmarks/checkTrip/TripReviewBar";
 function CheckTravel() {
   return (
     <>
-    
       <TripContents
         title={"수원 행리단길"}
         category={"쇼핑"}
