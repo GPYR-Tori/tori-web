@@ -42,7 +42,7 @@ const Category = styled.div`
   }
   p {
     color: #a5a5a5;
-    font-size: 1.375rem;
+    font-size: 1.25rem;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
