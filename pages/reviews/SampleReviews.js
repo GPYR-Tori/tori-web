@@ -4,6 +4,8 @@ import styled from "@emotion/styled";
 const Wrapper = styled.div`
   display: flex;
   overflow: scroll;
+  &::-webkit-scrollbar{
+    display: none;
 `;
 
 const SampleReview = styled.div`

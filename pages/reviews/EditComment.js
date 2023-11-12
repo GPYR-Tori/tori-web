@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import styled from "@emotion/styled";
+import {ImCancelCircle} from "react-icons/im";
 
 
 function EditComments({initialReview, onSave,onUpdateComments}) {
@@ -31,7 +32,13 @@ function EditComments({initialReview, onSave,onUpdateComments}) {
     );
     return (
         <>
-                <User>
+            <CancelEdit>
+                <CancelBtn>
+                    <ImCancelCircle className={'xicon'}/>
+                </CancelBtn>
+            </CancelEdit>
+
+            <User>
                     <Img
                         src="https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F8c2f1236-d0db-4ddc-bef1-ca9b7c92dbd6%2F2be1b314-52fa-4798-bb87-1944c0141e37%2FGroup_169_(1).png?table=block&id=22dd0a62-eaf2-48e4-9687-3b8cd4cce7c7&spaceId=8c2f1236-d0db-4ddc-bef1-ca9b7c92dbd6&width=250&userId=b94e2ed2-3b9a-4e03-9432-8ebacdcf4f21&cache=v2"
                         alt="사용자사진"
@@ -54,9 +61,24 @@ function EditComments({initialReview, onSave,onUpdateComments}) {
 
 export default EditComments;
 
-// const Wrapper = styled.div`
-//   display: flex;
-// `;
+const CancelEdit = styled.div`
+  display: flex;
+  justify-content: flex-end;
+
+`;
+const CancelBtn = styled.button`
+  margin-right: 2rem;
+  margin-bottom: -1.5rem;
+  border: none;
+  color: #009A78;
+  background-color: #fff;
+  .xicon{
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+`;
+
 const Write = styled.textarea`
   margin: 0 0 2rem 1.5rem;
   border: none;

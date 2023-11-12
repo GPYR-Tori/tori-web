@@ -7,7 +7,6 @@ import TripReviewBar from "@/pages/landmarks/checkTrip/TripReviewBar";
 import WatchComments from "@/pages/reviews/WatchComments";
 import WriteComments from "@/pages/reviews/WriteComments";
 import {GlobalStyle} from "@/styles/GlobalStyle";
-import EditComments from "@/pages/reviews/EditComment";
 
 function Reviews() {
     const [showWriteReviewBtn, setShowWriteReviewBtn] = useState(true);
@@ -86,13 +85,6 @@ function Reviews() {
                         "댓글입니댜 댓글입니댜 댓글입니댜 댓글입니댜 댓글입니댜 댓글입니댜"
                     }
                 />
-                <EditComments id={"토리"}
-                              country={"대한민국"}
-                              date={"2023-11-02"}
-                              review={
-                                  "고객님, 안녕하세요. 먼저, 즐거운 여행하셨다니 무척 다행이고 또 잊지 않고 후기글 작성해 주셔서 감사드립니다. 아프리카의 진면목을 알게 된 이번 여행이 행복한 순간들의 연속이었길 바라며 또 잊지 못할 좋은 추억으로 간직되셨으면 좋겠습니다. 이번 여행에서 느끼신 행복감 오래오래 간직하셨으면 좋겠습니다. 다음 여행도 참좋은여행과 함께 즐거운 여행 함께하시길 소망합니다. 감사합니다.다음 여행도 참좋은여행과 함께 즐거운 여행 함께하시길 소망합니다. "
-                              }/>
-
             </Wrapper>
         </>
 

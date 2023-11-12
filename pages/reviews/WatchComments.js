@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 import styled from "@emotion/styled";
-import Link from "next/link";
-import EditCommentBtn from "@/pages/reviews/Btn/EditCommentBtn";
 import EditComments from "@/pages/reviews/EditComment";
 
 

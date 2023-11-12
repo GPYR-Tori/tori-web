@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "@emotion/styled";
 import WriteBtn from "@/pages/reviews/Btn/WriteBtn";
+import axios from "axios";
 
 const Wrapper = styled.div`
   display: flex;
@@ -42,11 +43,37 @@ const Edit = styled.div`
   }
 `;
 function WriteComments() {
+    const [comment, setComment] = useState(""); // State to hold the comment content
+
+    const handleCommentSubmit = async () => {
+        try {
+            const user_id = "사용자 아이디"; // 실제 사용자 아이디로 교체
+            const review_id = "여행지 아이디"; // 실제 여행지 아이디로 교체
+
+            const requestBody = {
+                user_id: "사용자 아이디",
+                review_id: "리뷰 아이디",
+                content: comment,
+            };
+
+            // API에 POST 요청 보내기
+            const response = await axios.post("https://jsonplaceholder.typicode.com/comments", requestBody);
+
+            console.log("댓글 작성 완료:", response.data);
+
+            // 리뷰 작성 후 추가적인 작업 수행 (예: 화면 갱신)
+        } catch (error) {
+            console.error("댓글 작성 에러:", error);
+            // 에러 처리 (예: 사용자에게 메시지 표시)
+        }
+    };
     return (
         <Wrapper>
-            <Write placeholder="댓글을 써주세요" />
+            <Write placeholder="댓글을 써주세요"
+                   value={comment}
+                   onChange={(e) => setComment(e.target.value)} />
             <Edit>
-                <WriteBtn/>
+                <WriteBtn onClick={handleCommentSubmit} />
             </Edit>
         </Wrapper>
     );
