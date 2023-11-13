@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from "@emotion/styled";
-import SelectCountry from "@/pages/signin/SelectCountry";
+
 
 const InputCountry=()=>{
 
@@ -8,11 +8,6 @@ const InputCountry=()=>{
         <>
             <IPCountry>
                 <p>국적</p>
-                {/*<input*/}
-                {/*    className={'inputCon'}*/}
-                {/*    placeholder={'  정확하게 작성해주세요'}*/}
-                {/*/>*/}
-                {/*<SelectCountry />*/}
                 <div className={'inputC'}>
                     <input
                         className={'InputEM'}
@@ -29,69 +24,57 @@ const IPCountry=styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin:73px auto 21px 49px ;
-  
+  margin: 2.5rem auto 0 3rem;
+
   p{
     color: #000;
-    //font-family: Inter;
-    font-size: 28px;
+    font-size: 1.75rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-
-    margin-bottom: 23px;
   }
-  
+
   .inputC{
-    width: 654px;
-    height: 100px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1.44rem;
+
+    width: 40.875rem;
+    height: 6.25rem;
     flex-shrink: 0;
 
     border: none;
-    background-color: #FAFAFA;
     outline: none;
 
-    color: #808080;
-    //font-family: Pretendard;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.56px;
+    border-radius: 0.5rem;
+    background: #FAFAFA;
 
     .InputEM{
-      width: 464px;
-      height: 100px;
-      margin: 0 0 0 33px;
+      height: 100%;
+      flex-shrink: 0;
+      margin: 0 0 0 2.63rem;
 
       //kookoo
       display: inline-block;
-      flex-shrink: 0;
 
       border: none;
       outline: none;
       background-color: #FAFAFA;;
       color: #808080;
-      //font-family: Pretendard;
-      font-size: 28px;
+      font-size: 1.75rem;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      letter-spacing: -0.56px;
     }
 
     .inputBtn{
-      width: 110px;
-      height: 29px;
-      margin-left: 30px;
       //flex-shrink: 0;
-
+      margin: 0 2.25rem 0 auto;
       border: none;
       background-color: transparent;
 
       color: #009A78;
-      //font-family: Inter;
-      font-size: 24px;
+      font-size: 1.5rem;
       font-style: normal;
       font-weight: 700;
       line-height: normal;

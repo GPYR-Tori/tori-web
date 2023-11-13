@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+// import {GlobalStyle} from "@/styles/GlobalStyle";
 
 const ModifyPw=()=>{
     return(
@@ -19,60 +20,60 @@ const ModifyPw=()=>{
     )
 }
 const Pw=styled.div`
+  margin-top: 2.38rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin:73px auto 21px 49px ;
-  
+
   p{
     color: #000;
-    //font-family: Inter;
-    font-size: 28px;
+    font-size: 1.75rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-
-    margin-bottom: 23px;
   }
-  
-  .modiPw{
-    width: 654px;
-    height: 100px;
-    background-color: #FAFAFA;
 
+  .modiPw{
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    
-    .mdPw{
-      width: 464px;
-      height: 100px;
-      margin: 0 0 0 33px;
 
+    margin-top: 1.56rem;
+    width: 40.875rem;
+    height: 6.25rem;
+    flex-shrink: 0;
+
+    border: none;
+    background-color: #FAFAFA;;
+    color: #808080;
+
+    //input
+    .mdPw{
       //kookoo
       display: inline-block;
       flex-shrink: 0;
+      //margin-left: 2.62rem;
+      margin: 2.06rem auto auto 2.62rem;
+      //height: 2.125rem;
 
       border: none;
       outline: none;
-      background-color: #FAFAFA;;
+
+      background-color: transparent;
+
       color: #808080;
-      //font-family: Pretendard;
-      font-size: 28px;
+      font-size: 1.75rem;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      letter-spacing: -0.56px;
+      letter-spacing: -0.035rem;
     }
     .inputBtn{
-      //width: 110px;
-      //height: 29px;
-
-      width: 89px;
-      height: 59px;
-      margin-left: 30px;
-      //flex-shrink: 0;
+      //margin: auto 0 auto auto;
+      margin-right: 1.31rem;
+      width: 5.5625rem;
+      height: 3.3125rem;
 
       border: none;
       background-color: #B3B3B3;
@@ -82,13 +83,12 @@ const Pw=styled.div`
       align-items: center;
       justify-content: center;
 
-      color: white;
-      //font-family: Inter;
-      font-size: 24px;
+      color: #FFF;
+      font-size: 1.375rem;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-
+      letter-spacing: -0.0275rem;
       &:hover{
         background-color: #009A78;
       }

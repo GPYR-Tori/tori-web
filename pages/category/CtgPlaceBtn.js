@@ -26,7 +26,7 @@ const Container=styled.div`
   width: 40.875rem;
   height: 6.25rem;
   flex-shrink: 0;
-  
+
   margin-top: 4.56rem;
 
 
@@ -38,11 +38,11 @@ const Container=styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    
+
     margin-left: 2.5rem;
     margin-right:1.75rem;
   }
-  
+
   .btnDiv{
     display: flex;
     flex: 1;
@@ -50,10 +50,10 @@ const Container=styled.div`
     text-align: center;
     justify-content: center;
     align-items: center;
-    
+
     .East{
       margin: 0.5rem;
-      
+
       display: inline-flex;
       padding: 0.6875rem 1.875rem;
       justify-content: center;
@@ -80,7 +80,7 @@ const Container=styled.div`
     }
     .Weast{
       margin: 0.5rem;
-      
+
       display: inline-flex;
       padding: 0.6875rem 1.875rem;
       justify-content: center;
@@ -107,7 +107,7 @@ const Container=styled.div`
     }
     .South{
       margin: 0.5rem;
-      
+
       display: inline-flex;
       padding: 0.6875rem 1.875rem;
       justify-content: center;
@@ -134,7 +134,7 @@ const Container=styled.div`
     }
     .North{
       margin: 0.5rem;
-      
+
       display: inline-flex;
       padding: 0.6875rem 1.875rem;
       justify-content: center;

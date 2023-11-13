@@ -12,7 +12,7 @@ const Category=()=>{
 
     return(
         <>
-            
+
             <Container>
                 <CtgHeader/>
                 <div className={'ctgText'}>
@@ -29,26 +29,22 @@ const Category=()=>{
 }
 
 const Container=styled.div`
-  width: 750px;
-  height: 1624px;
-  
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   //align-items: center;
-  
 
-  
   .ctgText{
     margin:8.56rem auto 3.06rem 3rem;
-    
+
     color: #000;
     font-size: 1.75rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
   }
-  
+
   .CtgSelectDiv{
     width: 40.9375rem;
     height: 19.25rem;

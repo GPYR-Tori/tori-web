@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import swal from 'sweetalert';
 
 import HeaderLogo from "@/pages/mypage/HeaderLogo";
 import InputUserImg from "@/pages/usermodify/InputUserImg";
@@ -11,6 +12,56 @@ import ModifyGender from "@/pages/usermodify/ModifyGender";
 import ModifyAge from "@/pages/usermodify/ModifyAge";
 
 const Mypagemodify = () => {
+    const handleDeleteBtn = () => {
+        swal({
+            buttons:{
+                cancel:'No',
+                'Yes,Delete':true,
+            },
+            title:'Are you sure?',
+            text:'Once deleted,you will not be able to recover this account!',
+            icon:'warning',
+        }).then((value)=>{
+            switch (value){
+                case 'Yes,Delete':
+                    swal({
+                        title:'탈퇴 완료되었습니다.',
+                        text:'이용해주셔서 감사합니다.',
+                        icon:'success',
+                    });
+                    // 라우터 설정
+                    // navigate('/login');
+                    break;
+                default:
+                    break;
+            }
+        });
+    };
+    const handleModifyBtn = () => {
+        swal({
+            buttons:{
+                cancel:'no',
+                'yes':true,
+            },
+            title:'Do you want to edit it?',
+            text:'Would you like to edit your member information?',
+            icon:'warning',
+        }).then((value)=>{
+            switch (value){
+                case 'yes':
+                    swal({
+                        title:'It is changed.',
+                        text:'Have fun using it!',
+                        icon:'success',
+                    });
+                    // 라우터 설정
+                    // navigate('/login');
+                    break;
+                default:
+                    break;
+            }
+        });
+    };
     return(
         <>
             <Container>
@@ -23,10 +74,14 @@ const Mypagemodify = () => {
                 <ModifyGender/>
                 <ModifyAge/>
                 <div className={'ModiBtns'}>
-                    <button className={'ModiBtn'}>
+                    <button
+                        onClick={handleModifyBtn}
+                        className={'ModiBtn'}>
                         수정하기
                     </button>
-                    <button className={'DelBtn'}>
+                    <button
+                        onClick={handleDeleteBtn}
+                        className={'DelBtn'}>
                         회원탈퇴
                     </button>
                 </div>
@@ -35,13 +90,9 @@ const Mypagemodify = () => {
     )
 }
 const Container=styled.div`
-  width: 750px;
-  height: 1624px;
   display: flex;
   align-items: center;
-
   flex-direction: column;
-  
   overflow: scroll;
   
   //스크롤
@@ -54,50 +105,43 @@ const Container=styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
-    margin: 76px auto 110px 49px;
     
     .ModiBtn{
-      width: 300px;
-      height: 100px;
+      width: 18.75rem;
+      height: 6.25rem;
       flex-shrink: 0;
-
       text-align: center;
       
       margin: 0;
-      border-radius: 8px;
-      background: #009A78;
       border: none;
+      outline: none;
+      border-radius: 0.5rem;
+      background: #009A78;
 
-      color: white;
-      font-size: 34px;
+      color: #FFF;
+      font-size: 2.125rem;
       font-style: normal;
-      font-weight: 700;
-      line-height: 50px;
-      
+      font-weight: 400;
+      line-height: 3.125rem; /* 147.059% */
     }
 
     .DelBtn{
-      width: 300px;
-      height: 100px;
+      margin-left: 3.06rem;
+      width: 18.75rem;
+      height: 6.25rem;
       flex-shrink: 0;
-
       text-align: center;
 
-      //margin: 76px auto auto 49px;
-      //margin: 50px auto 110px 49px;
-      margin: 0 0 0 30px;
-      
-      border-radius: 8px;
+      border-radius: 0.5rem;
       background: #B3B3B3;
       border: none;
+      outline: none;
 
-      color: white;
-      //font-family: Pretendard;
-      font-size: 34px;
+      color: #FFF;
+      font-size: 2.125rem;
       font-style: normal;
-      font-weight: 700;
-      line-height: 50px;
+      font-weight: 400;
+      line-height: 3.125rem; /* 147.059% */
 
       &:hover{
         background-color: #009A78;

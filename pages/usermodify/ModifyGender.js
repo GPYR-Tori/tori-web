@@ -1,17 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
-import SelectGender from "@/pages/signin/SelectGender";
+// import {GlobalStyle} from "@/styles/GlobalStyle";
 
 const ModifyGender=()=>{
     return(
         <>
             <ModiGender>
                 <p>성별</p>
-                {/*<input*/}
-                {/*    className={"modiGender"}*/}
-                {/*    type={"text"}*/}
-                {/*    placeholder={'  성별을 선택해주세요'} />*/}
-                {/*<SelectGender />*/}
                 <div className={'modiG'}>
                     <form action="#">
                         <select className={'selectGen'} name="gender" id="gen">
@@ -21,8 +16,8 @@ const ModifyGender=()=>{
                             <option className={'selTG'} value="vietnam">제 3의 성</option>
                             <option className={'selNA'} value="vietnam">응답안함</option>
                         </select>
-                        <button className={'inputBtn'}>변경</button>
                     </form>
+                    <button className={'inputBtn'}>변경</button>
                 </div>
             </ModiGender>
         </>
@@ -30,89 +25,61 @@ const ModifyGender=()=>{
 }
 
 const ModiGender=styled.div`
+  margin-top: 2.38rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin:73px auto 21px 49px;
 
   p{
     color: #000;
-    //font-family: Inter;
-    font-size: 28px;
+    font-size: 1.75rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-
-    margin-bottom: 23px;
   }
-  
+
   .modiG{
+
+    margin-top: 1.56rem;
     display: flex;
-
-    width: 654px;
-    height: 100px;
-    background-color: #FAFAFA;
-
     flex-direction: row;
-    justify-content: flex-start;
+    //justify-content: center;
     align-items: center;
 
-    p{
-      color: #000;
-      //font-family: Inter;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
+    width: 40.875rem;
+    height: 6.25rem;
+    flex-shrink: 0;
 
-      margin-bottom: 23px;
-    }
+    border: none;
+    background-color: #FAFAFA;;
+    color: #808080;
 
+    //input
     .selectGen{
-      width: 464px;
-      height: 100px;
-      margin: 0 0 0 33px;
-
       //kookoo
       display: inline-block;
       flex-shrink: 0;
+      margin-left: 2.62rem;
 
       border: none;
       outline: none;
-      background-color: #FAFAFA;;
-      color: #808080;
 
-      font-size: 28px;
+      background-color: transparent;
+      color: #808080;
+      font-size: 1.75rem;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      letter-spacing: -0.56px;
+      letter-spacing: -0.035rem;
 
-      -moz-appearance: none;
       -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
-
-      select::-ms-expand{
-        display: none;
-      }
-
-
-      .selGen{
-        font-size: 28px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        letter-spacing: -0.56px;
-      }
     }
-    .inputBtn{
-      //width: 110px;
-      //height: 29px;
 
-      width: 89px;
-      height: 59px;
-      margin-left: 30px;
-      //flex-shrink: 0;
+    .inputBtn{
+      width: 5.5625rem;
+      height: 3.3125rem;
+      margin: auto 1.31rem auto auto;
 
       border: none;
       background-color: #B3B3B3;
@@ -122,18 +89,19 @@ const ModiGender=styled.div`
       align-items: center;
       justify-content: center;
 
-      color: white;
-      //font-family: Inter;
-      font-size: 24px;
+
+      color: #FFF;
+      font-size: 1.375rem;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-
+      letter-spacing: -0.0275rem;
       &:hover{
         background-color: #009A78;
       }
     }
   }
+
 `;
 
 export default ModifyGender;

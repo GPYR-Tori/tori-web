@@ -28,14 +28,13 @@ const BodyText=()=>{
 
 const LoginBody=styled.div`
   display: flex;
-  //align-items: center;
   justify-content: flex-start;
   align-items: flex-start;
 
   margin: 17.75rem auto 0 3rem;
 
   .LoginImg{
-    
+    //이미지 경로 이슈 해결 안됨
   }
   .LoginText{
     color: #333;

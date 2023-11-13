@@ -24,23 +24,25 @@ const IPAge=styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin:73px auto 21px 49px;
-  
+  margin: 2.5rem auto 0 3rem;
+
   p{
     color: #000;
-    //font-family: Inter;
-    font-size: 28px;
+    font-size: 1.75rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-
-    margin-bottom: 23px;
   }
-  
+
   .inputElem{
-    width: 654px;
-    height: 100px;
-    background-color: #FAFAFA;
+    width: 40.875rem;
+    height: 6.25rem;
+    flex-shrink: 0;
+
+    margin-top: 1.44rem;
+
+    border-radius: 0.5rem;
+    background: #FAFAFA;
 
     display: flex;
     flex-direction: row;
@@ -48,26 +50,24 @@ const IPAge=styled.div`
     align-items: center;
 
     .inputA{
-      width: 464px;
-      height: 100px;
+      width: 38.245rem;
+      height: 100%;
       flex-shrink: 0;
-      margin: 0 0 0 33px;
+      margin: 0 0 0 2.63rem;
 
       border: none;
       background-color: #FAFAFA;
       outline: none;
 
       color: #808080;
-      //font-family: Pretendard;
-      font-size: 28px;
+      font-size: 1.75rem;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      letter-spacing: -0.56px;
-      
+
       //-webkit-appearance: none;
       //appearance: none;
-      
+
       ::-webkit-inner-spin-button{
         -webkit-appearance: none;
         margin: 0;

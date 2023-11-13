@@ -5,7 +5,6 @@ import CtgPlaceBtn from "@/pages/category/CtgPlaceBtn";
 const CtgPlace=()=>{
     return(
         <>
-          
             <Container>
                 <p>장소</p>
                 <CtgPlaceBtn />
@@ -17,23 +16,15 @@ const CtgPlace=()=>{
 const Container=styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+
+  width: 40.9375rem;
+  height: 24.4375rem;
   flex-shrink: 0;
-  
-  //margin: 80px auto auto 48px;
-  margin: 5rem auto auto 3rem;
+
+  margin: 0 auto 0 3rem;
   p{
-    //px
-    //color: #000;
-    //font-family: Inter;
-    //font-size: 28px;
-    //font-style: normal;
-    //font-weight: 700;
-    //line-height: normal;
-    
-    //rem
     color: #000;
-    //font-family: Inter;
     font-size: 1.75rem;
     font-style: normal;
     font-weight: 700;

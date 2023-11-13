@@ -22,23 +22,22 @@ const IPNickname=styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin:73px auto 21px 49px ;
+  margin: 2.5rem auto 0 3rem;
 
   p{
     color: #000;
-    //font-family: Inter;
-    font-size: 28px;
+    font-size: 1.75rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-
-    margin-bottom: 23px;
   }
-  
+
   .inputElem{
-    width: 654px;
-    height: 100px;
+    width: 40.875rem;
+    height: 6.25rem;
+    flex-shrink: 0;
     background-color: #FAFAFA;
+    margin-top: 1.44rem;
 
     display: flex;
     flex-direction: row;
@@ -46,9 +45,8 @@ const IPNickname=styled.div`
     align-items: center;
 
     .InputEM{
-      width: 464px;
-      height: 100px;
-      margin: 0 0 0 33px;
+      height: 100%;
+      margin: 0 0 0 2.63rem;
 
       //kookoo
       display: inline-block;
@@ -58,26 +56,22 @@ const IPNickname=styled.div`
       outline: none;
       background-color: #FAFAFA;;
       color: #808080;
-      //font-family: Pretendard;
-      font-size: 28px;
+      font-size: 1.75rem;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      letter-spacing: -0.56px;
+      letter-spacing: -0.035rem;
     }
 
     .inputBtn{
-      width: 110px;
-      height: 29px;
-      margin-left: 30px;
       //flex-shrink: 0;
-
+      margin: 0 2.25rem 0 auto;
       border: none;
+      outline: none;
       background-color: transparent;
 
       color: #009A78;
-      font-family: Inter;
-      font-size: 24px;
+      font-size: 1.5rem;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
