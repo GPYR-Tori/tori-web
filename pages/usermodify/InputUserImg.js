@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 // import {IconImgButton} from "@/img/ImgBtnIcon";
 // import ImgBtnIconList from "@/img/ImgBtnIconList";
-// import {GlobalStyle} from "@/styles/GlobalStyle";
+
 
 const InputUserImg = () => {
 

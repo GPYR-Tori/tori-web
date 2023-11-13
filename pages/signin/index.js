@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import styled from "@emotion/styled";
-// import { GlobalStyle } from "@/styles/GlobalStyle";
-
-// import HeaderLogo from "@/pages/mypage/HeaderLogo";
-
 import SigninHeader from "@/pages/signin/SigninHeader";
 
 import InputEmail from "@/pages/signin/InputEmail";
