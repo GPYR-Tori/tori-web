@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import swal from 'sweetalert';
 
-import HeaderLogo from "@/pages/mypage/HeaderLogo";
+import AppBar from "@/src/components/AppBar";
 import InputUserImg from "@/pages/usermodify/InputUserImg";
 import ModifyNickname from "@/pages/usermodify/ModifyNickname";
 import ModifyPw from "@/pages/usermodify/ModifyPw";
@@ -64,8 +64,8 @@ const Mypagemodify = () => {
     };
     return(
         <>
+            <AppBar/>
             <Container>
-                <HeaderLogo />
                 <InputUserImg />
                 <ModifyNickname />
                 <ModifyPw />

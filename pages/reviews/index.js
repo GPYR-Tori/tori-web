@@ -6,7 +6,7 @@ import WriteReview from "@/pages/reviews/WriteReview"
 import TripReviewBar from "@/pages/landmarks/checkTrip/TripReviewBar";
 import WatchComments from "@/pages/reviews/WatchComments";
 import WriteComments from "@/pages/reviews/WriteComments";
-
+import AppBar from "@/src/components/AppBar";
 
 function Reviews() {
     const [showWriteReviewBtn, setShowWriteReviewBtn] = useState(true);
@@ -31,6 +31,7 @@ function Reviews() {
 
     return (
         <>
+            <AppBar/>
             <Wrapper>
                 <TripReviewBar reviewTotal={123} />
                 <SampleReviews
