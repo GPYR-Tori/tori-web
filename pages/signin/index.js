@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from "@emotion/styled";
-import SigninHeader from "@/pages/signin/SigninHeader";
+import AppBar from '@/src/components/AppBar';
 
 import InputEmail from "@/pages/signin/InputEmail";
 import InputPw from "@/pages/signin/InputPw";
@@ -15,8 +15,8 @@ const Signin = () => {
     return (
         <>
             <Container>
-                {/*<HeaderLogo />*/}
-                <SigninHeader />
+                <AppBar/>
+                <Label>회원가입</Label>
                 <InputEmail />
                 <InputPw />
                 <InputNickname />
@@ -33,9 +33,15 @@ const Signin = () => {
     )
 }
 
+const Label = styled.div`
+  padding: 1rem;
+  font-size: 2.375rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.625rem; /* 110.526% */
+`
 const Container=styled.div`
   display: flex;
-  align-items: center;
   flex-direction: column;
   //스크롤
 

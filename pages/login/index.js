@@ -1,6 +1,7 @@
 import {React,useState} from "react";
 import styled from "@emotion/styled";
 
+import AppBar from "@/src/components/AppBar";
 import Header from "@/pages/login/Header";
 import BodyText from "@/pages/login/BodyText";
 // import Navbar from "@/components/Navbar";
@@ -25,8 +26,8 @@ const Login=()=>{
 
     return (
         <>
+          <AppBar/>
             <Container>
-                <Header />
                 <BodyText />
                 <div className={'inputDiv'}>
                     <div className={'ID'}>
