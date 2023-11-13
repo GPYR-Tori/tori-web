@@ -6,7 +6,9 @@ import WriteReview from "@/pages/reviews/WriteReview"
 import TripReviewBar from "@/pages/landmarks/checkTrip/TripReviewBar";
 import WatchComments from "@/pages/reviews/WatchComments";
 import WriteComments from "@/pages/reviews/WriteComments";
+
 import AppBar from "@/src/components/AppBar";
+import NavBar from "@/src/components/NavBar/NavBar";
 
 function Reviews() {
     const [showWriteReviewBtn, setShowWriteReviewBtn] = useState(true);
@@ -86,6 +88,7 @@ function Reviews() {
                     }
                 />
             </Wrapper>
+            <NavBar/>
         </>
 
     );

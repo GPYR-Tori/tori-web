@@ -3,6 +3,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import AppBar from '@/src/components/AppBar';
+import NavBar from '@/src/components/NavBar/NavBar';
+
 import { MyDotoriCard } from './components/MyDotoriCard';
 import { RankingCard } from './components/RankingCard';
 import { DotoriStampCard } from './components/DotoriStampCard';
@@ -18,6 +20,7 @@ const Mydotori = () => {
           <RankingCard/>
         </TopContainer>
         <DotoriStampCard/>
+        <NavBar/>
       </Container>
     </>
   );

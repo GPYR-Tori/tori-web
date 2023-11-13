@@ -2,6 +2,7 @@ import {React,useState} from "react";
 import styled from "@emotion/styled";
 
 import AppBar from "@/src/components/AppBar";
+import NavBar from "@/src/components/NavBar/NavBar";
 import Header from "@/pages/login/Header";
 import BodyText from "@/pages/login/BodyText";
 // import Navbar from "@/components/Navbar";
@@ -54,6 +55,7 @@ const Login=()=>{
                 </div>
                 <button className={'SignInBtn'}>회원 가입</button>
             </Container>
+          <NavBar/>
         </>
     );
 }

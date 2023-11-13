@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import Course from "@/pages/guide/Course";
 import Booking from "@/pages/guide/Booking";
 import AppBar from "@/src/components/AppBar";
+import NavBar from "@/src/components/NavBar/NavBar";
 
 function Guide() {
 
@@ -17,6 +18,7 @@ function Guide() {
         <Course />
         <Booking />
       </Wrapper>
+      <NavBar/>
     </>
     );
 }

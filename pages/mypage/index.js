@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 
 
 import AppBar from '@/src/components/AppBar';
+import NavBar from '@/src/components/NavBar/NavBar';
 import BodyContent from "@/pages/mypage/BodyContent";
 import BtnContent from "@/pages/mypage/BtnContent";
 import {Global} from "@emotion/react";
@@ -15,6 +16,7 @@ const Mypage = () => {
                 <BodyContent />
                 <BtnContent />
             </Container>
+            <NavBar/>
         </>
     )
 }
