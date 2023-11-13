@@ -21,67 +21,62 @@ const InputEmail = () => {
 const IPEmail = styled.div`
   display: flex;
   flex-direction: column;
-  margin:137px auto 21px 49px ;
-  
+
+  margin: 8.56rem auto 0 3rem;
+
+  p{
+    color: #000;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
   .inputElem{
-    width: 654px;
-    height: 100px;
-    background-color: #FAFAFA;
-    
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 
+    margin-top: 1.44rem;
+
+    width: 40.875rem;
+    height: 6.25rem;
+    flex-shrink: 0;
+
+    border-radius: 0.5rem;
+    background: #FAFAFA;
     .InputEM{
-      width: 464px;
-      height: 100px;
-      margin: 0 0 0 33px;
-      
       //kookoo
       display: inline-block;
       flex-shrink: 0;
+      height: 100%;
+      margin: 0 0 0 2.63rem;
 
       border: none;
       outline: none;
-      background-color: #FAFAFA;;
+      background-color: transparent;
+
+
       color: #808080;
-      //font-family: Pretendard;
-      font-size: 28px;
+      font-size: 1.75rem;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      letter-spacing: -0.56px;
+      letter-spacing: -0.035rem;
     }
-    
+
     .inputBtn{
-      width: 110px;
-      height: 29px;
-      margin-left: 30px;
-      //flex-shrink: 0;
-      
+      margin: 0 2.25rem 0 auto;
       border: none;
       background-color: transparent;
 
       color: #009A78;
-      font-family: Inter;
-      font-size: 24px;
+      font-size: 1.5rem;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
     }
   }
-  
-  p{
-    color: #000;
-    //font-family: Inter;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    
-    margin-bottom: 23px;
-  }
-  
 `;
 export default InputEmail;

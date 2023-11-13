@@ -229,9 +229,6 @@ const Container=styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-
-    //width: 5.625rem;
-    //height: 8.6875rem;
     flex-shrink: 0;
 
     margin: 0 1.5rem 1.25rem 0;

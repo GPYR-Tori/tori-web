@@ -18,15 +18,12 @@ const LoginHeader=styled.div`
   flex-direction: row;
   text-align: center;
   align-items: center;
-  //margin: 50px 527px 1526px 48px;
   margin: 3.13rem auto 0 3rem;
-
 
   .AllowIcon{
     width: 3rem;
     height: 3rem;
     flex-shrink: 0;
-    
     margin-right: 1.75rem;
   }
   .HeaderLogin{

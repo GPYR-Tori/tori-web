@@ -13,8 +13,8 @@ const SelectGender=()=>{
                         <option className={'selTG'} value="vietnam">제 3의 성</option>
                         <option className={'selNA'} value="vietnam">응답안함</option>
                     </select>
-                    <button className={'inputBtn'}>선택</button>
                 </form>
+                <button className={'inputBtn'}>선택</button>
             </SelectG>
         </>
     )
@@ -22,45 +22,35 @@ const SelectGender=()=>{
 
 const SelectG=styled.div`
   display: flex;
+  width: 40.875rem;
+  height: 6.25rem;
 
-  width: 654px;
-  height: 100px;
-  background-color: #FAFAFA;
+  margin-top: 1.44rem;
+
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  background: #FAFAFA;
 
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 
-  p{
-    color: #000;
-    //font-family: Inter;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-
-    margin-bottom: 23px;
-  }
-
   .selectGen{
-    width: 464px;
-    height: 100px;
-    margin: 0 0 0 33px;
-
     //kookoo
     display: inline-block;
     flex-shrink: 0;
 
+    margin: 0 0 0 2.63rem;
+
     border: none;
     outline: none;
-    background-color: #FAFAFA;;
-    color: #808080;
 
-    font-size: 28px;
+    background-color: transparent;
+    color: #808080;
+    font-size: 1.75rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    letter-spacing: -0.56px;
 
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -69,39 +59,30 @@ const SelectG=styled.div`
     select::-ms-expand{
       display: none;
     }
-
-
-    .selGen{
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      letter-spacing: -0.56px;
-    }
   }
   .inputBtn{
-    //width: 110px;
-    //height: 29px;
 
-    width: 89px;
-    height: 59px;
-    margin-left: 30px;
-    //flex-shrink: 0;
+    width: 5.5625rem;
+    height: 3.3125rem;
+    flex-shrink: 0;
+
+    margin: auto 1.31rem auto auto;
 
     border: none;
-    background-color: #B3B3B3;
-    border-radius: 10px;
+    outline: none;
+    border-radius: 0.625rem;
+    background: #D9D9D9;
 
     text-align: center;
     align-items: center;
     justify-content: center;
 
-    color: white;
-    //font-family: Inter;
-    font-size: 24px;
+    color: #FFF;
+    font-size: 1.375rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    letter-spacing: -0.0275rem;
 
     &:hover{
       background-color: #009A78;

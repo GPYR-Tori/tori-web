@@ -1,17 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
-import SelectLanguage from "@/pages/signin/SelectLanguage";
+// import {GlobalStyle} from "@/styles/GlobalStyle";
 
 const ModifyLanguage=()=>{
     return(
         <>
             <ModiLanguage>
                 <p>언어</p>
-                {/*<input*/}
-                {/*    className={"modiLang"}*/}
-                {/*    type={"text"}*/}
-                {/*    placeholder={'  언어를 선택해주세요'} />*/}
-                {/*<SelectLanguage />*/}
                 <div className={'modiL'}>
                     <form action="#">
                         <select className={'selectLang'} name="language" id="lang">
@@ -22,109 +17,91 @@ const ModifyLanguage=()=>{
                             <option className={'selCh'} value="china">중국어</option>
                             <option className={'selTh'} value="thai">태국어</option>
                         </select>
-                        <button className={'inputBtn'}>변경</button>
                     </form>
+                    <button className={'inputBtn'}>변경</button>
                 </div>
             </ModiLanguage>
         </>
     )
 }
 const ModiLanguage=styled.div`
+  margin-top: 2.38rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin:73px auto 21px 49px;
 
   p{
     color: #000;
-    //font-family: Inter;
-    font-size: 28px;
+    font-size: 1.75rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-
-    margin-bottom: 23px;
   }
-  
+
   .modiL{
     display: flex;
-
-    width: 654px;
-    height: 100px;
-    background-color: #FAFAFA;
-
     flex-direction: row;
-    justify-content: flex-start;
+    //justify-content: center;
     align-items: center;
+    text-align: center;
 
-    p{
-      color: #000;
-      //font-family: Inter;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
+    margin-top: 1.56rem;
 
-      margin-bottom: 23px;
-    }
+    width: 40.875rem;
+    height: 6.25rem;
+    flex-shrink: 0;
 
+    border: none;
+    background-color: #FAFAFA;;
+    color: #808080;
+
+    //input
     .selectLang{
-      width: 464px;
-      height: 100px;
-      margin: 0 0 0 33px;
-
       //kookoo
       display: inline-block;
       flex-shrink: 0;
+      margin-left: 2.62rem;
+
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
 
       border: none;
       outline: none;
-      background-color: #FAFAFA;;
-      color: #808080;
 
-      font-size: 28px;
+      background-color: transparent;
+      color: #808080;
+      font-size: 1.75rem;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      letter-spacing: -0.56px;
+      letter-spacing: -0.035rem;
 
-      -moz-appearance: none;
       -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
-
-      select::-ms-expand{
-        display: none;
-      }
-
-      .selLang{
-        font-size: 28px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        letter-spacing: -0.56px;
-      }
     }
     .inputBtn{
-      width: 89px;
-      height: 59px;
-      margin-left: 30px;
-      //flex-shrink: 0;
+      width: 5.5625rem;
+      height: 3.3125rem;
+
+      margin: auto 1.31rem auto auto;
 
       border: none;
-      background-color:#B3B3B3;
+      background-color: #B3B3B3;
       border-radius: 10px;
 
       text-align: center;
       align-items: center;
       justify-content: center;
 
-      color: white;
-      //font-family: Inter;
-      font-size: 24px;
+
+      color: #FFF;
+      font-size: 1.375rem;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-
+      letter-spacing: -0.0275rem;
       &:hover{
         background-color: #009A78;
       }

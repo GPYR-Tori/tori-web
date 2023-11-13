@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from "@emotion/styled";
-
+// import { GlobalStyle } from "@/styles/GlobalStyle";
 
 // import HeaderLogo from "@/pages/mypage/HeaderLogo";
 
@@ -18,7 +18,6 @@ const Signin = () => {
 
     return (
         <>
-          
             <Container>
                 {/*<HeaderLogo />*/}
                 <SigninHeader />
@@ -39,38 +38,36 @@ const Signin = () => {
 }
 
 const Container=styled.div`
-  width: 750px;
-  height: 1624px;
   display: flex;
-  //align-items: center;
-
+  align-items: center;
   flex-direction: column;
   //스크롤
-  
+
   overflow: scroll;
   &::-webkit-scrollbar{
     display: none;
   }
 
   .signinBtn{
-    width: 654px;
-    height: 100px;
+    width: 40.625rem;
+    height: 6.25rem;
     flex-shrink: 0;
-
     text-align: center;
 
-    //margin: 76px auto auto 49px;
-    margin: 76px auto 110px 49px;
-    border-radius: 8px;
-    background: #009A78;
-    border: none;
+    margin: 7rem auto 5rem 3rem;
 
-    color: white;
-    //font-family: Pretendard;
-    font-size: 34px;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+    background: #009A78;
+    //문자 가운데 정렬
+    padding-top: 0.5rem;
+
+    color: #FFF;
+    font-size: 2.125rem;
     font-style: normal;
     font-weight: 700;
-    line-height: 50px; /* 147.059% */
+    line-height: 3.125rem; /* 147.059% */
   ;
   }
 `;
