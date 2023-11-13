@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled";
-// import {GlobalStyle} from "@/styles/GlobalStyle";
 
 const ModifyGender=()=>{
     return(
