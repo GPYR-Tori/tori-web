@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import swal from 'sweetalert';
 
 import AppBar from "@/src/components/AppBar";
+import NavBar from "@/src/components/NavBar/NavBar";
 import InputUserImg from "@/pages/usermodify/InputUserImg";
 import ModifyNickname from "@/pages/usermodify/ModifyNickname";
 import ModifyPw from "@/pages/usermodify/ModifyPw";
@@ -85,6 +86,7 @@ const Mypagemodify = () => {
                         회원탈퇴
                     </button>
                 </div>
+                <NavBar/>
             </Container>
         </>
     )

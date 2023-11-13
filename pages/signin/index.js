@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from "@emotion/styled";
 import AppBar from '@/src/components/AppBar';
+import NavBar from '@/src/components/NavBar/NavBar';
 
 import InputEmail from "@/pages/signin/InputEmail";
 import InputPw from "@/pages/signin/InputPw";
@@ -15,7 +16,7 @@ const Signin = () => {
     return (
         <>
             <Container>
-                <AppBar/>
+              <AppBar/>
                 <Label>회원가입</Label>
                 <InputEmail />
                 <InputPw />
@@ -28,6 +29,7 @@ const Signin = () => {
                     className={'signinBtn'}>
                     회원가입
                 </button>
+              <NavBar/>
             </Container>
         </>
     )
