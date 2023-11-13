@@ -86,8 +86,8 @@ const Mypagemodify = () => {
                         회원탈퇴
                     </button>
                 </div>
-                <NavBar/>
             </Container>
+            <NavBar/>
         </>
     )
 }
