@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import styled from "@emotion/styled";
 import EditReviewBtn from "@/pages/reviews/Btn/EditReviewBtn";
 import {ImCancelCircle} from "react-icons/im";
+import axios  from "axios";
 
 function EditReview({ initialReview, onSave ,onUpdateReview}) {
     const [editedReview, setEditedReview] = useState(initialReview);
@@ -10,16 +11,62 @@ function EditReview({ initialReview, onSave ,onUpdateReview}) {
         setEditedReview(e.target.value);
     };
 
-    const handleSave = () => {
-        // Call the onSave prop with the edited review
-        onSave(editedReview);
-        onUpdateReview(editedReview);
+    const handleSave = async () => {
+        try {
+            const userId = "사용자 아이디";
+            const landmarkId = "여행지 아이디";
+            const reviewId = "리뷰 아이디"; // 리뷰 아이디를 받아오는 방법을 구현해야 함
+
+            const requestBody = {
+                user_id: userId,
+                landmark_id: landmarkId,
+                content: editedReview,
+            };
+
+            // API에 PATCH 요청 보내기
+            const response = await axios.patch(`https://your-api-endpoint/update-review/${reviewId}`, requestBody);
+
+            console.log("리뷰 수정 완료:", response.data);
+
+            // 리뷰 수정 후 추가적인 작업 수행 (예: 화면 갱신)
+            onSave(editedReview);
+            onUpdateReview(editedReview);
+        } catch (error) {
+            console.error("리뷰 수정 에러:", error);
+            // 에러 처리 (예: 사용자에게 메시지 표시)
+        }
+    };
+
+    const handleDelete = async () => {
+        try {
+            const userId = "사용자 아이디";
+            const landmarkId = "여행지 아이디";
+            const reviewId = "리뷰 아이디"; // 리뷰 아이디를 받아오는 방법을 구현해야 함
+
+            const requestBody = {
+                user_id: userId,
+                landmark_id: landmarkId,
+                review_id: reviewId,
+            };
+
+            // API에 DELETE 요청 보내기
+            const response = await axios.delete("https://your-api-endpoint/delete-review", {
+                data: requestBody, // Axios에서 DELETE 요청의 request body는 'data' 프로퍼티를 사용
+            });
+
+            console.log("리뷰 삭제 완료:", response.data);
+
+            // 리뷰 삭제 후 추가적인 작업 수행 (예: 화면 갱신)
+        } catch (error) {
+            console.error("리뷰 삭제 에러:", error);
+            // 에러 처리 (예: 사용자에게 메시지 표시)
+        }
     };
     return (
         <>
             <Wrapper>
                 <CancelEdit>
-                    <CancelBtn>
+                    <CancelBtn onClick={handleDelete}>
                         <ImCancelCircle className={'xicon'}/>
                     </CancelBtn>
                 </CancelEdit>
