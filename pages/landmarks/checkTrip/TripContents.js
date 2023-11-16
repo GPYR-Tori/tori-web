@@ -12,6 +12,7 @@ const Img = styled.img`
   height: 33.75rem;
   border-radius: 1.25rem;
   object-fit: cover;
+  margin-top: 3rem;
 
 `;
 const Title = styled.div`
