@@ -12,14 +12,20 @@ import { DotoriStampCard } from './components/DotoriStampCard';
 const Mydotori = () => {
   return (
     <>
-    
       <Container>
         <AppBar />
-        <TopContainer>
-          <MyDotoriCard/>
-          <RankingCard/>
-        </TopContainer>
-        <DotoriStampCard/>
+        {/* appbar, navbar 제외한 콘텐츠 콘테이너*/}
+        <ContentContainer>
+            <TopContainer>
+              {/* 보유도토리 */}
+              <MyDotoriCard/>
+              {/* 도토리순위 */}
+              <RankingCard/>
+            </TopContainer>
+          {/* 도토리 스탬프 카드 */}
+          <DotoriStampCard/>
+        </ContentContainer>
+        
         <NavBar/>
       </Container>
     </>
@@ -27,9 +33,14 @@ const Mydotori = () => {
 };
 
 const Container = styled.div`
-
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 `;
-
+const ContentContainer = styled.div`
+  flex: 1;
+  overflow: auto;   // 스크롤 추가
+`
 const TopContainer = styled.div`
   display: flex;
   gap: 1.31rem; //자식 끼리 띄우기

@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a9ce25f6893d494cfb45e3e7fad9f42e"></script>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a9ce25f6893d494cfb45e3e7fad9f42e&libraries=clusterer"></script>
       </Head>
       <body>
         <Main />
