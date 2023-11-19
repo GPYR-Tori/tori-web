@@ -30,7 +30,7 @@ const LandmarkName = styled.div`
 export function LandmarkCard() {
     return (
         <Container>
-            <ImageContainer src="/images/Landmark_ex1.png"/>
+            <ImageContainer src="/images/dotori/Landmark_ex1.png"/>
             <LandmarkName> 대충 </LandmarkName>
         </Container>
     )
