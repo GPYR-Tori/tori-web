@@ -3,9 +3,7 @@ import styled from "@emotion/styled";
 
 import AppBar from "@/src/components/AppBar";
 import NavBar from "@/src/components/NavBar/NavBar";
-import Header from "@/pages/login/Header";
 import BodyText from "@/pages/login/BodyText";
-// import Navbar from "@/components/Navbar";
 import {AiFillEye,AiFillEyeInvisible} from 'react-icons/ai';
 
 
@@ -27,8 +25,8 @@ const Login=()=>{
 
     return (
         <>
-          <AppBar/>
-            <Container>
+        <AppBar/>
+          <Container>
                 <BodyText />
                 <div className={'inputDiv'}>
                     <div className={'ID'}>
@@ -54,8 +52,8 @@ const Login=()=>{
                     <button className={'LoginBtn'} >로그인</button>
                 </div>
                 <button className={'SignInBtn'}>회원 가입</button>
-            </Container>
-          <NavBar/>
+          </Container>
+        <NavBar/>
         </>
     );
 }
@@ -65,23 +63,30 @@ const Container=styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  // 더 고민 필요
+  height: calc(100% - 15rem);
 
   .inputDiv{
-    margin: 4.56rem auto 0 3rem;
+    margin-top: 4.56rem;
+    // 전체 넓이 설정 여기서...휴..찾느라 눈빠지는쥴
+    width: calc(100% - 6rem);
     .ID{
-      width: 40.875rem;
+      // 기존 40.875rem -> 수정
+      width: 100%;
       height: 6.25rem;
       flex-shrink: 0;
       margin-bottom: 1.31rem;
+      //background-color: red;
 
       border-radius: 0.5rem;
       background: #FAFAFA;
       color: #808080;
       .loginInput{
-        width: 38.185rem;
+        // 기존 40.875rem -> 수정
+        width: 100%;
         height: 6.25rem;
         flex-shrink: 0;
-        margin: 0 0 0 2.63rem;
+        margin-left: 2.63rem;
 
         border: none;
         outline: none;
@@ -95,7 +100,8 @@ const Container=styled.div`
       }
     }
     .PW{
-      width: 40.875rem;
+      // 기존 40.875rem -> 수정
+      width: 100%;
       height: 6.25rem;
       flex-shrink: 0;
       margin-bottom: 4.87rem;
@@ -113,7 +119,7 @@ const Container=styled.div`
         height: 100%;
         width: 80%;
         flex-shrink: 0;
-        margin: 0 0 0 2.63rem;
+        margin-left: 2.63rem;
 
         border: none;
         outline: none;
@@ -146,10 +152,12 @@ const Container=styled.div`
     }
 
     .LoginBtn{
-      width: 40.875rem;
+      // 기존 40.875rem -> 수정
+      width: 100%;
       height: 6.25rem;
       flex-shrink: 0;
-      margin-bottom: 22.25rem;
+      // 여기도 고민 필요, 한 화면에 다 들어오기
+      margin-bottom: 22.5rem;
       display: flex;
       flex-direction: row;
       text-align: center;
@@ -173,7 +181,8 @@ const Container=styled.div`
   }
   
   .SignInBtn{
-    margin: 0 auto 4.06rem 20.31rem;
+    // bottom값 제외 삭제
+    margin-bottom: 4.06rem;
     border: none;
     outline: none;
     background-color: transparent;
@@ -181,7 +190,7 @@ const Container=styled.div`
     color: #000;
     font-size: 1.75rem;
     font-style: normal;
-    font-weight: bold;
+    //font-weight: bold;
     line-height: normal;
     letter-spacing: -0.07rem;
   }
