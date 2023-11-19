@@ -53,6 +53,6 @@ export function DotoriStampCard () {
 
 function DotoriStamp ({filled}) {
     return (
-        <img style={{width:"9.375rem"}} src={filled?"/images/filled_stamp.png":"/images/empty_stamp.png"}/>
+        <img style={{width:"9.375rem"}} src={filled?"/images/dotori/filled_stamp.png":"/images/dotori/empty_stamp.png"}/>
     )
 }

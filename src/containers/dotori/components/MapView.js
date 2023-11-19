@@ -54,13 +54,13 @@ export function MapView() {
   }
 
   return <StyledMapView ref={renderMap}>
-    <UserLocationBtn img src="/images/userlocation.png"
+    <UserLocationBtn img src="/images/dotori/userlocation.png"
       onClick={() => getCurrentLocation()}>
     </UserLocationBtn>
   </StyledMapView>;
 }
 function renderMarker(map) {
-  var imageSrc = "/images/filled_stamp.png", // 마커이미지의 주소입니다    
+  var imageSrc = "/images/dotori/filled_stamp.png", // 마커이미지의 주소입니다    
     imageSize = new kakao.maps.Size(18.75, 23.125), // 마커이미지의 크기입니다
     imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
@@ -95,7 +95,7 @@ function renderUserPin(map, clusterer,lat,lon) {
     10: 0
   } [level]
 
-  var imageSrc = "/images/dotori_area.png", // 마커이미지의 주소입니다    
+  var imageSrc = "/images/dotori/dotori_area.png", // 마커이미지의 주소입니다    
     imageSize = new kakao.maps.Size(size, size), // 마커이미지의 크기입니다
     imageOption = { offset: new kakao.maps.Point(size/2, size/2) }; // 포인트 재조정
 
