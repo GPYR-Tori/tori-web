@@ -1,20 +1,23 @@
 import styled from "@emotion/styled";
 import { IconList } from "./IconList";
+import Link from "next/link";
 
 const NavBar=()=>{
-    return(
-        <>
-            <Container>
-                <List>
-                    {IconList.map(({name,icon})=>(
-                        <IconWrapper>
+  return(
+      <>
+          <Container>
+              <List>
+                  {IconList.map(({icon, route, style})=>(
+                    <Link href={route}>
+                      <IconWrapper style={style}>
                             {icon()}
-                        </IconWrapper>
-                    ))}
-                </List>
-            </Container>
-        </>
-    )
+                      </IconWrapper>
+                    </Link> 
+                  ))}
+              </List>
+          </Container>
+      </>
+  )
 };
 const Container=styled.div`
   flex-shrink: 0;
@@ -35,21 +38,21 @@ const List=styled.div`
   
   background: #FFF;
   box-shadow: 0px -15px 25px 0px rgba(0, 0, 0, 0.04);
+  // 자식 요소 정렬 속성 추가
+  & > * {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
 `;
 const IconWrapper=styled.div`
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  width: 25%;
-  height: 50%;
-  padding: 0;
-  margin-right: 0;
+  //필요없는 display, direction등 정렬 속성 삭제, margin, padding도 삭제 
+  // 아이콘 크기는 피그마대로 3rem으로 변경 
+  width: 3rem;
+  height: 3rem;
   color: #433E50;
   &:hover{
     color: #009A78;
-    //font-weight: 700;
   }
 `;
 export default NavBar;
