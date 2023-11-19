@@ -17,8 +17,9 @@ const Container=styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  width: 40.9375rem;
+  
+  // 100%로 수정
+  width: 100%;
   height: 24.4375rem;
   flex-shrink: 0;
 

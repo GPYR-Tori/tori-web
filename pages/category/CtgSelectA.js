@@ -136,9 +136,9 @@ const CtgSelectA = () =>{
                     </div>
                     <p>알러지</p>
                 </div>
-                <div className={'smallDiv-nature'}>
-                    <div className={'iconBgDiv-nature'}>
-                        <div className={'iconDiv-nature'}>{SelImg5()}</div>
+                <div className={'smallDiv'}>
+                    <div className={'iconBgDiv'}>
+                        <div className={'iconDiv'}>{SelImg5()}</div>
                     </div>
                     <p>자연</p>
                 </div>
@@ -163,8 +163,11 @@ const Container=styled.div`
     text-align: center;
 
     flex-shrink: 0;
+    flex: 1;
+    //flex 1 속성 추가
 
-    margin: 0 1.5rem 1.25rem 0;
+    // margin right 없앰
+    margin: 0 0 1.25rem 0;
 
     color: #808080;
     font-size: 1.5rem;
@@ -203,56 +206,6 @@ const Container=styled.div`
         border: none;
       }
     }
-  }
-  .smallDiv-nature{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    flex-shrink: 0;
-
-    margin: 0 0 1.25rem 0;
-
-    color: #808080;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-    &:hover{
-      color:#009A78;
-    }
-    .iconBgDiv-nature{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-shrink: 0;
-
-      width: 5.625rem;
-      height: 5.625rem;
-
-      border-radius: 50%;
-      background-color: #fafafa;
-
-      margin-bottom: 1.25rem;
-
-      &:hover{
-        background-color: #009a78;
-        color: white;
-      }
-      .iconDiv-nature{
-        display: flex;
-        width: 2.375rem;
-        height: 2.375rem;
-        padding: 0.0625rem;
-        justify-content: center;
-        align-items: center;
-        flex-shrink: 0;
-      }
-    }
-
   }
 `;
 

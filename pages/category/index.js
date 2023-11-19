@@ -33,7 +33,8 @@ const Container=styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  //align-items: center;
+  // 넓이 100% 설정
+  width: 100%;
 
   .ctgText{
     margin:8.56rem auto 3.06rem 3rem;
@@ -46,7 +47,8 @@ const Container=styled.div`
   }
 
   .CtgSelectDiv{
-    width: 40.9375rem;
+    // 40.9375rem -> 100%로 변경 (좌우 3rem 여백)
+    width: calc(100% - 6rem);
     height: 19.25rem;
     flex-shrink: 0;
 
