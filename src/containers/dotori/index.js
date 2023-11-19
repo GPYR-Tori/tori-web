@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import AppBar from '@/src/components/AppBar';
 import { MapView } from './components/MapView';
 import NavBar from '@/src/components/NavBar/NavBar';
+import { LandmarkList } from './components/LandmarkList';
 
 const DotoriPage = () => {
   return (
@@ -13,6 +14,7 @@ const DotoriPage = () => {
         <AppBar />
         
         <MapView/>
+        <LandmarkList/>
         
         <NavBar/>
       </Container>
