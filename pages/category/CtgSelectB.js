@@ -204,9 +204,9 @@ const CtgSelectB = () =>{
                     </div>
                     <p>지역축제</p>
                 </div>
-                <div className={'smallDiv-last'}>
-                    <div className={'iconBgDiv-last'}>
-                        <div className={'iconDiv-last'}>{SelImg5()}</div>
+                <div className={'smallDiv'}>
+                    <div className={'iconBgDiv'}>
+                        <div className={'iconDiv'}>{SelImg5()}</div>
                     </div>
                     <p>쇼핑</p>
                 </div>
@@ -230,6 +230,8 @@ const Container=styled.div`
     align-items: center;
     text-align: center;
     flex-shrink: 0;
+    flex: 1;
+    // flex 정렬값 추가
 
     margin: 0 1.5rem 1.25rem 0;
 
@@ -270,54 +272,7 @@ const Container=styled.div`
         border: none;
       }
     }
-  }
-  .smallDiv-last{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    flex-shrink: 0;
-
-    margin: 0 0 1.25rem 0;
-
-    color: #808080;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-    &:hover{
-      color:#009A78;
-    }
-    .iconBgDiv-last{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-shrink: 0;
-
-      width: 5.625rem;
-      height: 5.625rem;
-
-      border-radius: 50%;
-      background-color: #fafafa;
-
-      margin-bottom: 1.25rem;
-
-      &:hover{
-        background-color: #009a78;
-        color: white;
-      }
-      .iconDiv-last{
-        display: flex;
-        width: 2.375rem;
-        height: 2.375rem;
-        padding: 0.0625rem;
-        justify-content: center;
-        align-items: center;
-        flex-shrink: 0;
-      }
+  } 
 `;
 
 export default CtgSelectB;
