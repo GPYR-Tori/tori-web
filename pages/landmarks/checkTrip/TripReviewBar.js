@@ -3,15 +3,15 @@ import Link from "next/link";
 
 const Wrapper = styled.div`
   margin: auto;
-  width: 40.875rem;
   display: flex;
+  padding: 3rem;
   background: #fff;
   
 `;
 
 const Bar = styled.div`
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  //margin-top: 3rem;
+  //margin-bottom: 2rem;
   width: 50%;
   text-align: center;
   border-bottom: 0.125rem solid #d9d9d9;

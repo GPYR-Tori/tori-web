@@ -67,10 +67,9 @@ function WatchReviews(props) {
 export default WatchReviews;
 
 const Wrapper = styled.div`
-  width: 40.875rem;
   background: #fafafa;
   border-radius: 0.5rem;
-  margin-bottom: 2rem;
+  margin: 3rem;
 `;
 
 const User = styled.div`
@@ -78,6 +77,7 @@ const User = styled.div`
 `;
 
 const Img = styled.img`
+  flex: 1;
   margin-top: 1.5rem;
   width: 4.5rem;
   height: 4.5rem;
@@ -86,7 +86,8 @@ const Img = styled.img`
 `;
 
 const UserInfo = styled.div`
-  width: 35rem;
+  flex: 100;
+  box-sizing: border-box;
   height: 4.5rem;
   margin-top: 2.6rem;
 `;
@@ -102,13 +103,10 @@ const Id = styled.div`
 
 const Item = styled.div`
   display: flex;
-  width: inherit;
-  height: inherit;
-  margin: 0;
 `;
 const Country = styled.p`
+  flex: 4;
   margin-top: -0.2rem;
-  width: 50%;
   color: #6f6f6f;
   font-size: 1.25rem;
   font-style: normal;
@@ -117,13 +115,9 @@ const Country = styled.p`
 `;
 
 const Date = styled.div`
-  display: flex;
-  width: 50%;
   color: #737373;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: -1rem;
-  margin-right: 1rem;
+  align-items: flex-end;
+  margin-right: 2rem;
 `;
 
 const ContentsItem = styled.div`

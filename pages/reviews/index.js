@@ -34,10 +34,10 @@ function Reviews() {
     return (
         <>
             <AppBar/>
-            <Wrapper>
-                <TripReviewBar reviewTotal={123} />
+            <TripReviewBar reviewTotal={123} />
+            <SampleRWrap>
                 <SampleReviews
-                    review={
+                    content={
                         "고객님, 안녕하세요." +
                         "\n" +
                         "먼저, 즐거운 여행하셨다니 무척 다행이고 또 잊지 않고 후기글 작성해 주셔서 감사드립니다.\n" +
@@ -48,6 +48,20 @@ function Reviews() {
                         "감사합니다."
                     }
                 />
+                <SampleReviews
+                    content={
+                        "고객님, 안녕하세요." +
+                        "\n" +
+                        "먼저, 즐거운 여행하셨다니 무척 다행이고 또 잊지 않고 후기글 작성해 주셔서 감사드립니다.\n" +
+                        "아프리카의 진면목을 알게 된 이번 여행이 행복한 순간들의 연속이었길 바라며 또 잊지 못할 좋은 추억으로 간직되셨으면 좋겠습니다.\n" +
+                        "\n" +
+                        "이번 여행에서 느끼신 행복감 오래오래 간직하셨으면 좋겠습니다.\n" +
+                        "다음 여행도 참좋은여행과 함께 즐거운 여행 함께하시길 소망합니다.\n" +
+                        "감사합니다."
+                    }
+                />
+
+            </SampleRWrap>
                 <WriteReviewBtn>
                     {showWriteReviewBtn && (
                         <button onClick={handleWriteBtnClick}>리뷰 쓰기</button>
@@ -57,6 +71,7 @@ function Reviews() {
                     )}
                 </WriteReviewBtn>
                 {showWriteReview ? (
+                    // 여기에서 api 연결
                     <WriteReview />
                 ) : (
                     <WatchReviews
@@ -87,7 +102,7 @@ function Reviews() {
                         "댓글입니댜 댓글입니댜 댓글입니댜 댓글입니댜 댓글입니댜 댓글입니댜"
                     }
                 />
-            </Wrapper>
+
             <NavBar/>
         </>
 
@@ -97,14 +112,14 @@ function Reviews() {
 export default Reviews;
 
 
-const Wrapper = styled.div`
-  width: 40.875rem;
-  margin: auto;
+const SampleRWrap = styled.div`
+  display: flex;
+  padding: 0 2rem;
+  overflow: scroll;
 `;
 const WriteReviewBtn = styled.div`
   display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0 3rem;
   gap: 0.625rem;
   margin-bottom: 2.5rem;
 

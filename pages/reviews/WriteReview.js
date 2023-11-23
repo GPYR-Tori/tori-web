@@ -3,16 +3,16 @@ import styled from "@emotion/styled";
 import axios from "axios";
 
 const Wrapper = styled.div`
-  width: 40.875rem;
+  //width: 40.875rem;
   border-radius: 0.5rem;
   background: #fafafa;
-  margin: auto;
+  margin: 3rem;
 `;
 
 const Write = styled.textarea`
   resize: none;
   margin-left: 1rem;
-  width: 39rem;
+  width: 90%;
   height: 20rem;
   justify-content: center;
   background: #fafafa;
@@ -57,7 +57,6 @@ function WriteReview() {
 
             const requestBody = {
                 user_id: userId,
-                landmark_id: landmarkId,
                 content: reviewContent,
             };
 

@@ -1,9 +1,24 @@
 import React from "react";
 import styled from "@emotion/styled";
 
+function SampleReviews({content}) {
+    return (
+        <>
+            <Wrapper>
+                <SampleReview>
+                    <p>{content}</p>
+                </SampleReview>
+            </Wrapper>
+
+        </>
+    );
+}
+
+export default SampleReviews;
+
 const Wrapper = styled.div`
   display: flex;
-  overflow: scroll;
+  margin: 1rem;
   &::-webkit-scrollbar{
     display: none;
 `;
@@ -36,24 +51,3 @@ const SampleReview = styled.div`
   }
 `;
 
-
-function SampleReviews(props) {
-    return (
-        <>
-            <Wrapper>
-                <SampleReview>
-                    <p>{props.review}</p>
-                </SampleReview>
-                <SampleReview>
-                    <p>{props.review}</p>
-                </SampleReview>
-                <SampleReview>
-                    <p>{props.review}</p>
-                </SampleReview>
-            </Wrapper>
-
-        </>
-    );
-}
-
-export default SampleReviews;

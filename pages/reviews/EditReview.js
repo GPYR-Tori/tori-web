@@ -65,20 +65,18 @@ function EditReview({ initialReview, onSave ,onUpdateReview}) {
     return (
         <>
             <Wrapper>
-                <CancelEdit>
-                    <CancelBtn onClick={handleDelete}>
-                        <ImCancelCircle className={'xicon'}/>
-                    </CancelBtn>
-                </CancelEdit>
-
-
                 <User>
                     <Img
                         src="https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F8c2f1236-d0db-4ddc-bef1-ca9b7c92dbd6%2F2be1b314-52fa-4798-bb87-1944c0141e37%2FGroup_169_(1).png?table=block&id=22dd0a62-eaf2-48e4-9687-3b8cd4cce7c7&spaceId=8c2f1236-d0db-4ddc-bef1-ca9b7c92dbd6&width=250&userId=b94e2ed2-3b9a-4e03-9432-8ebacdcf4f21&cache=v2"
                         alt="사용자사진"
                     />
                     <UserInfo>
-                        <Id>토리</Id>
+                        <Item>
+                            <Id>토리</Id>
+                            <CancelBtn onClick={handleDelete}>
+                                <ImCancelCircle className={'xicon'}/>
+                            </CancelBtn>
+                        </Item>
                         <Item>
                             <Country>대한민국</Country>
                             <Date>2023-11-02</Date>
@@ -98,21 +96,14 @@ function EditReview({ initialReview, onSave ,onUpdateReview}) {
 export default EditReview;
 
 const Wrapper = styled.div`
-  width: 40.875rem;
   background: #fafafa;
   border-radius: 0.5rem;
-  margin-bottom: 2rem;
-
+  margin: 3rem;
 `;
 
-
-const CancelEdit = styled.div`
-  width: 40.875rem;
-  display: flex;
-  justify-content: flex-end;
-  padding: 1.5rem;
-`;
 const CancelBtn = styled.button`
+  margin-right: 2rem;
+  margin-top: -2rem;
   border: none;
   color: #009A78;
   background-color: #fafafa;
@@ -123,13 +114,13 @@ const CancelBtn = styled.button`
 
 `;
 
+
 const User = styled.div`
   display: flex;
-  margin-top: -5rem;
-  
 `;
 
 const Img = styled.img`
+  flex: 1;
   margin-top: 1.5rem;
   width: 4.5rem;
   height: 4.5rem;
@@ -138,12 +129,14 @@ const Img = styled.img`
 `;
 
 const UserInfo = styled.div`
-  width: 35rem;
+  flex: 100;
+  box-sizing: border-box;
   height: 4.5rem;
   margin-top: 2.6rem;
 `;
 
 const Id = styled.div`
+  flex: 4;
   color: #6f6f6f;
   width: 33.33%;
   font-size: 1.5rem;
@@ -154,13 +147,10 @@ const Id = styled.div`
 
 const Item = styled.div`
   display: flex;
-  width: inherit;
-  height: inherit;
-  margin: 0;
 `;
 const Country = styled.p`
+  flex: 4;
   margin-top: -0.2rem;
-  width: 50%;
   color: #6f6f6f;
   font-size: 1.25rem;
   font-style: normal;
@@ -169,19 +159,16 @@ const Country = styled.p`
 `;
 
 const Date = styled.div`
-  display: flex;
-  width: 50%;
   color: #737373;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: -1rem;
-  margin-right: 1rem;
+  align-items: flex-end;
+  margin-right: 2rem;
 `;
+
 
 const ContentsItem = styled.textarea`
   resize: none;
   margin-left: 1.5rem;
-  width: 37.75rem;
+  width: 90%;
   height: 17rem;
   justify-content: center;
   background: #fafafa;
@@ -192,9 +179,6 @@ const ContentsItem = styled.textarea`
   font-weight: 400;
   line-height: 2rem;
   margin-top: 1rem;
-
-;
-  
 `;
 
 const Edit = styled.div`
