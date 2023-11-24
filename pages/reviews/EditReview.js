@@ -4,62 +4,39 @@ import EditReviewBtn from "@/pages/reviews/Btn/EditReviewBtn";
 import {ImCancelCircle} from "react-icons/im";
 import axios  from "axios";
 
-function EditReview({ initialReview, onSave ,onUpdateReview}) {
-    const [editedReview, setEditedReview] = useState(initialReview);
 
-    const handleReviewChange = (e) => {
+function EditReview({ user_id,content,nickname,nationality,created_date}) {
+    const [editedReview, setEditedReview] = useState(content);
+
+    // 리뷰 수정 업데이트
+    const handleEditReview = (e) => {
         setEditedReview(e.target.value);
     };
 
-    const handleSave = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         try {
-            const userId = "사용자 아이디";
-            const landmarkId = "여행지 아이디";
-            const reviewId = "리뷰 아이디"; // 리뷰 아이디를 받아오는 방법을 구현해야 함
-
             const requestBody = {
-                user_id: userId,
-                landmark_id: landmarkId,
+                user_id: {user_id},
                 content: editedReview,
             };
 
-            // API에 PATCH 요청 보내기
-            const response = await axios.patch(`https://your-api-endpoint/update-review/${reviewId}`, requestBody);
-
+            const response = await axios.patch(`https://localhost:8080/landmarks/${landmark-id}/reviews`, requestBody);
             console.log("리뷰 수정 완료:", response.data);
-
-            // 리뷰 수정 후 추가적인 작업 수행 (예: 화면 갱신)
-            onSave(editedReview);
-            onUpdateReview(editedReview);
         } catch (error) {
             console.error("리뷰 수정 에러:", error);
-            // 에러 처리 (예: 사용자에게 메시지 표시)
         }
     };
 
     const handleDelete = async () => {
         try {
-            const userId = "사용자 아이디";
-            const landmarkId = "여행지 아이디";
-            const reviewId = "리뷰 아이디"; // 리뷰 아이디를 받아오는 방법을 구현해야 함
-
-            const requestBody = {
-                user_id: userId,
-                landmark_id: landmarkId,
-                review_id: reviewId,
-            };
-
-            // API에 DELETE 요청 보내기
-            const response = await axios.delete("https://your-api-endpoint/delete-review", {
-                data: requestBody, // Axios에서 DELETE 요청의 request body는 'data' 프로퍼티를 사용
-            });
-
+            const response = await axios.delete(`https://localhost:8080//landmarks/${landmark-id}/reviews/${review-id}`,{
+                data: {user_id}
+            }
+           );
             console.log("리뷰 삭제 완료:", response.data);
-
-            // 리뷰 삭제 후 추가적인 작업 수행 (예: 화면 갱신)
         } catch (error) {
             console.error("리뷰 삭제 에러:", error);
-            // 에러 처리 (예: 사용자에게 메시지 표시)
         }
     };
     return (
@@ -72,21 +49,27 @@ function EditReview({ initialReview, onSave ,onUpdateReview}) {
                     />
                     <UserInfo>
                         <Item>
-                            <Id>토리</Id>
+                            <Id>{nickname}</Id>
                             <CancelBtn onClick={handleDelete}>
                                 <ImCancelCircle className={'xicon'}/>
                             </CancelBtn>
                         </Item>
                         <Item>
-                            <Country>대한민국</Country>
-                            <Date>2023-11-02</Date>
+                            <Country>{nationality}</Country>
+                            <Date>{created_date}</Date>
                         </Item>
+
                     </UserInfo>
                 </User>
-                <ContentsItem value={editedReview} onChange={handleReviewChange}/>
-                <Edit>
-                    <EditReviewBtn onSave={handleSave}  />
-                </Edit>
+                <form onSubmit={handleSubmit}>
+                    <ContentsItem
+                        type='text'
+                        value={editedReview}
+                        onChange={handleEditReview}/>
+                    <Edit>
+                        <EditReviewBtn type={"submit"} />
+                    </Edit>
+                </form>
             </Wrapper>
         </>
     );

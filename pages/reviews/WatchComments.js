@@ -1,11 +1,17 @@
 import React, {useState} from "react";
 import styled from "@emotion/styled";
 import EditComments from "@/pages/reviews/EditComment";
+// <WatchComments
+//     key={cmt.comment_id}
+//     id={cmt.nickname}
+//     country={cmt.nationality}
+//     date={cmt.created_date}
+//     comments={cmt.content}
+// />
 
-
-function WatchComments(props) {
+function WatchComments({id, country, date, comments}) {
     const [showEditC, setShowEditC] = useState(false);
-    const [editedComments, setEditedComments] = useState(props.comments);
+    const [editedComments, setEditedComments] = useState(comments);
 
     const handleShowEditC = () =>{
         setShowEditC(!showEditC)
@@ -35,7 +41,7 @@ function WatchComments(props) {
         <>
             {showEditC ?
                 <EditComments
-                    initialReview={props.comments}
+                    initialReview={comments}
                     onSave={handleSaveComment}
                     onUpdateComments={setEditedComments}/>
                 :
@@ -46,10 +52,10 @@ function WatchComments(props) {
                             alt="사용자사진"
                         />
                         <UserInfo>
-                            <Id>{props.id}</Id>
+                            <Id>{id}</Id>
                             <Item>
-                                <Country>{props.country}</Country>
-                                <Date>{props.date}</Date>
+                                <Country>{country}</Country>
+                                <Date>{date}</Date>
                             </Item>
                         </UserInfo>
                     </User>

@@ -2,6 +2,62 @@ import React, {useEffect, useState} from "react";
 import styled from "@emotion/styled";
 import axios from "axios";
 
+function Course() {
+    const [guide, setGuide] = useState([]);
+    const getData = async () => {
+        try {
+            const res = await axios.get(`http://localhost:8080/guide/${id}`);
+            setGuide(res.data);
+        } catch (error) {
+            console.error("데이터를 불러오는 중 에러 발생:", error);
+        }
+    };
+    useEffect(() => {
+        getData();
+    }, []);
+    return (
+        <>
+            <Title>코스설명</Title>
+            {guide.map((item) => (
+                <Wrapper key={item.id}>
+                    <Contents >
+                        <p>A코스</p>
+                        {item.A_course.map((a_item, index)=>(
+                            <Item key={index}>{a_item}</Item>
+                            ))}
+                    </Contents>
+                    <Contents>
+                        <p>B코스</p>
+                        {item.B_course.map((b_item, index)=>(
+                            <Item key={index}>{b_item}</Item>
+                        ))}
+                    </Contents>
+                    <Contents>
+                        <p>C코스</p>
+                        {item.C_course.map((c_item, index)=>(
+                            <Item key={index}>{c_item}</Item>
+                        ))}
+                    </Contents>
+                    <Contents>
+                        <p>D코스</p>
+                        {item.D_course.map((d_item, index)=>(
+                            <Item key={index}>{d_item}</Item>
+                        ))}
+                    </Contents>
+                    <Contents>
+                        <p>E코스</p>
+                        {item.E_course.map((e_item, index)=>(
+                            <Item key={index}>{e_item}</Item>
+                        ))}
+                    </Contents>
+                </Wrapper>
+            ))};
+        </>
+    );
+    }
+
+export default Course;
+
 const Wrapper = styled.div`
   background: #fafafa;
   border-radius: 0.5rem;
@@ -43,72 +99,3 @@ const Title = styled.div`
   margin-bottom: 1rem;
 `;
 
-const Explain = styled.div`
-  margin-bottom: 2rem;
-  padding-left: 1rem;
-  width: 40.875rem;
-  flex-wrap: wrap;
-`;
-function Course(props) {
-    const [guide, setGuide] = useState([]);
-    const getData = async () =>{
-        try {
-            const res = await axios({
-                method: "get",
-                url: "https://jsonplaceholder.typicode.com/comments",
-            });
-            setGuide(res.data)
-        }catch (e){
-            console.log(e)}
-    }
-    useEffect(() => {
-        getData();
-    }, []);
-
-    return (
-        <>
-        {guide.map((item) => (
-        <div key={item.id}>
-            <Explain>{item.body}</Explain>
-            <Title>코스설명</Title>
-            <Wrapper>
-                <Contents >
-                    <p>A코스</p>
-                    <Item>{item.id}</Item>
-                    <Item>{item.title}</Item>
-                    <Item> {item.body}</Item>
-                </Contents>
-                <Contents>
-                    <p>B코스</p>
-                    <Item>{item.id}</Item>
-                    <Item>{item.title}</Item>
-                    <Item> {item.body}</Item>
-                </Contents>
-                <Contents>
-                    <p>C코스</p>
-                    <Item>{item.id}</Item>
-                    <Item>{item.title}</Item>
-                    <Item> {item.body}</Item>
-                </Contents>
-                <Contents>
-                    <p>D코스</p>
-                    <Item>{item.id}</Item>
-                    <Item>{item.title}</Item>
-                    <Item> {item.body}</Item>
-                </Contents>
-                <Contents>
-                    <p>E코스</p>
-                    <Item>{item.id}</Item>
-                    <Item>{item.title}</Item>
-                    <Item> {item.body}</Item>
-                </Contents>
-            </Wrapper>
-
-        </div>
-        ))};
-
-        </>
-    );
-}
-
-export default Course;
