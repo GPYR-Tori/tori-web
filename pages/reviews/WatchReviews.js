@@ -2,20 +2,22 @@ import styled from "@emotion/styled";
 import {useState} from "react";
 import EditReview from "@/pages/reviews/EditReview";
 
-function WatchReviews(props) {
+function WatchReviews({user_id,content,nickname,nationality,created_date}) {
     const [showEditR, setShowEditR] =useState(false);
-    const [editedReview, setEditedReview] = useState(props.review);
+    const [editedReview, setEditedReview] = useState({content});
 
     const handleEditR = ()=>{
         setShowEditR(!showEditR)
         setEditedReview(editedReview);
     }
 
-    const handleSaveReview = (editedReview) => {
-        // You can perform any necessary actions here, such as updating the review on the server.
-        setEditedReview(editedReview);
-        setShowEditR(false);
-    };
+    // const handleSaveReview = (editedReview) => {
+    //     // You can perform any necessary actions here, such as updating the review on the server.
+    //     setEditedReview(editedReview);
+    //     setShowEditR(false);
+    // };
+
+
 
     const editSvg = () => (
         <svg
@@ -33,13 +35,16 @@ function WatchReviews(props) {
         </svg>
     );
 
-
     return (
         <>
+            {/* 여기서 리뷰 조회 or 수정*/}
             {showEditR? <EditReview
-                    initialReview={props.review}
-                    onSave={handleSaveReview}
-                    onUpdateReview={setEditedReview}/> :
+                    user_id = {user_id}
+                    content={content}
+                    nickname={nickname}
+                    nationality={nationality}
+                    created_date={created_date}
+                /> :
                 <Wrapper>
                     <User>
                         <Img
@@ -47,14 +52,14 @@ function WatchReviews(props) {
                             alt="사용자사진"
                         />
                         <UserInfo>
-                            <Id>{props.id}</Id>
+                            <Id>{nickname}</Id>
                             <Item>
-                                <Country>{props.country}</Country>
-                                <Date>{props.date}</Date>
+                                <Country>{nationality}</Country>
+                                <Date>{created_date}</Date>
                             </Item>
                         </UserInfo>
                     </User>
-                    <ContentsItem>{editedReview}</ContentsItem>
+                    <ContentsItem>{content}</ContentsItem>
                     <Edit>
                         <Icon onClick={handleEditR}>{editSvg()}</Icon>
                     </Edit>

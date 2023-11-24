@@ -2,6 +2,63 @@ import React, {useState} from "react";
 import styled from "@emotion/styled";
 import axios from "axios";
 
+// { res
+// “id”: “리뷰 아이디”,
+// “user_id”: “사용자 아이디”,
+// “nickname”: “작성자”,
+// “nationality”: “작성자 국적”,
+// “content”: “리뷰 내용”,
+// “created_date”: “작성일”
+// }
+
+// req
+// {
+// “user_id”: “사용자 아이디”,
+// “content”: “리뷰 내용”
+// }
+
+function WriteReview() {
+    const [reviewContent, setReviewContent] = useState("");
+
+    const handleReviewSubmit = async () => {
+        try {
+            const user_id = ""; // 실제 사용자 아이디로 교체...?
+
+            const requestBody = {
+                user_id: user_id,
+                content: reviewContent,
+            };
+            // API에 POST 요청 보내기
+            const response =
+                await axios.post("http://localhost:8080/landmarks/{landmark-id}/reviews", requestBody);
+            console.log("리뷰 작성 완료:", response.data);
+        } catch (error) {
+            console.error("리뷰 작성 에러:", error);
+        }
+    };
+
+    return (
+        <>
+            <Wrapper>
+                <form onSubmit={handleReviewSubmit}>
+                    <Write
+                        name="content"
+                        id="content"
+                        value={reviewContent || ""}
+                       onChange={(e) => setReviewContent(e.target.value)} />
+                <Btn>
+                    <button type={"submit"} >작성 완료</button>
+                </Btn>
+                </form>
+            </Wrapper>
+        </>
+
+    );
+}
+
+export default WriteReview;
+
+
 const Wrapper = styled.div`
   //width: 40.875rem;
   border-radius: 0.5rem;
@@ -45,46 +102,3 @@ const Btn = styled.div`
     letter-spacing: -0.0275rem;
     cursor: pointer;
   }`
-
-function WriteReview() {
-    const [reviewContent, setReviewContent] = useState("");
-
-
-    const handleReviewSubmit = async () => {
-        try {
-            const userId = "사용자 아이디"; // 실제 사용자 아이디로 교체
-            const landmarkId = "여행지 아이디"; // 실제 여행지 아이디로 교체
-
-            const requestBody = {
-                user_id: userId,
-                content: reviewContent,
-            };
-
-            // API에 POST 요청 보내기
-            const response = await axios.post("https://jsonplaceholder.typicode.com/posts", requestBody);
-
-            console.log("리뷰 작성 완료:", response.data);
-
-            // 리뷰 작성 후 추가적인 작업 수행 (예: 화면 갱신)
-        } catch (error) {
-            console.error("리뷰 작성 에러:", error);
-            // 에러 처리 (예: 사용자에게 메시지 표시)
-        }
-    };
-
-    return (
-        <>
-            <Wrapper>
-                <Write placeholder="리뷰를 작성해주세요"
-                       value={reviewContent}
-                       onChange={(e) => setReviewContent(e.target.value)} />
-                <Btn>
-                    <button onClick={handleReviewSubmit} >작성 완료</button>
-                </Btn>
-            </Wrapper>
-        </>
-
-    );
-}
-
-export default WriteReview;
