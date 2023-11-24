@@ -7,6 +7,7 @@ const Wrapper = styled.div`
 `;
 
 const Contents = styled.div`  
+  padding: 1rem;
   background: #fafafa;
   display: flex;
   height: 8.8125rem;
@@ -19,7 +20,9 @@ const Contents = styled.div`
   //margin: auto;
   //gap: 1.31rem; //자식 끼리 띄우기
   //padding-left: -2rem;
-
+  //& > * {
+  //  flex: 1;
+  //}
   p{
     flex: 1;
     color: #4f4f4f;
@@ -38,7 +41,11 @@ const BtnWrap = styled.div`
   flex: 5;
   display: flex;
   margin: auto;
+  & > * {
+    flex: 1;
+  }
   button {
+    margin-left: 0.5rem;
     width: 5rem;
     padding: 0.75rem 1rem;
     justify-content: center;
