@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 import axios from "axios";
 
 const Wrapper = styled.div`
-  width: 40.875rem;
   background: #fafafa;
   border-radius: 0.5rem;
   padding-top: 1.25rem;
@@ -14,11 +13,10 @@ const Wrapper = styled.div`
 
 
 const Contents = styled.div`
-  width: 38.375rem;
   height: 12.5rem;
   border-radius: 0.5rem;
   background: #fff;
-  margin: auto auto 1.25rem auto;
+  margin: 1.25rem;
   p {
     color: #000;
     font-size: 1.75rem;

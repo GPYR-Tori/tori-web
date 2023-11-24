@@ -3,10 +3,10 @@ import styled from "@emotion/styled";
 
 
 const Wrapper = styled.div`
-  width: 3rem;
-  height: 3rem;
-  z-index: 0;
-  margin: 0.5rem;
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  margin: auto;
 
 `;
 function FavoriteBtn () {
@@ -25,7 +25,7 @@ function FavoriteBtn () {
     )
     return (
     <Wrapper>
-        <Like/>
+        <Like />
     </Wrapper>
     );
   }

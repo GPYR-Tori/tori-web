@@ -4,16 +4,27 @@ import { iconList } from "@/pages/landmarks/checkTrip/iconList";
 
 const Wrapper = styled.div`
   margin: auto;
-  width: 40.875rem;
+  display: flex;
+`;
+
+
+const Container = styled.div`
+  flex: 1;
+  padding: 3rem;
+`;
+
+
+const ImgWrap = styled.div`
+  display: flex;
+  margin: auto;
 `;
 
 const Img = styled.img`
-  width: inherit;
-  height: 33.75rem;
+  width: 100%;
+  height: 100%;
+  flex: 1;
   border-radius: 1.25rem;
   object-fit: cover;
-  margin-top: 3rem;
-
 `;
 const Title = styled.div`
   color: #191919;
@@ -31,15 +42,15 @@ const Category = styled.div`
   gap: 0.87rem;
   div {
     display: flex;
-    width: 4.375rem;
-    height: 2.25913rem;
+    //width: 4.375rem;
+    //height: 2.25913rem;
     padding: 0.375rem 0.875rem;
     justify-content: center;
     align-items: center;
     gap: 0.625rem;
     flex-shrink: 0;
     border-radius: 0.5rem;
-    border: 1px solid #d0d0d0;
+    border: 0.1rem solid #d0d0d0;
   }
   p {
     color: #a5a5a5;
@@ -51,7 +62,7 @@ const Category = styled.div`
   }
 `;
 const Inform = styled.div`
-  height: 15rem;
+  //height: 15rem;
   display: flex;
   width: inherit;
 `;
@@ -73,7 +84,10 @@ const Icon = styled.div`
 function TripContents(props) {
   return (
     <Wrapper>
-      <Img src="https://i.namu.wiki/i/w11dbZZeomJI4bD3_KItw3vq7tgglcM1YQA_xHULxMsixPpY1S7KcB8WrEFhJNuSuejiiQkicGKMH12JvpUqBQ.webp" />
+        <Container>
+            <ImgWrap>
+                <Img src="https://i.namu.wiki/i/w11dbZZeomJI4bD3_KItw3vq7tgglcM1YQA_xHULxMsixPpY1S7KcB8WrEFhJNuSuejiiQkicGKMH12JvpUqBQ.webp" />
+            </ImgWrap>
       <Title>{props.title}</Title>
       {/*카테고리 조건식 추가해야됨 */}
       <Category>
@@ -97,6 +111,7 @@ function TripContents(props) {
           ))}
         </Icon>
       </Inform>
+        </Container>
     </Wrapper>
   );
 }

@@ -39,7 +39,7 @@ function WatchComments(props) {
                     onSave={handleSaveComment}
                     onUpdateComments={setEditedComments}/>
                 :
-                <>
+                <Wrapper>
                     <User>
                         <Img
                             src="https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F8c2f1236-d0db-4ddc-bef1-ca9b7c92dbd6%2F2be1b314-52fa-4798-bb87-1944c0141e37%2FGroup_169_(1).png?table=block&id=22dd0a62-eaf2-48e4-9687-3b8cd4cce7c7&spaceId=8c2f1236-d0db-4ddc-bef1-ca9b7c92dbd6&width=250&userId=b94e2ed2-3b9a-4e03-9432-8ebacdcf4f21&cache=v2"
@@ -57,7 +57,7 @@ function WatchComments(props) {
                     <Edit>
                         <Icon onClick={handleShowEditC}>{editSvg()}</Icon>
                     </Edit>
-                </>
+                </Wrapper>
             }
         </>
     );
@@ -65,9 +65,14 @@ function WatchComments(props) {
 
 export default WatchComments;
 
+const Wrapper= styled.div`
+  border-radius: 0.5rem;
+  margin: 1rem  3rem 1rem;
+`;
+
 const User = styled.div`
   display: flex;
-  margin-top: -1.5rem;
+  padding: 0 2rem;
 `;
 
 const Img = styled.img`
@@ -79,10 +84,12 @@ const Img = styled.img`
   margin: auto;
 `;
 
+
 const UserInfo = styled.div`
-  width: 35rem;
+  flex: 100;
+  box-sizing: border-box;
   height: 4.5rem;
-  margin-top: 1.5rem;
+  margin-top: 2.6rem;
 `;
 
 const Id = styled.div`
@@ -92,20 +99,15 @@ const Id = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 1.875rem;
-  margin-left: -1rem;
+
 `;
 
 const Item = styled.div`
   display: flex;
-  width: inherit;
-  height: inherit;
-  margin: 0;
 `;
-
 const Country = styled.p`
-  margin-top: -0.5rem;
-  margin-left: -1rem;
-  width: 50%;
+  flex: 4;
+  margin-top: -0.2rem;
   color: #6f6f6f;
   font-size: 1rem;
   font-style: normal;
@@ -114,18 +116,14 @@ const Country = styled.p`
 `;
 
 const Date = styled.div`
-  display: flex;
-  width: 50%;
-  font-size: 0.8rem;
   color: #737373;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: -1rem;
-  margin-right: 3rem;
+  align-items: flex-end;
+  margin-right: 2rem;
 `;
 
 const Contents = styled.div`
-  margin-top: -1.5rem;
+  margin-top: -1rem;
+  margin-left: 1rem;
   color: #737373;
   font-size: 1rem;
   font-style: normal;
@@ -137,7 +135,7 @@ const Edit = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: -1rem;
-  margin-right: 2rem;
+  margin-right: 4rem;
 `;
 const Icon = styled.button`
   margin-bottom: 2rem;

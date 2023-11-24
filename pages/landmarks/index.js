@@ -3,25 +3,28 @@ import styled from "@emotion/styled";
 import TripCards from "@/pages/landmarks/TripCards";
 import Category from "@/pages/category";
 
-const CardWrap = styled.div`
-  display: flex;
-  padding: 3rem;
-  margin: auto;
-  gap: 1rem;
+
+
+const Wrapper = styled.div`
   flex-wrap: wrap;
-`;
+  display: flex;
+  padding: 0 5rem;
+  & > * {
+    flex: 1;
+  }
+`
 
 function Landmarks() {
     return (
         <>
             <Category/>
-             <CardWrap>
-                 <TripCards/>
-                 <TripCards/>
-                </CardWrap>
-
-
-
+            <Wrapper>
+                <TripCards/>
+                <TripCards/>
+                <TripCards/>
+                <TripCards/>
+                <TripCards/>
+            </Wrapper>
         </>
     );
 }
