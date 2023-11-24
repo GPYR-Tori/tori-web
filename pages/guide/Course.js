@@ -5,10 +5,8 @@ import axios from "axios";
 const Wrapper = styled.div`
   background: #fafafa;
   border-radius: 0.5rem;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
+  padding: 1.25rem 0 0.25rem 0;
   margin-bottom: 2.5rem;
-
 `;
 
 
@@ -16,7 +14,7 @@ const Contents = styled.div`
   height: 12.5rem;
   border-radius: 0.5rem;
   background: #fff;
-  margin: 1.25rem;
+  margin: 0 1.25rem 1.25rem 1.25rem;
   p {
     color: #000;
     font-size: 1.75rem;
