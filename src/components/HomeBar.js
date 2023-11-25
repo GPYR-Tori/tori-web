@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
-import Router from 'next/router';
 
 const Container = styled.div`
   height: 8.25rem;
@@ -17,11 +16,6 @@ const Logo =styled.img`
   transform: translate(-50%, -50%);
   top: 50%;
   position: absolute;
-`
-
-const BackButton = styled.img`
-  width: 3rem;
-  
 `
 
 const HomeBar = () => {
