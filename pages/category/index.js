@@ -15,7 +15,7 @@ const Category=()=>{
 
             <Container>
                 {/* 헤더 필요없을 듯 */}
-                <CtgHeader/>
+                {/* <CtgHeader/> */}
                 <div className={'ctgText'}>
                     <p>카테고리</p>
                 </div>
