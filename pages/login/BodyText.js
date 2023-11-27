@@ -26,16 +26,19 @@ const LoginBody = styled.div`
   margin: 0 auto 0 3rem;
 `;
 const LoginImg = styled.div`
-  width: 15.1875rem;
+  //width: 15.1875rem;
   height: 14.625rem;
   flex-shrink: 0;
   //align-self: flex-end;
-  //margin-left: 27.88rem;
+  //margin: 0 0 0 auto;
+ 
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 15.1875rem;
+    height: 14.625rem;
     object-fit: cover;
+    position: absolute;
+    right: 3.81rem;
   }
 `;
 const LoginText = styled.div`
