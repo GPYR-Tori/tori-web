@@ -38,7 +38,7 @@ const Container=styled.div`
   width: 100%;
 
   .ctgText{
-    margin:8.56rem auto 3.06rem 3rem;
+    margin:2rem auto 1rem 3rem;
 
     color: #000;
     font-size: 1.75rem;
@@ -53,7 +53,7 @@ const Container=styled.div`
     height: 19.25rem;
     flex-shrink: 0;
 
-    margin: 0 auto 5rem 3rem;
+    margin: 0 auto 3rem 3rem;
   }
 `;
 
