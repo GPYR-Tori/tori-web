@@ -1,6 +1,6 @@
 /* 마이도토리 페이지 */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import AppBar from '@/src/components/AppBar';
 import NavBar from '@/src/components/NavBar/NavBar';
@@ -8,8 +8,19 @@ import NavBar from '@/src/components/NavBar/NavBar';
 import { MyDotoriCard } from './components/MyDotoriCard';
 import { RankingCard } from './components/RankingCard';
 import { DotoriStampCard } from './components/DotoriStampCard';
+import { fetchDotoriStatus } from '@/src/api/fetchDotoriStatus';
 
 const Mydotori = () => {
+
+  const [data, setData] = useState();
+  useEffect( () => {
+    fetchDotoriStatus().then(setData)
+  }, [] )
+  console.log(data)
+  if (data == null)
+    {return null}
+
+
   return (
     <>
       <Container>
@@ -18,12 +29,12 @@ const Mydotori = () => {
         <ContentContainer>
             <TopContainer>
               {/* 보유도토리 */}
-              <MyDotoriCard/>
+              <MyDotoriCard num={data.num}/>
               {/* 도토리순위 */}
-              <RankingCard/>
+              <RankingCard totalRanking={data.totalRanking}/>
             </TopContainer>
           {/* 도토리 스탬프 카드 */}
-          <DotoriStampCard/>
+          <DotoriStampCard num={data.num}/>
         </ContentContainer>
         
         <NavBar/>

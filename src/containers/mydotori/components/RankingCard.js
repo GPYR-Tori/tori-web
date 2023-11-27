@@ -21,19 +21,19 @@ const Label = styled.div`
 `
 
 
-export function RankingCard () {
+export function RankingCard (props) {
     return (
         <Container>
             <Label>도토리순위</Label>
-            <RankItem></RankItem>
-            <RankItem></RankItem>
-            <RankItem></RankItem>
+            <RankItem>{props.totalRanking[0].id}</RankItem>
+            <RankItem>{props.totalRanking[1].id}</RankItem>
+            <RankItem>{props.totalRanking[2].id}</RankItem>
         </Container>
     )
 
 }
 
-const RankItemContainer = styled.div`
+const RankItem = styled.div`
     width: 100%;
     height: 3.375rem;
     padding: 0.5rem;
@@ -45,8 +45,3 @@ const RankItemContainer = styled.div`
     font-style: normal;
     line-height: 3.375rem; /* 245.455% */
 `
-function RankItem () {
-    return (
-        <RankItemContainer>1.텍스트</RankItemContainer>
-    )
-}

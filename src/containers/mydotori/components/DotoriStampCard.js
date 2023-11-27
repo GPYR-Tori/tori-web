@@ -23,27 +23,27 @@ const Label = styled.div`
     line-height: normal; 
 `
 
-export function DotoriStampCard () {
+export function DotoriStampCard (props) {
     return (
         <div style={{margin:"3rem"}}>
             <Label>도토리 스탬프 카드</Label>
             <Container>
                 <Column>
                     {/* true,false는 백에서 받아오기*/}
-                    <DotoriStamp filled={false}/>
-                    <DotoriStamp/>
-                    <DotoriStamp/>
+                    <DotoriStamp filled={props.num > 0}/>
+                    <DotoriStamp filled={props.num > 2}/>
+                    <DotoriStamp filled={props.num > 5}/>
                 </Column>
                 <Column>
-                    <DotoriStamp/>
-                    <DotoriStamp/>
-                    <DotoriStamp/>
-                    <DotoriStamp/>
+                    <DotoriStamp filled={props.num > 1}/>
+                    <DotoriStamp filled={props.num > 3}/>
+                    <DotoriStamp filled={props.num > 6}/>
+                    <DotoriStamp filled={props.num > 8}/>
                 </Column>
                 <Column>
-                    <DotoriStamp/>
-                    <DotoriStamp/>
-                    <DotoriStamp/>
+                    <DotoriStamp filled={props.num > 4}/>
+                    <DotoriStamp filled={props.num > 7}/>
+                    <DotoriStamp filled={props.num > 9}/>
                 </Column>
             </Container>
         </div>
