@@ -25,8 +25,9 @@ const Login=()=>{
 
     return (
         <>
+        <Container>
         <AppBar/>
-          <Container>
+          <ContentContainer>
                 <BodyText />
                 <div className={'inputDiv'}>
                     <div className={'ID'}>
@@ -51,20 +52,31 @@ const Login=()=>{
                     </div>
                     <button className={'LoginBtn'} >로그인</button>
                 </div>
+                <div style={{flex: 1}}/>
                 <button className={'SignInBtn'}>회원 가입</button>
-          </Container>
+          </ContentContainer>
         <NavBar/>
+        </Container>
         </>
     );
 }
 
 const Container=styled.div`
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+`
+const ContentContainer=styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   // 더 고민 필요
-  height: calc(100% - 15rem);
+  //height: calc(100% - 15rem);
+  flex: 1;
+  overflow: hidden;
+  
 
   .inputDiv{
     margin-top: 4.56rem;
@@ -104,7 +116,7 @@ const Container=styled.div`
       width: 100%;
       height: 6.25rem;
       flex-shrink: 0;
-      margin-bottom: 4.87rem;
+      margin-bottom: 1.31rem;
       
       display: flex;
       flex-direction: row;
@@ -157,7 +169,7 @@ const Container=styled.div`
       height: 6.25rem;
       flex-shrink: 0;
       // 여기도 고민 필요, 한 화면에 다 들어오기
-      margin-bottom: 22.5rem;
+      //margin-bottom: 22.5rem;
       display: flex;
       flex-direction: row;
       text-align: center;
