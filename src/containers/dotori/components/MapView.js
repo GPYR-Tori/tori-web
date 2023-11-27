@@ -1,13 +1,14 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from '@emotion/styled';
 
-export function MapView() {
+export function MapView(props) {
   const mapRef = useRef();
   const clustererRef = useRef();
   const positionRef = useRef();
 
   const renderMap = (el) => {
-    if (el == null) {
+    // renderMap이 1번이라도 됐으면 무한 그리기 방지
+    if (el == null || mapRef.current != null) {
       return;
     } //null이 들어오면 아래 함수 실행x
     const mapOption = {
@@ -15,7 +16,7 @@ export function MapView() {
       level: 3 // 지도의 확대 레벨
     };
     const map = new kakao.maps.Map(el, mapOption); //여기서 지도 그리기
-    renderMarker(map);
+    
 
     mapRef.current = map; //지도 불러와서
     clustererRef.current = new kakao.maps.MarkerClusterer({
@@ -31,15 +32,15 @@ export function MapView() {
       ) {
         renderMarkers(positionRef.current.coords.latitude, positionRef.current.coords.longitude)
       }
-      
     });
   };
   
-
   const getCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
-      //alert(position.coords.latitude, position.coords.longitude);
+      console.log(position.coords.latitude, position.coords.longitude);
       positionRef.current = position;
+      // 현재 위치 보내기
+      props.onLocationChange(position.coords.latitude, position.coords.longitude);
       if (
         mapRef.current != null
       ) {
@@ -51,7 +52,16 @@ export function MapView() {
   const renderMarkers = (lat, lon) => {
     clustererRef.current.clear()
     renderUserPin(mapRef.current, clustererRef.current, lat, lon)
+    console.log(props.data)
+    for(const item of props.data){
+      renderMarker(mapRef.current, clustererRef.current, Number(item.landmarkLatitude), Number(item.landmarkLongitude))
+    }
   }
+  useEffect(() => {
+    for(const item of props.data){
+      renderMarker(mapRef.current, clustererRef.current, Number(item.landmarkLatitude), Number(item.landmarkLongitude))
+    }
+  }, [props.data])
 
   return <StyledMapView ref={renderMap}>
     <UserLocationBtn img src="/images/dotori/userlocation.png"
@@ -59,14 +69,15 @@ export function MapView() {
     </UserLocationBtn>
   </StyledMapView>;
 }
-function renderMarker(map) {
+function renderMarker(map, clusterer, lat, lon) {
+  //alert()
   var imageSrc = "/images/dotori/filled_stamp.png", // 마커이미지의 주소입니다    
-    imageSize = new kakao.maps.Size(18.75, 23.125), // 마커이미지의 크기입니다
+    imageSize = new kakao.maps.Size(25, 25), // 마커이미지의 크기입니다
     imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
 
   // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-  var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption), markerPosition = new kakao.maps.LatLng(33.450701, 126.570667); // 마커가 표시될 위치입니다
+  var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption), markerPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치입니다
 
 
   // 마커를 생성합니다
@@ -74,9 +85,14 @@ function renderMarker(map) {
     position: markerPosition,
     image: markerImage // 마커이미지 설정 
   });
+  // 도토리 클릭시!! -> user, landmark ID 보내는 API 만들기
+  kakao.maps.event.addListener(marker, "click", () => {
+    //alert()
+
+  });
 
   // 마커가 지도 위에 표시되도록 설정합니다
-  marker.setMap(map);
+  clusterer.addMarker(marker);
 
 }
 function renderUserPin(map, clusterer,lat,lon) {
