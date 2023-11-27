@@ -20,7 +20,7 @@ const Container=styled.div`
   
   // 100%로 수정
   width: 100%;
-  height: 24.4375rem;
+  //height: 24.4375rem;
   flex-shrink: 0;
 
   margin: 0 auto 0 3rem;

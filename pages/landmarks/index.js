@@ -7,11 +7,11 @@ import Category from "@/pages/category";
 
 const Wrapper = styled.div`
   flex-wrap: wrap;
-  display: flex;
-  padding: 0 5rem;
-  & > * {
-    flex: 1;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 3rem;
+  gap: 1rem;
+  margin-top: 1.5rem;
 `
 
 function Landmarks() {

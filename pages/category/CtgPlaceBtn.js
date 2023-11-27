@@ -31,7 +31,7 @@ const Container=styled.div`
   width: calc(100% - 6rem);
   height: 6.25rem;
   flex-shrink: 0;
-  margin-top: 4.56rem;
+  margin-top: 1rem;
   border-radius: 0.5rem;
   background: #FAFAFA;
   
