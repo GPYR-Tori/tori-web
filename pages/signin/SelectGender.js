@@ -22,8 +22,8 @@ const SelectGender=()=>{
 
 const SelectG=styled.div`
   display: flex;
-  width: 40.875rem;
-  height: 6.25rem;
+  //width: 40.875rem; 여기...
+  height: 5rem;
 
   margin-top: 1.44rem;
 
@@ -40,14 +40,14 @@ const SelectG=styled.div`
     display: inline-block;
     flex-shrink: 0;
 
-    margin: 0 0 0 2.63rem;
+    margin: 0 0 0 2rem;
 
     border: none;
     outline: none;
 
     background-color: transparent;
     color: #808080;
-    font-size: 1.75rem;
+    font-size: 1.4rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -78,7 +78,7 @@ const SelectG=styled.div`
     justify-content: center;
 
     color: #FFF;
-    font-size: 1.375rem;
+    font-size: 1.45rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;

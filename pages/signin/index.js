@@ -15,9 +15,10 @@ const Signin = () => {
 
     return (
         <>
-            <Container>
+          <Container>
+            <ContentContainer>
               <AppBar/>
-                <Label>회원가입</Label>
+                {/* <Label>회원가입</Label> */}
                 <InputEmail />
                 <InputPw />
                 <InputNickname />
@@ -30,21 +31,29 @@ const Signin = () => {
                     회원가입
                 </button>
               <NavBar/>
-            </Container>
+            </ContentContainer>
+          </Container>
         </>
     )
 }
 
-const Label = styled.div`
-  padding: 1rem;
-  font-size: 2.375rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 2.625rem; /* 110.526% */
+// const Label = styled.div`
+//   padding: 1rem;
+//   font-size: 2.375rem;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 2.625rem; /* 110.526% */
+// `
+
+const Container = styled.div`
+  height: 100vh;
+  //display: flex;
+  //flex-direction: column;
 `
-const Container=styled.div`
+const ContentContainer=styled.div`
   display: flex;
   flex-direction: column;
+  //flex: 1;
   //스크롤
 
   overflow: scroll;
@@ -53,7 +62,8 @@ const Container=styled.div`
   }
 
   .signinBtn{
-    width: 40.625rem;
+    //width: 40.625rem; (기존)
+    width: calc(100% - 6rem);
     height: 6.25rem;
     flex-shrink: 0;
     text-align: center;

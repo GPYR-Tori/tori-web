@@ -24,7 +24,11 @@ const IPAge=styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 2.5rem auto 0 3rem;
+  //margin: 2.5rem auto 0 3rem; (기존)
+  // 좌우 넓이 맞추기 해결!
+  width: calc(100% - 6rem);
+  margin-left: 3rem;
+  margin-top: 2.5rem;
 
   p{
     color: #000;
@@ -35,8 +39,8 @@ const IPAge=styled.div`
   }
 
   .inputElem{
-    width: 40.875rem;
-    height: 6.25rem;
+    //width: 40.875rem;
+    height: 5rem;
     flex-shrink: 0;
 
     margin-top: 1.44rem;
@@ -50,17 +54,17 @@ const IPAge=styled.div`
     align-items: center;
 
     .inputA{
-      width: 38.245rem;
+      width: calc(100% - 2.63rem);
       height: 100%;
       flex-shrink: 0;
-      margin: 0 0 0 2.63rem;
+      margin: 0 0 0 2rem;
 
       border: none;
       background-color: #FAFAFA;
       outline: none;
 
       color: #808080;
-      font-size: 1.75rem;
+      font-size: 1.4rem;
       font-style: normal;
       font-weight: 400;
       line-height: normal;

@@ -21,7 +21,11 @@ const IPGender=styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 2.5rem auto 0 3rem;
+  //margin: 2.5rem auto 0 3rem; (기존)
+  // 좌우 넓이 맞추기 해결!
+  width: calc(100% - 6rem);
+  margin-left: 3rem;
+  margin-top: 2.5rem;
 
   p{
     color: #000;
