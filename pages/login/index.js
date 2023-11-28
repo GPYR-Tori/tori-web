@@ -1,5 +1,6 @@
 import {React,useState} from "react";
 import styled from "@emotion/styled";
+import Link from "next/link";
 
 import AppBar from "@/src/components/AppBar";
 import NavBar from "@/src/components/NavBar/NavBar";
@@ -53,7 +54,9 @@ const Login=()=>{
                     <button className={'LoginBtn'} >로그인</button>
                 </div>
                 <div style={{flex: 1}}/>
-                <button className={'SignInBtn'}>회원 가입</button>
+                <Link href={'/signin'}>
+                  <button className={'SignInBtn'}>회원 가입</button>
+                </Link>
           </ContentContainer>
         <NavBar/>
         </Container>
