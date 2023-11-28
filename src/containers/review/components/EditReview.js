@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import styled from "@emotion/styled";
-import EditReviewBtn from "@/pages/reviews/Btn/EditReviewBtn";
+import EditReviewBtn from "@/src/containers/review/components/Btn/EditReviewBtn";
 import {ImCancelCircle} from "react-icons/im";
 import axios  from "axios";
 

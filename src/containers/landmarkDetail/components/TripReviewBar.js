@@ -43,7 +43,7 @@ function TripReviewBar(props) {
             <Wrapper>
 
                 <Bar>
-                    <Link href='/landmarks/checkTrip'>
+                    <Link href='/landmarks'>
                         <button>상품정보</button>
                     </Link>
                 </Bar>

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import Landmarks from "@/pages/landmarks";
+import Landmarks from "@/src/containers/landmarks";
 import HomeBar from '@/src/components/HomeBar';
 import NavBar from '@/src/components/NavBar/NavBar';
 import styled from '@emotion/styled';

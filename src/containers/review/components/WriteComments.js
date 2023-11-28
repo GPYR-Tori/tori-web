@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import styled from "@emotion/styled";
-import WriteBtn from "@/pages/reviews/Btn/WriteBtn";
+import WriteBtn from "@/src/containers/review/components/Btn/WriteBtn";
 import axios from "axios";
 
 

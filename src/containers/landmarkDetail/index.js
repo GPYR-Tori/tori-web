@@ -1,10 +1,10 @@
 import React from "react";
-import TripContents from "@/pages/landmarks/checkTrip/TripContents";
-import TripInfo from "@/pages/landmarks/checkTrip/TripInfo";
-import TripReviewBar from "@/pages/landmarks/checkTrip/TripReviewBar";
+import TripContents from "@/src/containers/landmarkDetail/components/TripContents";
+import TripInfo from "@/src/containers/landmarkDetail/components/TripInfo";
+import TripReviewBar from "@/src/containers/landmarkDetail/components/TripReviewBar";
 
 
-function CheckTravel() {
+function LandmarkDetail() {
   return (
     <>
       <TripContents
@@ -22,4 +22,4 @@ function CheckTravel() {
   );
 }
 
-export default CheckTravel;
+export default LandmarkDetail;

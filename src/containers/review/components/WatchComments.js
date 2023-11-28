@@ -1,29 +1,31 @@
+import React, {useState} from "react";
 import styled from "@emotion/styled";
-import {useState} from "react";
-import EditReview from "@/pages/reviews/EditReview";
+import EditComments from "@/src/containers/review/components/EditComment";
+// <WatchComments
+//     key={cmt.comment_id}
+//     id={cmt.nickname}
+//     country={cmt.nationality}
+//     date={cmt.created_date}
+//     comments={cmt.content}
+// />
 
-function WatchReviews({user_id,content,nickname,nationality,created_date}) {
-    const [showEditR, setShowEditR] =useState(false);
-    const [editedReview, setEditedReview] = useState({content});
+function WatchComments({id, country, date, comments}) {
+    const [showEditC, setShowEditC] = useState(false);
+    const [editedComments, setEditedComments] = useState(comments);
 
-    const handleEditR = ()=>{
-        setShowEditR(!showEditR)
-        setEditedReview(editedReview);
+    const handleShowEditC = () =>{
+        setShowEditC(!showEditC)
     }
-
-    // const handleSaveReview = (editedReview) => {
-    //     // You can perform any necessary actions here, such as updating the review on the server.
-    //     setEditedReview(editedReview);
-    //     setShowEditR(false);
-    // };
-
-
-
+    const handleSaveComment= (editedComments) => {
+        // You can perform any necessary actions here, such as updating the review on the server.
+        setEditedComments(editedComments);
+        setShowEditC(false);
+    };
     const editSvg = () => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="22"
-            height="22"
+            width="17"
+            height="17"
             viewBox="0 0 24 24"
         >
             <path
@@ -37,14 +39,12 @@ function WatchReviews({user_id,content,nickname,nationality,created_date}) {
 
     return (
         <>
-            {/* 여기서 리뷰 조회 or 수정*/}
-            {showEditR? <EditReview
-                    user_id = {user_id}
-                    content={content}
-                    nickname={nickname}
-                    nationality={nationality}
-                    created_date={created_date}
-                /> :
+            {showEditC ?
+                <EditComments
+                    initialReview={comments}
+                    onSave={handleSaveComment}
+                    onUpdateComments={setEditedComments}/>
+                :
                 <Wrapper>
                     <User>
                         <Img
@@ -52,16 +52,16 @@ function WatchReviews({user_id,content,nickname,nationality,created_date}) {
                             alt="사용자사진"
                         />
                         <UserInfo>
-                            <Id>{nickname}</Id>
+                            <Id>{id}</Id>
                             <Item>
-                                <Country>{nationality}</Country>
-                                <Date>{created_date}</Date>
+                                <Country>{country}</Country>
+                                <Date>{date}</Date>
                             </Item>
                         </UserInfo>
                     </User>
-                    <ContentsItem>{content}</ContentsItem>
+                    <Contents>{editedComments}</Contents>
                     <Edit>
-                        <Icon onClick={handleEditR}>{editSvg()}</Icon>
+                        <Icon onClick={handleShowEditC}>{editSvg()}</Icon>
                     </Edit>
                 </Wrapper>
             }
@@ -69,26 +69,27 @@ function WatchReviews({user_id,content,nickname,nationality,created_date}) {
     );
 }
 
-export default WatchReviews;
+export default WatchComments;
 
-const Wrapper = styled.div`
-  background: #fafafa;
+const Wrapper= styled.div`
   border-radius: 0.5rem;
-  margin: 3rem;
+  margin: 1rem  3rem 1rem;
 `;
 
 const User = styled.div`
   display: flex;
+  padding: 0 2rem;
 `;
 
 const Img = styled.img`
-  flex: 1;
-  margin-top: 1.5rem;
-  width: 4.5rem;
-  height: 4.5rem;
-  padding: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  padding: 0.1rem;
   border-radius: 4.5rem;
+  margin: auto;
 `;
+
 
 const UserInfo = styled.div`
   flex: 100;
@@ -100,10 +101,11 @@ const UserInfo = styled.div`
 const Id = styled.div`
   color: #6f6f6f;
   width: 33.33%;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 700;
   line-height: 1.875rem;
+
 `;
 
 const Item = styled.div`
@@ -113,7 +115,7 @@ const Country = styled.p`
   flex: 4;
   margin-top: -0.2rem;
   color: #6f6f6f;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 2.125rem;
@@ -125,26 +127,26 @@ const Date = styled.div`
   margin-right: 2rem;
 `;
 
-const ContentsItem = styled.div`
+const Contents = styled.div`
+  margin-top: -1rem;
+  margin-left: 1rem;
   color: #737373;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 2.125rem;
+  line-height: 1.7rem;
   padding: 1rem 2rem;
 `;
-
 const Edit = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: -1rem;
-  margin-right: 2rem;
+  margin-right: 4rem;
 `;
-
 const Icon = styled.button`
   margin-bottom: 2rem;
   border: none;
   border-radius: 50%;
-  background: #fafafa;
+  background: #fff;
   cursor: pointer;
 `;
