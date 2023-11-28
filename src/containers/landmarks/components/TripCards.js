@@ -20,16 +20,14 @@ function TripCards() {
     useEffect(() => {
         getData()
     }, []);
-  
+
     return (
         <>
             {data.map((item)=>(
                 <Wrapper key={item.id}>
-                    <Link href="/landmarks/checkTrip">
+                    <Link href={`/landmarks/${item.id}?user=${item.id}&category=${item.categoryList}&location=${item.id}`}>
                         <ImgWrapper>
-                            {item.imageList.map((img)=>(
-                                <Img src={img}/>
-                            ))}
+                                <Img src={item.imageList[0]}/>
                             <BtnWrap onClick={(event) => {
                                 event.preventDefault()
                             }}>
