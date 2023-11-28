@@ -1,49 +1,45 @@
 import React from "react";
 import styled from "@emotion/styled";
-import FavoriteBtn from "@/pages/favorites/FavoriteBtn";
+import FavoriteBtn from "@/src/containers/favorites/FavoriteBtn";
 import Link from "next/link";
 
 
 
-function TripCards() {
-  
+function FavoriteCard() {
+
     return (
         <Wrapper>
-            <Link href="/landmarks/checkTrip">
-            <ImgWrapper>
-              <Img src="https://picsum.photos/500/300"/>
-              <BtnWrap onClick={(event) => {
-                event.preventDefault()
-              }}>
-                  <FavoriteBtn/>
-              </BtnWrap>
-            </ImgWrapper>
-                
+            <Link href="/src/containers/landmarkDetail">
+                <ImgWrapper>
+                    <Img src="https://picsum.photos/500/300"/>
+                    <BtnWrap onClick={(event) => {
+                        event.preventDefault()
+                    }}>
+                        <FavoriteBtn/>
+                    </BtnWrap>
+                </ImgWrapper>
+
                 <Title>name</Title>
-            <CategoryWrap>
-                <Category>
-                    <p>자연</p>
-                </Category>
-                <Category>
-                    <p>체험</p>
-                </Category>
-                <Category>
-                    <p>음식</p>
-                </Category>
-            </CategoryWrap>
+                <CategoryWrap>
+                    <Category>
+                        <p>자연</p>
+                    </Category>
+                    <Category>
+                        <p>체험</p>
+                    </Category>
+                    <Category>
+                        <p>음식</p>
+                    </Category>
+                </CategoryWrap>
             </Link>
-            
+
         </Wrapper>
     );
 }
 
-export default TripCards;
+export default FavoriteCard;
 
 const Wrapper = styled.div`
-  //display: flex;
-  //flex: 1;
-  //background-color: red;
-  //margin:3rem
 `;
 
 const ImgWrapper = styled.div`
@@ -56,9 +52,9 @@ const BtnWrap = styled.div`
   position: absolute;
   right: 1.5rem;
   bottom: 1.5rem;
-  color: #BABABA;
+  color:#009A78;
   :hover{
-    color:#009A78;
+    color: #BABABA;
   }
 `;
 

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { iconList } from "@/pages/landmarks/checkTrip/iconList";
+import { iconList } from "@/src/containers/landmarkDetail/components/iconList";
 
 const Wrapper = styled.div`
   margin: auto;
