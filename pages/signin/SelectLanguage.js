@@ -31,8 +31,8 @@ const SelectL=styled.div`
 
   margin-top: 1.44rem;
 
-  width: 40.875rem;
-  height: 6.25rem;
+  //width: 40.875rem; 이부분 때문에...
+  height: 5rem;
   flex-shrink: 0;
 
   p{
@@ -44,7 +44,7 @@ const SelectL=styled.div`
   }
 
   .selectLang{
-    margin: 0 0 0 2.63rem;
+    margin: 0 0 0 2rem;
     //kookoo
     display: inline-block;
     flex-shrink: 0;
@@ -54,7 +54,7 @@ const SelectL=styled.div`
     background-color: transparent;
 
     color: #808080;
-    font-size: 1.75rem;
+    font-size: 1.4rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -84,7 +84,7 @@ const SelectL=styled.div`
     justify-content: center;
 
     color: #FFF;
-    font-size: 1.375rem;
+    font-size: 1.45rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;

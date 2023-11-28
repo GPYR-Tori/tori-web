@@ -24,7 +24,11 @@ const IPCountry=styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 2.5rem auto 0 3rem;
+  //margin: 2.5rem auto 0 3rem; (기존)
+  // 좌우 넓이 맞추기 해결!
+  width: calc(100% - 6rem);
+  margin-left: 3rem;
+  margin-top: 2.5rem;
 
   p{
     color: #000;
@@ -39,8 +43,8 @@ const IPCountry=styled.div`
     flex-direction: row;
     margin-top: 1.44rem;
 
-    width: 40.875rem;
-    height: 6.25rem;
+    //width: 40.875rem;
+    height: 5rem;
     flex-shrink: 0;
 
     border: none;
@@ -52,7 +56,7 @@ const IPCountry=styled.div`
     .InputEM{
       height: 100%;
       flex-shrink: 0;
-      margin: 0 0 0 2.63rem;
+      margin: 0 0 0 2rem;
 
       //kookoo
       display: inline-block;
@@ -61,7 +65,7 @@ const IPCountry=styled.div`
       outline: none;
       background-color: #FAFAFA;;
       color: #808080;
-      font-size: 1.75rem;
+      font-size: 1.4rem;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
@@ -74,7 +78,7 @@ const IPCountry=styled.div`
       background-color: transparent;
 
       color: #009A78;
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
