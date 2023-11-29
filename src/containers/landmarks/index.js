@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import TripCards from "@/src/containers/landmarks/components/TripCards";
-import Category from "@/pages/category";
+import Category from "@/src/components/category";
 
 function Landmarks() {
 
