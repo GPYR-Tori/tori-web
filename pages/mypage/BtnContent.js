@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from "@emotion/styled";
+import Link from 'next/link';
 
 const BtnContent = () => {
     // 지워도 되는 부분
@@ -78,7 +79,7 @@ const BtnCont = styled.div`
   align-items: center;
 
   margin-top: 5.62rem;
-  margin-left: 3rem;
+  //margin-left: 3rem; (필요없음!)
   margin-right: auto;
   margin-bottom: auto;
 
@@ -91,7 +92,8 @@ const BtnCont = styled.div`
 
     margin-bottom: 1.87rem;
 
-    width: 40.75rem;
+    //width: 40.75rem; (수정)
+    width: calc(100% - 6rem);
     height: 6.25rem;
     flex-shrink: 0;
 
@@ -131,7 +133,8 @@ const BtnCont = styled.div`
 
     margin-bottom: 1.87rem;
 
-    width: 40.75rem;
+    //width: 40.75rem; (수정)
+    width: calc(100% - 6rem);
     height: 6.25rem;
     flex-shrink: 0;
 
@@ -169,7 +172,8 @@ const BtnCont = styled.div`
     justify-content: flex-start;
     align-items: center;
 
-    width: 40.75rem;
+    //width: 40.75rem; (수정)
+    width: calc(100% - 6rem);
     height: 6.25rem;
     flex-shrink: 0;
 

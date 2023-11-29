@@ -22,7 +22,8 @@ const BodyContent = () => {
 }
 
 const BodyCont=styled.div`
-  width: 40.875rem;
+  // width: 40.875rem; (수정)
+  width: calc(100% - 6rem);
   height: 8.125rem;
   flex-shrink: 0;
   margin: 6.88rem auto 0 3rem;
@@ -56,19 +57,17 @@ const BodyCont=styled.div`
     flex-direction: column;
     justify-content: center;
     margin: auto auto auto 2.25rem;
+
+    // 공통속성 여기서 정의
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 100;
+    line-height: 3.125rem; /* 131.579% */
     .userName{
       color: #009A78;
-      font-size: 2.375rem;
-      font-style: normal;
-      font-weight: 100;
-      line-height: 3.125rem; /* 131.579% */
     }
     .Welcom{
       color: #191919;
-      font-size: 2.375rem;
-      font-style: normal;
-      font-weight: 100;
-      line-height: 3.125rem;
     }
   }
   .btnLogout{
