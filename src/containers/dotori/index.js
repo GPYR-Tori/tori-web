@@ -6,13 +6,14 @@ import { MapView } from './components/MapView';
 import NavBar from '@/src/components/NavBar/NavBar';
 import { LandmarkList } from './components/LandmarkList';
 import { useEffect, useState } from 'react';
-import { getLandmark } from '@/src/api/getLandmark';
+import { fetchLandmark } from '@/src/api/fetchLandmark';
+
 
 const DotoriPage = () => {
 
   const [data, setData] = useState([]);
   useEffect( () => {
-    getLandmark().then(setData)
+    fetchLandmark().then(setData)
   }, [] )
 
   return (
@@ -21,7 +22,7 @@ const DotoriPage = () => {
       <Container>
         <AppBar />
         
-        <MapView onLocationChange={(lat, lon) => {getLandmark(lat, lon, "chacha").then(setData)}} data={data}/>
+        <MapView onLocationChange={(lat, lon) => {fetchLandmark(lat, lon, "chacha").then(setData)}} data={data}/>
         <LandmarkList/>
         
         <NavBar/>
