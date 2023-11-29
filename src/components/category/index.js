@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import CtgHeader from "@/pages/category/CtgHeader";
-import CtgPlace from "@/pages/category/CtgPlace";
+import CtgHeader from "@/src/components/category/CtgHeader";
+import CtgPlace from "@/src/components/category/CtgPlace";
 
-import CtgSelectA from "@/pages/category/CtgSelectA";
-import CtgSelectB from "@/pages/category/CtgSelectB";
+import CtgSelectA from "@/src/components/category/CtgSelectA";
+import CtgSelectB from "@/src/components/category/CtgSelectB";
 // import Navbar from "@/components/Navbar";
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import CtgPlaceBtn from "@/pages/category/CtgPlaceBtn";
+import CtgPlaceBtn from "@/src/components/category/CtgPlaceBtn";
 
 const CtgPlace=()=>{
     return(

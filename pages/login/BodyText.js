@@ -24,6 +24,7 @@ const LoginBody = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto 0 3rem;
+  //max-width: 750px;
 `;
 const LoginImg = styled.div`
   //width: 15.1875rem;
@@ -31,7 +32,7 @@ const LoginImg = styled.div`
   flex-shrink: 0;
   //align-self: flex-end;
   //margin: 0 0 0 auto;
- 
+  max-width: 750px;
 
   img {
     width: 15.1875rem;
@@ -39,6 +40,13 @@ const LoginImg = styled.div`
     object-fit: cover;
     position: absolute;
     right: 3.81rem;
+  }
+
+  @media (min-width: 751px) {
+    img {
+      position: absolute;
+      right: 20%;
+    }
   }
 `;
 const LoginText = styled.div`
