@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { iconList } from "@/src/containers/landmarkDetail/components/iconList";
+import {iconList} from "@/src/containers/landmarkDetail/components/iconList";
 
 const Wrapper = styled.div`
   margin: auto;
@@ -40,6 +40,7 @@ const Category = styled.div`
   display: flex;
   margin: 0.75rem 0;
   gap: 0.87rem;
+
   div {
     display: flex;
     //width: 4.375rem;
@@ -52,6 +53,7 @@ const Category = styled.div`
     border-radius: 0.5rem;
     border: 0.1rem solid #d0d0d0;
   }
+
   p {
     color: #a5a5a5;
     font-size: 1.25rem;
@@ -77,42 +79,42 @@ const Icon = styled.div`
     line-height: normal;
     margin: 1rem 0 1rem 0;
   }
+
   span {
     margin: 0 1rem;
   }
 `;
-function TripContents(props) {
-  return (
-    <Wrapper>
-        <Container>
-            <ImgWrap>
-                <Img src="https://i.namu.wiki/i/w11dbZZeomJI4bD3_KItw3vq7tgglcM1YQA_xHULxMsixPpY1S7KcB8WrEFhJNuSuejiiQkicGKMH12JvpUqBQ.webp" />
-            </ImgWrap>
-      <Title>{props.title}</Title>
-      {/*카테고리 조건식 추가해야됨 */}
-      <Category>
-        <div>
-          <p>{props.category}</p>
-        </div>
-        <div>
-          <p>{props.category}</p>
-        </div>
-        <div>
-          <p>{props.category}</p>
-        </div>
-      </Category>
-      <Inform>
-        <Icon>
-          {iconList.map(({ icon }) => (
-            <p>
-              {icon()}
-              <span>{props.address}</span>
-            </p>
-          ))}
-        </Icon>
-      </Inform>
-        </Container>
-    </Wrapper>
-  );
+
+function TripContents({name, imageList, address, description, price, time, site, categoryList = [], locationList}) {
+    return (
+        <Wrapper>
+            <Container>
+                <ImgWrap>
+                    <Img
+                        src="https://i.namu.wiki/i/w11dbZZeomJI4bD3_KItw3vq7tgglcM1YQA_xHULxMsixPpY1S7KcB8WrEFhJNuSuejiiQkicGKMH12JvpUqBQ.webp"/>
+                </ImgWrap>
+                <Title>{name}</Title>
+                {/*카테고리 조건식 추가해야됨 */}
+                <Category>
+                    {categoryList.map((c, index) => (
+                        <div key={index}>
+                            <p>{c}</p>
+                        </div>
+                    ))}
+                </Category>
+                <Inform>
+                    <Icon>
+                        {iconList.map(({icon}) => (
+                            <p>
+                                {icon()}
+                                <span>{address}</span>
+                            </p>
+                        ))}
+                    </Icon>
+                </Inform>
+            </Container>
+        </Wrapper>
+    );
 }
+
 export default TripContents;

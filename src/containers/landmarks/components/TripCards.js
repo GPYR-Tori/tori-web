@@ -19,16 +19,18 @@ function TripCards() {
     };
     useEffect(() => {
         getData()
+
     }, []);
 
     return (
         <>
             {data.map((item)=>(
                 <Wrapper key={item.id}>
-                    <Link href={`/landmarks/${item.id}?user=${item.id}&category=${item.categoryList}&location=${item.id}`}>
+                    {/*<Link href={`/landmarks/${item.id}?user=${item.id}&category=${item.categoryList}&location=${item.id}`}>*/}
+                    <Link href={`/landmarks/${item.id}?user=${item.id}`}>
                         <ImgWrapper>
                                 <Img src={item.imageList[0]}/>
-                            <BtnWrap onClick={(event) => {
+                            <BtnWrap  onClick={(event) => {
                                 event.preventDefault()
                             }}>
                                 <FavoriteBtn/>
@@ -74,6 +76,10 @@ const BtnWrap = styled.div`
   :hover{
     color:#009A78;
   }
+  // 지역 선택 시 active값 유지 하도록 설정, 추후에 백엔드에 넘겨줄 때 용이
+  ${p => p.active?
+          `background: #009A78;
+  color: #FFF;`:''}
 `;
 
 const Img = styled.img`

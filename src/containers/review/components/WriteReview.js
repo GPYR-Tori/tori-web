@@ -1,50 +1,36 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styled from "@emotion/styled";
 import axios from "axios";
 
-// { res
-// “id”: “리뷰 아이디”,
-// “user_id”: “사용자 아이디”,
-// “nickname”: “작성자”,
-// “nationality”: “작성자 국적”,
-// “content”: “리뷰 내용”,
-// “created_date”: “작성일”
-// }
-
-// req
-// {
-// “user_id”: “사용자 아이디”,
-// “content”: “리뷰 내용”
-// }
-
-function WriteReview() {
+function WriteReview({id}) {
     const [reviewContent, setReviewContent] = useState("");
 
     const handleReviewSubmit = async () => {
         try {
-            const user_id = ""; // 실제 사용자 아이디로 교체...?
-
             const requestBody = {
-                user_id: user_id,
+                userId: {id},
                 content: reviewContent,
             };
             // API에 POST 요청 보내기
             const response =
-                await axios.post("http://localhost:8080/landmarks/{landmark-id}/reviews", requestBody);
-            console.log("리뷰 작성 완료:", response.data);
+                await axios.post("https://tori.com/api/reviews/write", requestBody);
+            console.log("리뷰 작성 완료:",response.data );
         } catch (error) {
             console.error("리뷰 작성 에러:", error);
         }
     };
+
+    useEffect(() => {
+        handleReviewSubmit()
+    }, []);
 
     return (
         <>
             <Wrapper>
                 <form onSubmit={handleReviewSubmit}>
                     <Write
-                        name="content"
-                        id="content"
-                        value={reviewContent || ""}
+                        // name="content"
+                        // value={reviewContent || ""}
                        onChange={(e) => setReviewContent(e.target.value)} />
                 <Btn>
                     <button type={"submit"} >작성 완료</button>
@@ -60,7 +46,6 @@ export default WriteReview;
 
 
 const Wrapper = styled.div`
-  //width: 40.875rem;
   border-radius: 0.5rem;
   background: #fafafa;
   margin: 3rem;
@@ -74,6 +59,7 @@ const Write = styled.textarea`
   justify-content: center;
   background: #fafafa;
   border: none;
+  outline: none;
   color: #737373;
   font-size: 1.5rem;
   font-style: normal;

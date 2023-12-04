@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import {useState} from "react";
 import EditReview from "@/src/containers/review/components/EditReview";
 
-function WatchReviews({user_id,content,nickname,nationality,created_date}) {
+function WatchReviews({user_id,content,nickname,nationality,created_date,landmarkId}) {
     const [showEditR, setShowEditR] =useState(false);
     const [editedReview, setEditedReview] = useState({content});
 
