@@ -37,19 +37,19 @@ const Bar = styled.div`
     border-bottom: 0.125rem solid #009a78;
   }
 `;
-function TripReviewBar(props) {
+function TripReviewBar({landmarkId}) {
     return (
         <>
             <Wrapper>
 
                 <Bar>
-                    <Link href='/landmarks'>
+                    <Link href={`/landmarks/${landmarkId}`}>
                         <button>상품정보</button>
                     </Link>
                 </Bar>
                 <Bar>
-                    <Link href="/reviews">
-                        <button>리뷰 {props.reviewTotal}</button>
+                    <Link href={`/landmarks/${landmarkId}/reviews`}>
+                        <button>리뷰</button>
                     </Link>
                 </Bar>
             </Wrapper>

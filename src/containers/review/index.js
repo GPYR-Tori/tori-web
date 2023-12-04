@@ -10,7 +10,7 @@ import AppBar from "@/src/components/AppBar";
 import NavBar from "@/src/components/NavBar/NavBar";
 import axios from "axios";
 
-function Reviews() {
+function Reviews({landmarkId}) {
     const [showWriteBtn, setShowWriteBtn] = useState(true);
     const [showWatchBtn, setShowWatchBtn] = useState(false);
     const [isWriteReview, setIsWriteReview] = useState(false);
@@ -29,7 +29,8 @@ function Reviews() {
 
     const getData = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/landmarks/${landmark-id}/reviews`);
+            // /landmarks/{landmarkId}/reviews
+            const response = await axios.get(`https://tori.com/api/reviews`);
             setReviewData(response.data);
         } catch (error) {
             console.error('에러 발생:', error);
@@ -43,40 +44,41 @@ function Reviews() {
     return (
         <>
             <AppBar/>
+            <TripReviewBar />
+            <WriteReviewBtn>
+                {showWriteBtn && (
+                    <button onClick={handleWriteBtn}>리뷰 쓰기</button>
+                )}
+                {showWatchBtn && (
+                    <button onClick={handleWatchBtn}>리뷰 보기</button>
+                )}
+            </WriteReviewBtn>
             {reviewData.map((item)=>(
                 <Container key={item.id}>
-                    <TripReviewBar reviewTotal={item.total_review} />
-                    <SampleRWrap>
-                        <SampleReviews content={item.content}/>
-                    </SampleRWrap>
-                    {/*버튼 보여주기*/}
-                    <WriteReviewBtn>
-                        {showWriteBtn && (
-                            <button onClick={handleWriteBtn}>리뷰 쓰기</button>
-                        )}
-                        {showWatchBtn && (
-                            <button onClick={handleWatchBtn}>리뷰 보기</button>
-                        )}
-                    </WriteReviewBtn>
+                    {/*<SampleRWrap>*/}
+                    {/*    <SampleReviews content={item.content}/>*/}
+                    {/*</SampleRWrap>*/}
+
                     {/* 리뷰 작성 or 조회*/}
                     {isWriteReview ? (
-                        <WriteReview/>
-                        ) : (
+                        <WriteReview id={item.id}/>
+                        ) :null}
                             <WatchReviews
-                                user_id={item.user_id}
+                                user_id={item.userId}
                                 nickname={item.nickname}
-                                nationality={item.nationality}
-                                created_date={item.created_date}
+                                nationality={item.nation}
+                                created_date={item.createDate}
                                 content={item.content}
+                                landmarkId={landmarkId}
                             />
-                        )}
+
                     <WriteComments/>
                     {item.commentList ?.map((cmt,index)=>(
                         <WatchComments
-                            key={cmt.comment_id}
+                            key={index}
                             id={cmt.nickname}
-                            country={cmt.nationality}
-                            date={cmt.created_date}
+                            country={cmt.nation}
+                            date={cmt.createDate}
                             comments={cmt.content}
                         />
                     ))}
