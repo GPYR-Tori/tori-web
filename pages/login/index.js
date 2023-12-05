@@ -6,9 +6,11 @@ import AppBar from "@/src/components/AppBar";
 import NavBar from "@/src/components/NavBar/NavBar";
 import BodyText from "@/pages/login/BodyText";
 import {AiFillEye,AiFillEyeInvisible} from 'react-icons/ai';
-
+import axios from "axios";
 
 const Login=()=>{
+
+    //password 숨기기
     const [pwType,setPwType]=useState({
         type:"password",
         visible:false,
@@ -24,6 +26,27 @@ const Login=()=>{
         });
     };
 
+    const [email,setEmail]=useState('');
+    const [password,setPassword]=useState('');
+
+    const handleLogin=async ()=>{
+        const loginApi={
+            email:email,
+            password:password,
+        }
+        console.log(loginApi);
+        try {
+            const requestBody={
+                email:email,
+                password:password,
+            }
+            const response=
+                await axios.post('http://tori.com/api/login',requestBody);
+            console.log('로그인 성공 : ',response.data);
+        }catch (error){
+            console.error('로그인 오류 발생 : ',error);
+        }
+    };
     return (
         <>
         <Container>
@@ -33,37 +56,50 @@ const Login=()=>{
                 <div className={'inputDiv'}>
                     <div className={'ID'}>
                         <input
+                            name='email'
+                            id='email'
+                            value={email}
+                            onChange={(e)=>setEmail(e.target.value)}
+                            type={"text"}
                             className={'loginInput'}
                             placeholder={'아이디를 입력해주세요'}
                         />
                     </div>
                     <div className={'PW'}>
                         <input
+                            name='password'
+                            id='password'
+                            value={password}
+                            onChange={(e)=>setPassword(e.target.value)}
                             type={pwType.type}
                             minLength={8}
                             className={'pwInput'}
                             placeholder={'비밀번호를 입력해주세요'}
                         />
                         <button
+                            type={'submit'}
                             onClick={handlePWType}
                             className={'pwIcon'}>
                             {pwType.visible ?
                                 <AiFillEyeInvisible className={'iconEyeInv'}/>:<AiFillEye className={'iconEyeV'}/>}
                         </button>
                     </div>
-                    <button className={'LoginBtn'} >로그인</button>
+                    <button
+                        onClick={handleLogin}
+                        className={'LoginBtn'} >로그인</button>
                 </div>
                 <div style={{flex: 1}}/>
                 <Link href={'/signin'}>
-                  <button className={'SignInBtn'}>회원 가입</button>
+                  <button
+                      className={'SignInBtn'}>회원 가입</button>
                 </Link>
           </ContentContainer>
-        <NavBar/>
+        {/*<NavBar/>*/}
         </Container>
         </>
     );
 }
-
+export default Login;
 const Container=styled.div`
   height: 100vh;
   overflow: hidden;
@@ -210,4 +246,3 @@ const ContentContainer=styled.div`
     letter-spacing: -0.07rem;
   }
 `;
-export default Login;
