@@ -2,19 +2,30 @@ import React, { useState } from 'react';
 import styled from "@emotion/styled";
 
 const SelectGender=()=>{
+    const [selGender,setSelGender]=useState('');
+    const handleInputGender=()=>{
+        console.log('gender : ',selGender);
+    }
     return(
         <>
-            <SelectG>
+            <SelectG
+                name='selectGender'
+                id='selectGender'
+                value={selGender}
+                onChange={(e)=>setSelGender(e.target.value)}>
                 <form action="#">
                     <select className={'selectGen'} name="gender" id="gen">
-                        <option className={'selGen'} value="select">성별을 선택해주세요</option>
-                        <option className={'selm'} value="usa">남성</option>
-                        <option className={'selfm'} value="vietnam">여성</option>
-                        <option className={'selTG'} value="vietnam">제 3의 성</option>
-                        <option className={'selNA'} value="vietnam">응답안함</option>
+                        <option className={'selGen'} value="select">Please select your gender.</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="ThirdGender">Third gender</option>
+                        <option value="NoResponse">No response</option>
                     </select>
                 </form>
-                <button className={'inputBtn'}>선택</button>
+                <button
+                    type={"button"}
+                    onClick={handleInputGender}
+                    className={'inputBtn'}>select</button>
             </SelectG>
         </>
     )

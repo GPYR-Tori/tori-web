@@ -1,17 +1,34 @@
 import React, { useState } from 'react';
 import styled from "@emotion/styled";
 
-const InputEmail = () => {
+const InputEmail = (props) => {
+    const [email,setEmail]=useState('');
+    const handleEmail=(e)=>{
+        setEmail(e.currentTarget.value);
+    }
+    const submitEmail=()=>{
+        props.propFunction(email)
+    }
     return (
         <>
             <IPEmail>
-                <p>이메일</p>
+                {/*<p>이메일</p>*/}
+                <p>Email</p>
                 <div className={'inputElem'}>
                     <input
+                        name="email"
+                        id="email"
+                        // value={email||""}
+                        value={email}
+                        // onChange={(e)=>setEmail(e.target.value)}
+                        onChange={handleEmail}
                         className={'InputEM'}
-                        placeholder={'이메일을 입력해주세요'}
+                        placeholder={'Please enter your e-mail.'}
                     />
-                    <button className={'inputBtn'}>중복확인</button>
+                    <button
+                        onClick={submitEmail}
+                        type={'submit'}
+                        className={'inputBtn'}>check</button>
                 </div>
             </IPEmail>
         </>

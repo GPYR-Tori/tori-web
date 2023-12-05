@@ -1,28 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from '@emotion/styled';
-import CtgHeader from "@/pages/category/CtgHeader";
-import CtgPlace from "@/pages/category/CtgPlace";
-
-import CtgSelectA from "@/pages/category/CtgSelectA";
-import CtgSelectB from "@/pages/category/CtgSelectB";
+import CtgPlace from "@/src/components/categories/CtgPlace";
+import CtgSelect from "@/src/components/categories/CtgSelect";
 // import Navbar from "@/components/Navbar";
 
-
 const Category=()=>{
-
     return(
         <>
-
             <Container>
-                {/* 헤더 필요없을 듯 */}
-                {/* <CtgHeader/> */}
                 <div className={'ctgText'}>
                     <p>카테고리</p>
                 </div>
-                <div className={'CtgSelectDiv'}>
-                    <CtgSelectA />
-                    <CtgSelectB />
-                </div>
+                <CtgSelect />
                 <CtgPlace />
             </Container>
         </>
@@ -30,10 +19,10 @@ const Category=()=>{
 }
 
 const Container=styled.div`
-
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  //justify-content: center;
   // 넓이 100% 설정
   width: 100%;
 
@@ -54,6 +43,11 @@ const Container=styled.div`
     flex-shrink: 0;
 
     margin: 0 auto 3rem 3rem;
+    p{
+      ${p=>p.active?
+              `background:none;
+        color:#009A78;`:''
+      }
   }
 `;
 

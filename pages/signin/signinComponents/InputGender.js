@@ -1,17 +1,28 @@
 import React, { useState } from 'react';
 import styled from "@emotion/styled";
-import SelectGender from "@/pages/signin/SelectGender";
+import SelectGender from "@/pages/signin/signinComponents/SelectGender";
 
 const InputGender = () =>{
+    const [gender,setGender]=useState('');
     return(
         <>
             <IPGender>
-                <p>성별</p>
+                {/*<p>성별</p>*/}
+                <p>Gender</p>
                 {/*<input*/}
+                {/*    name='gender'*/}
+                {/*    id='gender'*/}
+                {/*    value={gender||""}*/}
+                {/*    onChange={(e)=>setGender(e.target.value)}*/}
                 {/*    className={"inputGender"}*/}
-                {/*    type={"text"}*/}
                 {/*    placeholder={'  성별을 선택해주세요'} />*/}
-                <SelectGender />
+                <SelectGender
+                    name='gender'
+                    id='gender'
+                    value={gender||""}
+                    onChange={(e)=>setGender(e.target.value)}
+                    className={"inputGender"}
+                />
             </IPGender>
         </>
     )

@@ -3,6 +3,8 @@ import styled from "@emotion/styled";
 import {AiFillEye,AiFillEyeInvisible} from 'react-icons/ai';
 
 const InputPw=()=>{
+    const [password,setPassword]=useState('');
+
     const [pwType,setPwType]=useState({
         type:"password",
         visible:false,
@@ -17,19 +19,24 @@ const InputPw=()=>{
                 return{type:'password',visible:false};
             }
         });
+        console.log('password : ',password);
     };
 
     return(
         <>
             <IPpw>
-                <p>비밀번호</p>
+                {/*<p>비밀번호</p>*/}
+                <p>Password</p>
                 <div className={'inputElem'}>
                     {/*1. 비밀번호 input*/}
                     <input
-                        type={pwType.type}
+                        name="password"
+                        id="password"
+                        value={password||""}
+                        onChange={(e)=>setPassword(e.target.value)}
                         minLength={8}
                         className={'InputEM'}
-                        placeholder={'영문+숫자 최소 8자 이상 입력해주세요'}
+                        placeholder={'Please enter at least 8 letters and numbers.'}
                     />
                     <button
                         onClick={handlePwType}

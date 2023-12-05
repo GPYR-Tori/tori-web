@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import styled from "@emotion/styled";
-import SelectLanguage from "@/pages/signin/SelectLanguage";
+import SelectLanguage from "@/pages/signin/signinComponents/SelectLanguage";
 
 const InputLanguage=()=>{
+    const [language,setLanguage]=useState('');
+    const handleInputLanguage=()=>{
+        console.log('language : ',language);
+    }
+
     return(
         <>
             <IPLanguage>
-                <p>언어</p>
-                {/*<input*/}
-                {/*    className={"inputLang"}*/}
-                {/*    type={"text"}*/}
-                {/*    placeholder={'  언어를 선택해주세요'} />*/}
-                <SelectLanguage />
+                {/*<p>언어</p>*/}
+                <p>Language</p>
+                <SelectLanguage
+                    name='language'
+                    id='language'
+                    value={language||""}
+                    onChange={(e)=>setLanguage(e.target.value)}
+                    className={"inputLang"}
+                />
             </IPLanguage>
         </>
     )

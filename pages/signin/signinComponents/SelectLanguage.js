@@ -2,20 +2,32 @@ import React, { useState } from 'react';
 import styled from "@emotion/styled";
 
 const SelectLanguage=()=>{
+    const [selLang,setSelLang]=useState('');
+    const handleInputLanguage=()=>{
+        console.log('language : ',selLang);
+    }
     return(
         <>
-            <SelectL>
-                <form action="#">
+            <SelectL
+                name='selectLanguage'
+                id='selectLanguage'
+                value={selLang}
+                onChange={(e)=>setSelLang(e.target.value)}>
+                <form
+                    action="#">
                     <select className={'selectLang'} name="language" id="lang">
-                        <option className={'selLang'} value="select">언어를 선택하세요</option>
-                        <option className={'selUsa'} value="usa">영어</option>
-                        <option className={'selViet'} value="vietnam">베트남어</option>
-                        <option className={'selJa'} value="japan">일본어</option>
-                        <option className={'selCh'} value="china">중국어</option>
-                        <option className={'selTh'} value="thai">태국어</option>
+                        <option className={'selLang'} value="select">Please select a language.</option>
+                        <option className={'selUsa'} value="usa">English</option>
+                        <option className={'selViet'} value="vietnam">Vietnamese</option>
+                        <option className={'selJa'} value="japan">Japanese</option>
+                        <option className={'selCh'} value="china">Chinese</option>
+                        <option className={'selTh'} value="thai">Thai</option>
                     </select>
                 </form>
-                <button className={'inputBtn'}>선택</button>
+                <button
+                    type={'button'}
+                    onClick={handleInputLanguage}
+                    className={'inputBtn'}>select</button>
             </SelectL>
         </>
     )

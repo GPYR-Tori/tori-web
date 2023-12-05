@@ -1,24 +1,36 @@
 import React, { useState } from 'react';
 import styled from "@emotion/styled";
 
-const InputNickname=()=>{
+const InputCountry=()=>{
+    const [nation,setNation]=useState('');
+    const handleInputCountry=()=>{
+        console.log('country : ',nation);
+    }
     return(
         <>
-            <IPNickname>
-                <p>닉네임</p>
-                <div className={'inputElem'}>
+            <IPCountry>
+                {/*<p>국적</p>*/}
+                <p>Nation</p>
+                <div className={'inputC'}>
                     <input
+                        name='nation'
+                        id='nation'
+                        value={nation||""}
+                        onChange={(e)=>setNation(e.target.value)}
                         className={'InputEM'}
-                        placeholder={'닉네임을 입력해주세요'}
+                        placeholder={'Please enter your nationality.'}
                     />
-                    <button className={'inputBtn'}>중복확인</button>
+                    <button
+                        type={"button"}
+                        onClick={handleInputCountry}
+                        className={'inputBtn'}>submit</button>
                 </div>
-            </IPNickname>
+            </IPCountry>
         </>
     )
 }
 
-const IPNickname=styled.div`
+const IPCountry=styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,25 +48,28 @@ const IPNickname=styled.div`
     line-height: normal;
   }
 
-  .inputElem{
+  .inputC{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1.44rem;
+
     //width: 40.875rem;
     height: 5rem;
     flex-shrink: 0;
-    background-color: #FAFAFA;
-    margin-top: 1.44rem;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+    border: none;
+    outline: none;
+
+    border-radius: 0.5rem;
+    background: #FAFAFA;
 
     .InputEM{
       height: 100%;
+      flex-shrink: 0;
       margin: 0 0 0 2rem;
 
       //kookoo
       display: inline-block;
-      flex-shrink: 0;
 
       border: none;
       outline: none;
@@ -64,14 +79,12 @@ const IPNickname=styled.div`
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      letter-spacing: -0.035rem;
     }
 
     .inputBtn{
       //flex-shrink: 0;
       margin: 0 2.25rem 0 auto;
       border: none;
-      outline: none;
       background-color: transparent;
 
       color: #009A78;
@@ -82,4 +95,5 @@ const IPNickname=styled.div`
     }
   }
 `;
-export default InputNickname;
+
+export default InputCountry;
