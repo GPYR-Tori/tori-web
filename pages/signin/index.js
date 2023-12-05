@@ -83,8 +83,8 @@ const Signin = () => {
     return (
         <>
             <Container>
+                <AppBar/>
                 <ContentContainer>
-                    <AppBar/>
                     <EmailInput>
                         <p>Email</p>
                         <div className={'inputElem'}>
@@ -214,8 +214,8 @@ const Signin = () => {
                             Join the membership
                         </button>
                     </GenderInput>
-                    <NavBar/>
                 </ContentContainer>
+                <NavBar/>
             </Container>
         </>
     )
@@ -223,16 +223,24 @@ const Signin = () => {
 export default Signin;
 const Container = styled.div`
   height: 100vh;
+  
+  // 스크롤 수정
+  display: flex;
+  flex-direction: column;
 `
 const ContentContainer=styled.div`
   display: flex;
   flex-direction: column;
 
+  // 스크롤 수정
+  flex: 1;
+
   //스크롤
   overflow: scroll;
-  &::-webkit-scrollbar{
+
+  /* &::-webkit-scrollbar{
     display: none;
-  }
+  } */
 
   .signinBtn{
     //width: 40.625rem; (기존)
