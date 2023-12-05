@@ -113,12 +113,14 @@ const Signin = () => {
                                 id="password"
                                 value={password}
                                 onChange={(e)=>setPassword(e.target.value)}
+                                type={pwType.type}
                                 minLength={8}
                                 className={'InputEM'}
                                 placeholder={'Please enter at least 8 letters and numbers.'}
                             />
                             <button
-                                type={'submit'}
+                                // type={'submit'}
+                                type={'button'}
                                 onClick={handlePWType}
                                 className={'pwIcon'}>
                                 {pwType.visible ?
@@ -227,6 +229,8 @@ const Container = styled.div`
   // 스크롤 수정
   display: flex;
   flex-direction: column;
+
+  
 `
 const ContentContainer=styled.div`
   display: flex;
@@ -238,9 +242,9 @@ const ContentContainer=styled.div`
   //스크롤
   overflow: scroll;
 
-  /* &::-webkit-scrollbar{
+  &::-webkit-scrollbar{
     display: none;
-  } */
+  }
 
   .signinBtn{
     //width: 40.625rem; (기존)
@@ -307,7 +311,7 @@ const EmailInput=styled.div`
 
 
       color: #808080;
-      font-size: 1.4rem;
+      //font-size: 1.4rem;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
@@ -381,7 +385,7 @@ const PasswordInput=styled.div`
       letter-spacing: -0.035rem;
     }
 
-    .inputBtn{
+    .pwIcon{
       flex-shrink: 0;
       //width: 100%;
       margin: 0 2.25rem 0 auto;

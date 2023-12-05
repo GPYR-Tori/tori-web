@@ -77,7 +77,8 @@ const Login=()=>{
                             placeholder={'비밀번호를 입력해주세요'}
                         />
                         <button
-                            type={'submit'}
+                            // type={'submit'}
+                            type={'button'}
                             onClick={handlePWType}
                             className={'pwIcon'}>
                             {pwType.visible ?
