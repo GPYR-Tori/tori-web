@@ -15,10 +15,26 @@ import NavBar from '@/src/components/NavBar/NavBar';
 // import CtgTestP from "@/pages/signin/CtgTestP";
 
 import {AiFillEye, AiFillEyeInvisible} from "react-icons/ai";
-import SelectLanguage from "@/pages/signin/signinComponents/SelectLanguage";
-import SelectGender from "@/pages/signin/signinComponents/SelectGender";
+// import SelectLanguage from "@/pages/signin/signinComponents/SelectLanguage";
+// import SelectGender from "@/pages/signin/signinComponents/SelectGender";
 
 const Signin = () => {
+
+    const [pwType,setPwType]=useState({
+        type:"password",
+        visible:false,
+    });
+
+    const handlePWType = (e) => {
+        setPwType(()=>{
+            if (!pwType.visible){
+                return {type:'text',visible:true};
+            }else{
+                return {type:'password',visible: false}
+            }
+        });
+    };
+
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
     const [nickname,setNickname]=useState('');
@@ -54,43 +70,6 @@ const Signin = () => {
         }
     };
 
-    // const [password,setPassword]=useState('');
-
-    const [pwType,setPwType]=useState({
-        type:"password",
-        visible:false,
-    });
-
-    const handlePwType = (e) => {
-        setPwType(()=>{
-            if (!pwType.visible) {
-                // 만약 현재 pwType.visible이 false라면
-                return {type:'text',visible:true};
-            }else{
-                return{type:'password',visible:false};
-            }
-        });
-        console.log('password : ',password);
-    };
-    // const handleSignin=async ()=>{
-    //     try {
-    //         const requestBody={
-    //             email:isEmail,
-    //             password:isPassword,
-    //             gender:isGender,
-    //             nation:isNation,
-    //             language:isLanguage,
-    //             nickname:isNickname,
-    //         }
-    //         //api POST 요청
-    //         const response =
-    //             await axios.post(`${ApiBaseUrl}/join`,requestBody);
-    //         console.log('회원가입 성공 : ',response.data);
-    //     }catch (error){
-    //         console.error('회원가입 오류발생 : ',error);
-    //     }
-    // };
-
     const [selLang,setSelLang]=useState('');
     const handleInputLanguage=()=>{
         console.log('language : ',selLang);
@@ -120,7 +99,6 @@ const Signin = () => {
                                 placeholder={'Please enter your e-mail.'}
                             />
                             <button
-                                // onClick={submitEmail}
                                 type={'submit'}
                                 className={'inputBtn'}>check</button>
                         </div>
@@ -133,7 +111,6 @@ const Signin = () => {
                             <input
                                 name="password"
                                 id="password"
-                                // value={password||""}
                                 value={password}
                                 onChange={(e)=>setPassword(e.target.value)}
                                 minLength={8}
@@ -141,8 +118,9 @@ const Signin = () => {
                                 placeholder={'Please enter at least 8 letters and numbers.'}
                             />
                             <button
-                                onClick={handlePwType}
-                                className={'inputBtn'}>
+                                type={'submit'}
+                                onClick={handlePWType}
+                                className={'pwIcon'}>
                                 {pwType.visible ?
                                     <AiFillEyeInvisible className={'iconEyeInv'}/>:<AiFillEye className={'iconEyeV'}/>}
                             </button>
@@ -155,14 +133,12 @@ const Signin = () => {
                             <input
                                 name='nickname'
                                 id='nickname'
-                                // value={nickname||""}
                                 value={nickname}
                                 onChange={(e)=>setNickname(e.target.value)}
                                 className={'InputEM'}
                                 placeholder={'Please enter your nickname.'}
                             />
                             <button
-                                // onClick={handleInputNickname}
                                 className={'inputBtn'}>check</button>
                         </div>
                     </NicknameInput>
@@ -173,7 +149,6 @@ const Signin = () => {
                             <input
                                 name='nation'
                                 id='nation'
-                                // value={nation||""}
                                 value={nation}
                                 onChange={(e)=>setNation(e.target.value)}
                                 className={'InputEM'}
@@ -181,25 +156,18 @@ const Signin = () => {
                             />
                             <button
                                 type={"button"}
-                                // onClick={handleInputCountry}
                                 className={'inputBtn'}>submit</button>
                         </div>
                     </CountryInput>
                     <LanguageInput>
                         <p>Language</p>
-                        {/*<SelectLanguage*/}
-                        {/*    name='language'*/}
-                        {/*    id='language'*/}
-                        {/*    // value={language||""}*/}
-                        {/*    value={language}*/}
-                        {/*    onChange={(e)=>setLanguage(e.target.value)}*/}
-                        {/*    className={"inputLang"}*/}
-                        {/*/>*/}
                         <div
                             name='Language'
                             id='Language'
                             value={language}
-                            onChange={(e)=>setLanguage(e.target.value)}>
+                            onChange={(e)=>setLanguage(e.target.value)}
+                            className={'selectLanguage'}
+                        >
                             <form
                                 action="#">
                                 <select className={'selectLang'} name="language" id="lang">
@@ -223,7 +191,8 @@ const Signin = () => {
                             name='Gender'
                             id='Gender'
                             value={gender}
-                            onChange={(e)=>setGender(e.target.value)}>
+                            onChange={(e)=>setGender(e.target.value)}
+                            className={'selectGender'}>
                             <form action="#">
                                 <select className={'selectGen'} name="gender" id="gen">
                                     <option className={'selGen'} value="select">Please select your gender.</option>
@@ -251,18 +220,15 @@ const Signin = () => {
         </>
     )
 }
-
+export default Signin;
 const Container = styled.div`
   height: 100vh;
-  //display: flex;
-  //flex-direction: column;
 `
 const ContentContainer=styled.div`
   display: flex;
   flex-direction: column;
-  //flex: 1;
-  //스크롤
 
+  //스크롤
   overflow: scroll;
   &::-webkit-scrollbar{
     display: none;
@@ -292,7 +258,6 @@ const ContentContainer=styled.div`
   ;
   }
 `;
-// const AppBar=styled.div``;
 const EmailInput=styled.div`
   display: flex;
   flex-direction: column;
@@ -514,6 +479,80 @@ const LanguageInput=styled.div`
     font-weight: 700;
     line-height: normal;
   }
+
+  .selectLanguage{
+    display: flex;
+    background-color: #FAFAFA;
+
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin-top: 1.44rem;
+
+    height: 5rem;
+    flex-shrink: 0;
+
+
+    p{
+      color: #808080;
+      font-size: 1.75rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .selectLang{
+      margin: 0 0 0 2rem;
+      //kookoo
+      display: inline-block;
+      flex-shrink: 0;
+
+      border: none;
+      outline: none;
+      background-color: transparent;
+
+      color: #808080;
+      font-size: 1.4rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+
+      select::-ms-expand{
+        display: none;
+      }
+    }
+    .inputBtn{
+      width: 5.5625rem;
+      height: 3.3125rem;
+      flex-shrink: 0;
+
+      margin: auto 1.31rem auto auto;
+
+      border: none;
+      outline: none;
+      border-radius: 0.625rem;
+      background: #D9D9D9;
+
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+
+      color: #FFF;
+      font-size: 1.45rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: -0.0275rem;
+
+      &:hover{
+        background-color: #009A78;
+      }
+    }
 `;
 const GenderInput=styled.div`
   display: flex;
@@ -532,7 +571,80 @@ const GenderInput=styled.div`
     font-weight: 700;
     line-height: normal;
   }
+  .selectGender{
+    display: flex;
+    background-color: #FAFAFA;
 
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin-top: 1.44rem;
+    
+    height: 5rem;
+    flex-shrink: 0;
+    
+
+    p{
+      color: #808080;
+      font-size: 1.75rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .selectGen{
+      margin: 0 0 0 2rem;
+      //kookoo
+      display: inline-block;
+      flex-shrink: 0;
+
+      border: none;
+      outline: none;
+      background-color: transparent;
+
+      color: #808080;
+      font-size: 1.4rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+
+      select::-ms-expand{
+        display: none;
+      }
+    }
+    .inputBtn{
+      width: 5.5625rem;
+      height: 3.3125rem;
+      flex-shrink: 0;
+
+      margin: auto 1.31rem auto auto;
+
+      border: none;
+      outline: none;
+      border-radius: 0.625rem;
+      background: #D9D9D9;
+
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+
+      color: #FFF;
+      font-size: 1.45rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: -0.0275rem;
+
+      &:hover{
+        background-color: #009A78;
+      }
+    }
+  }
 `;
 
 const CountryInput=styled.div`
@@ -600,6 +712,3 @@ const CountryInput=styled.div`
     }
   }
 `;
-
-
-export default Signin;
