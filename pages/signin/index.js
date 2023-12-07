@@ -229,8 +229,6 @@ const Container = styled.div`
   // 스크롤 수정
   display: flex;
   flex-direction: column;
-
-  
 `
 const ContentContainer=styled.div`
   display: flex;
