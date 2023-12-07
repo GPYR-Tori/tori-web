@@ -209,13 +209,13 @@ const Signin = () => {
                                 onClick={handleInputGender}
                                 className={'inputBtn'}>select</button>
                         </div>
-                        <button
-                            type={'button'}
-                            onClick={handleSignin}
-                            className={'signinBtn'}>
-                            Join the membership
-                        </button>
                     </GenderInput>
+                    <button
+                        type={'button'}
+                        onClick={handleSignin}
+                        className={'signinBtn'}>
+                        Join the membership
+                    </button>
                 </ContentContainer>
                 <NavBar/>
             </Container>
