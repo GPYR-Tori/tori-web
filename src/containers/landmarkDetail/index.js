@@ -5,7 +5,7 @@ import TripReviewBar from "@/src/containers/landmarkDetail/components/TripReview
 
 
 function LandmarkDetail({data, landmarkId}) {
-    const {name, imageList,address,description,price ,time,site,categoryList,locationList} = data
+    const {name,phoneNum, imageList=[],address,description,price ,time,site,categoryList=[],locationList=[]} = data
   return (
     <>
       <TripContents
@@ -14,10 +14,13 @@ function LandmarkDetail({data, landmarkId}) {
         address={address}
         time={time}
         price={price}
-        call={"전화번호"}
-      />
+        phoneNum={phoneNum}
+        site={site}
+        imageList={imageList}
+        locationList={locationList}
+    />
         <TripReviewBar landmarkId={landmarkId} />
-        <TripInfo/>
+        <TripInfo description={description}   imageList={imageList}/>
     </>
   );
 }
