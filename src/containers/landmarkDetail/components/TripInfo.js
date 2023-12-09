@@ -32,22 +32,20 @@ const Img = styled.img`
   border-radius: 0.5rem;
 `;
 
-
-function TripInfo() {
+// description={description}   imageList={imageList}
+function TripInfo({description,imageList}) {
   return (
     <>
       <Wrapper>
         <Contents>
-          여행지 설명 어쩌구 저쩌구 얄리얄리 얄라샹 얄라릴 얄라
-          오로로로하후ㅜㅎ라ㅏㅜ 호로로ㅓ아노ㅓㅇ 콩콩팥팥 재밌다 최고다 도경수
-          너무 귀여워
+          {description}
         </Contents>
-        <ImgWrap>
-          <Img src="https://i.namu.wiki/i/w11dbZZeomJI4bD3_KItw3vq7tgglcM1YQA_xHULxMsixPpY1S7KcB8WrEFhJNuSuejiiQkicGKMH12JvpUqBQ.webp" />
-        </ImgWrap>
-        <ImgWrap>
-          <Img src="https://i.namu.wiki/i/w11dbZZeomJI4bD3_KItw3vq7tgglcM1YQA_xHULxMsixPpY1S7KcB8WrEFhJNuSuejiiQkicGKMH12JvpUqBQ.webp" />
-        </ImgWrap>
+        {imageList.map((item)=>(
+            <ImgWrap>
+              <Img src={item}/>
+            </ImgWrap>
+        ))}
+
       </Wrapper>
     </>
   );
