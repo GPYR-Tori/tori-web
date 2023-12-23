@@ -1,33 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import styled from "@emotion/styled";
-import FavoriteBtn from "src/containers/favorites/FavoriteBtn.js";
+import FavoriteBtn from "@/src/containers/favorites/components/FavoriteBtn.js";
 import Link from "next/link";
-import axios from "axios";
 
-
-
-
-function TripCards() {
-    const [data,setData] =useState([])
-    const getData = async () => {
-        try {
-            const response = await axios.get(`https://tori.com/api/landmarks`);
-            setData(response.data);
-        } catch (error) {
-            console.error('에러 발생:', error);
-        }
-    };
-    useEffect(() => {
-        getData()
-
-    }, []);
-
+function TripCards({data,userId}) {
+    if(!userId) userId=''
     return (
         <>
             {data.map((item)=>(
-                <Wrapper key={item.id}>
-                    {/*<Link href={`/landmarks/${item.id}?user=${item.id}&category=${item.categoryList}&location=${item.id}`}>*/}
-                    <Link href={`/landmarks/${item.id}?user=${item.id}`}>
+                <Wrapper key={item.landmarkId}>
+                    <Link href={`/landmarks/${item.landmarkId}?user=${userId}`}>
                         <ImgWrapper>
                                 <Img src={item.imageList[0]}/>
                             <BtnWrap  onClick={(event) => {
@@ -79,7 +61,7 @@ const BtnWrap = styled.div`
   // 지역 선택 시 active값 유지 하도록 설정, 추후에 백엔드에 넘겨줄 때 용이
   ${p => p.active?
           `background: #009A78;
-  color: #FFF;`:''}
+          color: #FFF;`:''}
 `;
 
 const Img = styled.img`
