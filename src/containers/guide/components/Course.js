@@ -2,56 +2,44 @@ import React, {useEffect, useState} from "react";
 import styled from "@emotion/styled";
 import axios from "axios";
 
-function Course() {
-    const [guide, setGuide] = useState([]);
-    const getData = async () => {
-        try {
-            const res = await axios.get(`http://localhost:8080/guide/${id}`);
-            setGuide(res.data);
-        } catch (error) {
-            console.error("데이터를 불러오는 중 에러 발생:", error);
-        }
-    };
-    useEffect(() => {
-        getData();
-    }, []);
+function Course({A_course,B_course,C_course,D_course,E_course}) {
+
     return (
         <>
             <Title>코스설명</Title>
-            {guide.map((item) => (
-                <Wrapper key={item.id}>
+                <Wrapper>
                     <Contents >
                         <p>A코스</p>
-                        {item.A_course.map((a_item, index)=>(
+                        {A_course.map((a_item, index)=>(
                             <Item key={index}>{a_item}</Item>
                             ))}
                     </Contents>
                     <Contents>
                         <p>B코스</p>
-                        {item.B_course.map((b_item, index)=>(
+                        {B_course.map((b_item, index)=>(
                             <Item key={index}>{b_item}</Item>
                         ))}
                     </Contents>
                     <Contents>
                         <p>C코스</p>
-                        {item.C_course.map((c_item, index)=>(
+                        {C_course.map((c_item, index)=>(
                             <Item key={index}>{c_item}</Item>
                         ))}
                     </Contents>
                     <Contents>
                         <p>D코스</p>
-                        {item.D_course.map((d_item, index)=>(
+                        {D_course.map((d_item, index)=>(
                             <Item key={index}>{d_item}</Item>
                         ))}
                     </Contents>
                     <Contents>
                         <p>E코스</p>
-                        {item.E_course.map((e_item, index)=>(
+                        {E_course.map((e_item, index)=>(
                             <Item key={index}>{e_item}</Item>
                         ))}
                     </Contents>
                 </Wrapper>
-            ))};
+
         </>
     );
     }
