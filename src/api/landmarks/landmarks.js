@@ -2,32 +2,25 @@ import axios from "axios";
 
 
 const httpClient = axios.create({
-    baseURL: "http://localhost:8080",
+    baseURL:`https://tori.com/api/`,
     timeout: 10000,
 })
 
-// 여행지를 가져오는 API
-// GET /landmarks
-export const fetchLandmarksAll = async (params) => {
-    const {data} = await httpClient({
+// 여행지를 가져오는 api
+export const GetLandmarksData = async () => {
+    const response = await httpClient({
         method: "get",
-        url: "/landmarks",
-        //id는 고정값이 아니라서 함수 밖에서 받아와야됨
-        // params: {
-        //     landmark_id:id,
-        // }
-        params
+        url: `landmarks`,
     })
-    return data;
+    return response.data;
 }
 
-//상세 여행지 조회 api
-//get //landmarks/{landmarkId}
-
-export const fetchLandmarksDetail = async (params) => {
-    const {data} = await httpClient({
+//상세 서여행지 조회 api
+export const GetLandmarksDetailData = async (landmarksId) => {
+    const response = await ({
         method: "get",
-        url: "/landmarks",
-        params
+        url: `landmarks/${landmarksId}`,
     })
+    console.log("response.data",response.data)
+    return response.data;
 }

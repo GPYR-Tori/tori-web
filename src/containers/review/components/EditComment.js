@@ -1,35 +1,46 @@
 import React, {useState} from "react";
 import styled from "@emotion/styled";
 import {ImCancelCircle} from "react-icons/im";
+import EditBtn from "@/src/containers/review/components/Btn/EditBtn";
+import axios from "axios";
 
-
-function EditComments({initialReview, onSave,onUpdateComments}) {
-    const [editedC, setEditedC] = useState(initialReview);
+function EditComments({content,reviewId,onUpdateComments,nickname,date,nation,commentId,setIsShowEditComments,userId}) {
+    // editedComments는 WatchComments 에서도 쓰임
+    const [editedComments, setEditedComments] = useState(content);
     const handleCommentChange = (e) => {
-        setEditedC(e.target.value);
+        setEditedComments(e.target.value);
     };
 
-    const handleSave = () => {
-        // Call the onSave prop with the edited review
-        onSave(editedC);
-        // Call the onUpdateReview prop to update the review in WatchReviews
-        onUpdateComments(editedC);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const requestBody = {
+                userId: {userId},
+                content: editedComments,
+            };
+            await axios.patch(`/reviews/${reviewId}/comments/${commentId}`, requestBody);
+            // 리뷰 창 닫기
+            setIsShowEditComments(false);
+            onUpdateComments(editedComments);
+            console.log("댓글 수정 완료:", requestBody);
+        } catch (error) {
+            console.error("댓글 수정 에러:", error);
+        }
     };
-    const editSvg = () => (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="17"
-            height="17"
-            viewBox="0 0 24 24"
-        >
-            <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M12.335 5.45399L3.27301 14.516L2.03701 19.126L1.22401 22.163C1.20143 22.2478 1.20154 22.3371 1.22433 22.4219C1.24713 22.5067 1.29181 22.584 1.35389 22.6461C1.41598 22.7082 1.49329 22.7529 1.57808 22.7757C1.66287 22.7985 1.75216 22.7986 1.83701 22.776L4.87201 21.962L9.48301 20.726H9.48401L18.546 11.664L12.336 5.45399H12.335ZM22.293 6.50399L17.497 1.70699C17.4042 1.61404 17.294 1.54031 17.1727 1.48999C17.0514 1.43968 16.9213 1.41379 16.79 1.41379C16.6587 1.41379 16.5286 1.43968 16.4073 1.48999C16.286 1.54031 16.1758 1.61404 16.083 1.70699L13.608 4.18099L19.819 10.392L22.293 7.91699C22.386 7.8242 22.4597 7.714 22.51 7.59268C22.5603 7.47137 22.5862 7.34132 22.5862 7.20999C22.5862 7.07866 22.5603 6.94861 22.51 6.8273C22.4597 6.70598 22.386 6.59578 22.293 6.50299"
-                fill="#009A78"
-            />
-        </svg>
-    );
+    const handleDelete = async (e) => {
+        e.preventDefault();
+        try {
+            const requestBody = {
+                userId: {userId},
+            };
+            await axios.delete(`/reviews/${reviewId}/comments/${commentId}`, requestBody);
+            alert('Your review has been successfully deleted.')
+            console.log("삭제한 userId",userId)
+        } catch (error) {
+            console.error("리뷰 삭제 에러:", error);
+        }
+    };
+
     return (
         <EditWrapper>
             <User>
@@ -39,21 +50,30 @@ function EditComments({initialReview, onSave,onUpdateComments}) {
                 />
                 <UserInfo>
                     <Item>
-                        <Id>토리</Id>
-                        <CancelBtn>
+                        <Id>{nickname}</Id>
+                        <DeleteBtn onClick={handleDelete}>
                             <ImCancelCircle className={'xicon'}/>
-                        </CancelBtn>
+                        </DeleteBtn>
                     </Item>
                     <Item>
-                        <Country>미국</Country>
-                        <Date>2023-11-02</Date>
+                        <Country>{nation}</Country>
+                        <Date>{date}</Date>
                     </Item>
                 </UserInfo>
             </User>
-            <Write value={editedC} onChange={handleCommentChange}/>
-            <Edit>
-                <Icon>{editSvg()}</Icon>
-            </Edit>
+            <form onSubmit={handleSubmit}>
+                <Write
+                    type='text'
+                    value={editedComments}
+                    onChange={handleCommentChange}
+                />
+                <Edit>
+                    <IconWrap>
+                        <EditBtn type={'submit'}/>
+                    </IconWrap>
+                </Edit>
+            </form>
+
         </EditWrapper>
     );
 }
@@ -65,7 +85,7 @@ const EditWrapper = styled.div`
   margin: 0  3rem 1rem;
 `;
 
-const CancelBtn = styled.button`
+const DeleteBtn = styled.button`
   margin-right: 2rem;
   margin-bottom: 0.5rem;
   border: none;
@@ -101,6 +121,13 @@ const Edit = styled.div`
   margin-right: 4rem;
 `;
 
+const IconWrap = styled.button`
+  margin-bottom: 2rem;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+`;
 const User = styled.div`
   display: flex;
   padding: 0 2rem;
@@ -151,11 +178,4 @@ const Date = styled.div`
   color: #737373;
   align-items: flex-end;
   margin-right: 2rem;
-`;
-const Icon = styled.button`
-  margin-bottom: 2rem;
-  border: none;
-  border-radius: 50%;
-  background: #fff;
-  cursor: pointer;
 `;

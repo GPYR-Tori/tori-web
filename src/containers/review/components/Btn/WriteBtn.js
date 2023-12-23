@@ -1,5 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled";
+
+function WriteBtn () {
+    return (
+        <Edit>
+            <button>Enter</button>
+        </Edit>
+    );
+}
+
 const Edit = styled.div`
   display: flex;
   align-items: center;
@@ -20,12 +29,5 @@ const Edit = styled.div`
     cursor: pointer;
   }
 `;
-function WriteBtn () {
-    return (
-        <Edit>
-            <button>작성</button>
-        </Edit>
-    );
-}
 
 export default WriteBtn;

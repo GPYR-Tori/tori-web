@@ -1,19 +1,13 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-const Icon = styled.button`
-  margin-bottom: 2rem;
-  border: none;
-  border-radius: 50%;
-  background: #fff;
-  cursor: pointer;
-`;
-function EditCommentBtn() {
+
+function EditBtn() {
     const editSvg = () => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="17"
-            height="17"
+            width="22"
+            height="22"
             viewBox="0 0 24 24"
         >
             <path
@@ -27,4 +21,12 @@ function EditCommentBtn() {
     return <Icon>{editSvg()}</Icon>;
 }
 
-export default EditCommentBtn;
+const Icon = styled.button`
+  margin-bottom: 2rem;
+  border: none;
+  border-radius: 50%;
+  background: #fafafa;
+  cursor: pointer;
+`;
+
+export default EditBtn;

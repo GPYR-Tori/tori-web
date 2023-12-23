@@ -37,19 +37,18 @@ const Bar = styled.div`
     border-bottom: 0.125rem solid #009a78;
   }
 `;
-function TripReviewBar({landmarkId}) {
+function TripReviewBar({landmarkId,userId}) {
     return (
         <>
             <Wrapper>
-
                 <Bar>
-                    <Link href={`/landmarks/${landmarkId}`}>
-                        <button>상품정보</button>
+                    <Link href={`/landmarks/${landmarkId}?user=${userId ? `?user=${userId}` : ''}`}>
+                    <button>Information</button>
                     </Link>
                 </Bar>
                 <Bar>
                     <Link href={`/landmarks/${landmarkId}/reviews`}>
-                        <button>리뷰</button>
+                        <button>Reviews</button>
                     </Link>
                 </Bar>
             </Wrapper>

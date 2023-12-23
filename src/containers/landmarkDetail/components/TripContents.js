@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled";
-import {iconList} from "@/src/containers/landmarkDetail/components/iconList";
 
 const addressIcon=()=>(
     <svg
@@ -78,7 +77,6 @@ function TripContents({name, imageList, phoneNum,address, description, price, ti
                     <Img src={imageList[0]}/>
                 </ImgWrap>
                 <Title>{name}</Title>
-                {/*카테고리 조건식 추가해야됨 */}
                 <Category>
                     {categoryList.map((item) => (
                         <div>

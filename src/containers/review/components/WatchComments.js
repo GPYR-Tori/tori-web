@@ -1,49 +1,38 @@
 import React, {useState} from "react";
 import styled from "@emotion/styled";
 import EditComments from "@/src/containers/review/components/EditComment";
-// <WatchComments
-//     key={cmt.comment_id}
-//     id={cmt.nickname}
-//     country={cmt.nationality}
-//     date={cmt.created_date}
-//     comments={cmt.content}
-// />
+import EditBtn from "@/src/containers/review/components/Btn/EditBtn";
 
-function WatchComments({id, country, date, comments}) {
-    const [showEditC, setShowEditC] = useState(false);
-    const [editedComments, setEditedComments] = useState(comments);
 
-    const handleShowEditC = () =>{
-        setShowEditC(!showEditC)
-    }
-    const handleSaveComment= (editedComments) => {
-        // You can perform any necessary actions here, such as updating the review on the server.
-        setEditedComments(editedComments);
-        setShowEditC(false);
+function WatchComments({loginUser,reviewId,commentId,userId,nickname, nation, createDate, content}) {
+    const [isShowEditComments, setIsShowEditComments] = useState(false);
+    const [editedComments, setEditedComments] = useState(content);
+
+    const handleShowEdit = () => {
+        if (!userId) {
+            alert('You need to log in.');
+        } else if (userId !== loginUser) {
+            alert('You are not authorized to edit this review.');
+        } else {
+            setIsShowEditComments(!isShowEditComments);
+        }
     };
-    const editSvg = () => (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="17"
-            height="17"
-            viewBox="0 0 24 24"
-        >
-            <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M12.335 5.45399L3.27301 14.516L2.03701 19.126L1.22401 22.163C1.20143 22.2478 1.20154 22.3371 1.22433 22.4219C1.24713 22.5067 1.29181 22.584 1.35389 22.6461C1.41598 22.7082 1.49329 22.7529 1.57808 22.7757C1.66287 22.7985 1.75216 22.7986 1.83701 22.776L4.87201 21.962L9.48301 20.726H9.48401L18.546 11.664L12.336 5.45399H12.335ZM22.293 6.50399L17.497 1.70699C17.4042 1.61404 17.294 1.54031 17.1727 1.48999C17.0514 1.43968 16.9213 1.41379 16.79 1.41379C16.6587 1.41379 16.5286 1.43968 16.4073 1.48999C16.286 1.54031 16.1758 1.61404 16.083 1.70699L13.608 4.18099L19.819 10.392L22.293 7.91699C22.386 7.8242 22.4597 7.714 22.51 7.59268C22.5603 7.47137 22.5862 7.34132 22.5862 7.20999C22.5862 7.07866 22.5603 6.94861 22.51 6.8273C22.4597 6.70598 22.386 6.59578 22.293 6.50299"
-                fill="#009A78"
-            />
-        </svg>
-    );
+
 
     return (
         <>
-            {showEditC ?
+            {isShowEditComments ?
                 <EditComments
-                    initialReview={comments}
-                    onSave={handleSaveComment}
-                    onUpdateComments={setEditedComments}/>
+                    userId={userId}
+                    reviewId={reviewId}
+                    nickname={nickname}
+                    nation={nation}
+                    date={createDate}
+                    content={editedComments}
+                    onUpdateComments={setEditedComments}
+                    commentId={commentId}
+                    setIsShowEditComments={setIsShowEditComments}
+                />
                 :
                 <Wrapper>
                     <User>
@@ -52,16 +41,18 @@ function WatchComments({id, country, date, comments}) {
                             alt="사용자사진"
                         />
                         <UserInfo>
-                            <Id>{id}</Id>
+                            <Nickname>{nickname}</Nickname>
                             <Item>
-                                <Country>{country}</Country>
-                                <Date>{date}</Date>
+                                <Country>{nation}</Country>
+                                <Date>{createDate}</Date>
                             </Item>
                         </UserInfo>
                     </User>
                     <Contents>{editedComments}</Contents>
                     <Edit>
-                        <Icon onClick={handleShowEditC}>{editSvg()}</Icon>
+                        <Icon onClick={handleShowEdit}>
+                            <EditBtn/>
+                        </Icon>
                     </Edit>
                 </Wrapper>
             }
@@ -98,7 +89,7 @@ const UserInfo = styled.div`
   margin-top: 2.6rem;
 `;
 
-const Id = styled.div`
+const Nickname = styled.div`
   color: #6f6f6f;
   width: 33.33%;
   font-size: 1.2rem;

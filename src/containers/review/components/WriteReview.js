@@ -2,38 +2,36 @@ import React, {useEffect, useState} from "react";
 import styled from "@emotion/styled";
 import axios from "axios";
 
-function WriteReview({id}) {
-    const [reviewContent, setReviewContent] = useState("");
+function WriteReview({landmarkId,userId}) {
+    if (!userId) return alert('You need to log in.')
 
+    const [reviewContent, setReviewContent] = useState("");
     const handleReviewSubmit = async () => {
         try {
             const requestBody = {
-                userId: {id},
+                userId: {userId},
                 content: reviewContent,
             };
-            // API에 POST 요청 보내기
-            const response =
-                await axios.post("https://tori.com/api/reviews/write", requestBody);
-            console.log("리뷰 작성 완료:",response.data );
+            await axios.post(`landmarks/${landmarkId}/reviews`, requestBody);
+            console.log("리뷰 작성 완료!",requestBody);
         } catch (error) {
             console.error("리뷰 작성 에러:", error);
         }
     };
 
-    useEffect(() => {
-        handleReviewSubmit()
-    }, []);
+    // useEffect(() => {
+    //     handleReviewSubmit()
+    // }, []);
 
     return (
         <>
             <Wrapper>
                 <form onSubmit={handleReviewSubmit}>
                     <Write
-                        // name="content"
-                        // value={reviewContent || ""}
-                       onChange={(e) => setReviewContent(e.target.value)} />
+                        value={reviewContent}
+                        onChange={(e) => setReviewContent(e.target.value)} />
                 <Btn>
-                    <button type={"submit"} >작성 완료</button>
+                    <button type={"submit"} >Enter</button>
                 </Btn>
                 </form>
             </Wrapper>
