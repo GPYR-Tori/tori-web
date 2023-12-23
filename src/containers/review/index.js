@@ -9,29 +9,35 @@ import WriteComments from "@/src/containers/review/components/WriteComments";
 import AppBar from "@/src/components/AppBar";
 import NavBar from "@/src/components/NavBar/NavBar";
 import axios from "axios";
+import {useRouter} from "next/router";
 
-function Reviews({landmarkId}) {
-    const [showWriteBtn, setShowWriteBtn] = useState(true);
-    const [showWatchBtn, setShowWatchBtn] = useState(false);
+function Reviews() {
+    const [showWriteReviewBtn, setShowWriteReviewBtn] = useState(true);
+    const [showWatchReviewBtn, setShowWatchReviewBtn] = useState(false);
     const [isWriteReview, setIsWriteReview] = useState(false);
+
     const [reviewData, setReviewData] = useState([]);
-    const handleWriteBtn = () => {
-        setShowWriteBtn(false);
-        setShowWatchBtn(true);
+    const router = useRouter()
+    const landmarkId = router.query.id;
+    // 임시로 만든 loginUser입니다.
+    const loginUser = 1
+
+    const handleWriteReviewBtn = () => {
+        setShowWriteReviewBtn(false);
+        setShowWatchReviewBtn(true);
         setIsWriteReview(true);
     };
-
-    const handleWatchBtn = () => {
-        setShowWriteBtn(true);
-        setShowWatchBtn(false);
+    const handleWatchReviewBtn = () => {
+        setShowWriteReviewBtn(true);
+        setShowWatchReviewBtn(false);
         setIsWriteReview(false);
     };
 
     const getData = async () => {
         try {
-            // /landmarks/{landmarkId}/reviews
-            const response = await axios.get(`https://tori.com/api/reviews`);
+            const response = await axios.get(`landmarks/${landmarkId}/reviews`);
             setReviewData(response.data);
+            console.log("response.data",response.data)
         } catch (error) {
             console.error('에러 발생:', error);
         }
@@ -44,42 +50,46 @@ function Reviews({landmarkId}) {
     return (
         <>
             <AppBar/>
-            <TripReviewBar />
+            <TripReviewBar landmarkId={landmarkId} />
             <WriteReviewBtn>
-                {showWriteBtn && (
-                    <button onClick={handleWriteBtn}>리뷰 쓰기</button>
+                {showWriteReviewBtn && (
+                    <button onClick={handleWriteReviewBtn}>Write</button>
                 )}
-                {showWatchBtn && (
-                    <button onClick={handleWatchBtn}>리뷰 보기</button>
+                {showWatchReviewBtn && (
+                    <button onClick={handleWatchReviewBtn}>Watch</button>
                 )}
             </WriteReviewBtn>
+            {isWriteReview ? (
+                <WriteReview landmarkId={landmarkId} userId={loginUser}/>
+            ) :null}
             {reviewData.map((item)=>(
-                <Container key={item.id}>
+                <Container>
                     {/*<SampleRWrap>*/}
                     {/*    <SampleReviews content={item.content}/>*/}
                     {/*</SampleRWrap>*/}
+                    <WatchReviews
+                        loginUser={loginUser}
+                        reviewId ={item.reviewId}
+                        userId={item.userId}
+                        nickname={item.nickname}
+                        nation={item.nation}
+                        createDate={item.createDate}
+                        content={item.content}
+                        landmarkId={landmarkId}
+                    />
 
-                    {/* 리뷰 작성 or 조회*/}
-                    {isWriteReview ? (
-                        <WriteReview id={item.id}/>
-                        ) :null}
-                            <WatchReviews
-                                user_id={item.userId}
-                                nickname={item.nickname}
-                                nationality={item.nation}
-                                created_date={item.createDate}
-                                content={item.content}
-                                landmarkId={landmarkId}
-                            />
+                    <WriteComments userId={loginUser} reviewId={item.reviewId} />
 
-                    <WriteComments/>
-                    {item.commentList ?.map((cmt,index)=>(
+                    {item.commentList?.map((cmt)=>(
                         <WatchComments
-                            key={index}
-                            id={cmt.nickname}
-                            country={cmt.nation}
-                            date={cmt.createDate}
-                            comments={cmt.content}
+                            commentId={cmt.commentId}
+                            userId ={cmt.userId}
+                            nickname={cmt.nickname}
+                            nation={cmt.nation}
+                            createDate={cmt.createDate}
+                            content={cmt.content}
+                            reviewId ={item.reviewId}
+                            loginUser={loginUser}
                         />
                     ))}
                 </Container>

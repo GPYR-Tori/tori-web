@@ -1,44 +1,50 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styled from "@emotion/styled";
-import EditReviewBtn from "@/src/containers/review/components/Btn/EditReviewBtn";
+import EditBtn from "@/src/containers/review/components/Btn/EditBtn";
 import {ImCancelCircle} from "react-icons/im";
 import axios  from "axios";
 
-
-function EditReview({ user_id,content,nickname,nationality,created_date}) {
+function EditReview({reviewId, userId,content,nickname,nation,createDate,landmarkId,setIsShowEditReview,onUpdate}) {
     const [editedReview, setEditedReview] = useState(content);
-
-    // 리뷰 수정 업데이트
     const handleEditReview = (e) => {
         setEditedReview(e.target.value);
     };
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const requestBody = {
-                user_id: {user_id},
+                userId: {userId},
                 content: editedReview,
             };
+            await axios.patch(`landmarks/${landmarkId}/reviews`, requestBody);
+            // 리뷰 창 닫기
+            setIsShowEditReview(false);
+            onUpdate(editedReview);
+            console.log("리뷰 수정 완료:", requestBody);
 
-            const response = await axios.patch(`https://localhost:8080/landmarks/${landmark-id}/reviews`, requestBody);
-            console.log("리뷰 수정 완료:", response.data);
         } catch (error) {
             console.error("리뷰 수정 에러:", error);
         }
     };
 
-    const handleDelete = async () => {
+    const handleDelete = async (e) => {
+        e.preventDefault();
         try {
-            const response = await axios.delete(`https://localhost:8080//landmarks/${landmark-id}/reviews/${review-id}`,{
-                data: {user_id}
-            }
-           );
-            console.log("리뷰 삭제 완료:", response.data);
+            const requestBody = {
+                userId: {userId},
+            };
+            await axios.delete(`landmarks/${landmarkId}/reviews/${reviewId}`,requestBody);
+            alert('Your review has been successfully deleted.')
+            console.log("삭제한 userId",userId)
         } catch (error) {
             console.error("리뷰 삭제 에러:", error);
         }
     };
+
+
     return (
         <>
             <Wrapper>
@@ -51,12 +57,12 @@ function EditReview({ user_id,content,nickname,nationality,created_date}) {
                         <Item>
                             <Id>{nickname}</Id>
                             <CancelBtn onClick={handleDelete}>
-                                <ImCancelCircle className={'xicon'}/>
+                                <ImCancelCircle className={'deleteicon'}/>
                             </CancelBtn>
                         </Item>
                         <Item>
-                            <Country>{nationality}</Country>
-                            <Date>{created_date}</Date>
+                            <Country>{nation}</Country>
+                            <Date>{createDate}</Date>
                         </Item>
 
                     </UserInfo>
@@ -67,7 +73,7 @@ function EditReview({ user_id,content,nickname,nationality,created_date}) {
                         value={editedReview}
                         onChange={handleEditReview}/>
                     <Edit>
-                        <EditReviewBtn type={"submit"} />
+                        <EditBtn type={"submit"} />
                     </Edit>
                 </form>
             </Wrapper>
@@ -75,8 +81,6 @@ function EditReview({ user_id,content,nickname,nationality,created_date}) {
     );
 }
 
-
-export default EditReview;
 
 const Wrapper = styled.div`
   background: #fafafa;
@@ -90,13 +94,11 @@ const CancelBtn = styled.button`
   border: none;
   color: #009A78;
   background-color: #fafafa;
-  .xicon{
+  .deleteicon{
     width: 1.5rem;
     height: 1.5rem;
   }
-
 `;
-
 
 const User = styled.div`
   display: flex;
@@ -169,3 +171,5 @@ const Edit = styled.div`
   justify-content: flex-end;
   margin-right: 2rem;
 `;
+
+export default EditReview;
