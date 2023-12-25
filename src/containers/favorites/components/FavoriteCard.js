@@ -1,17 +1,15 @@
 import React from "react";
 import styled from "@emotion/styled";
-import FavoriteBtn from "@/src/containers/favorites/FavoriteBtn";
+import FavoriteBtn from "@/src/containers/favorites/components/FavoriteBtn";
 import Link from "next/link";
 
-
-
-function FavoriteCard() {
+function FavoriteCard({landmarkId,userId,landmarkImage=[],landmarkName,landmarkCategory=[]}) {
 
     return (
         <Wrapper>
-            <Link href="/src/containers/landmarkDetail">
+            <Link href={`/landmarks/${landmarkId}?user=${userId}`}>
                 <ImgWrapper>
-                    <Img src="https://picsum.photos/500/300"/>
+                    <Img src={landmarkImage[0]}/>
                     <BtnWrap onClick={(event) => {
                         event.preventDefault()
                     }}>
@@ -19,20 +17,15 @@ function FavoriteCard() {
                     </BtnWrap>
                 </ImgWrapper>
 
-                <Title>name</Title>
+                <Title>{landmarkName}</Title>
                 <CategoryWrap>
-                    <Category>
-                        <p>자연</p>
-                    </Category>
-                    <Category>
-                        <p>체험</p>
-                    </Category>
-                    <Category>
-                        <p>음식</p>
-                    </Category>
+                    {landmarkCategory.map((item)=>(
+                        <Category>
+                            <p>{item}</p>
+                        </Category>
+                    ))}
                 </CategoryWrap>
             </Link>
-
         </Wrapper>
     );
 }
