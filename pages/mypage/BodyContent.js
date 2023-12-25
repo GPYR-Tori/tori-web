@@ -1,9 +1,24 @@
 import React, { useState } from 'react';
 import styled from "@emotion/styled";
-
+import axios from "axios";
 
 const BodyContent = () => {
-
+    const [nickname,setNickname]=useState('');
+    const handelMypage=async ()=>{
+        const apiMypage={
+            nickname:nickname
+        }
+        console.log(apiMypage);
+        try {
+            const requestBody={
+                nickname:nickname,
+            }
+            const response=await axios.get('http://tori.com/users/{userId}',requestBody);
+            console.log('마이페이지 연동 성공 : ',response.data);
+        }catch (error){
+            console.error('마이페이지 연동 오류 발생 : ',error);
+        }
+    };
     return (
         <>
 
@@ -12,7 +27,7 @@ const BodyContent = () => {
                     <img src={'https://i.pinimg.com/564x/5c/4e/1f/5c4e1f6e7c116d72d528f1b762720ec2.jpg'}/>
                 </div>
                 <div className={'BodyText'}>
-                    <p className={'userName'}>유지희님</p>
+                    <p className={'userName'}>{nickname}님</p>
                     <p className={'Welcom'}>환영합니다.</p>
                 </div>
                 <div className={'btnLogout'}>로그아웃</div>
