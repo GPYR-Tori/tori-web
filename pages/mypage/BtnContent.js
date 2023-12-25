@@ -48,40 +48,49 @@ const BtnContent = () => {
     return (
         <>
             <BtnCont>
-                <div className={'BtnUser'}>
-                    <div className={'iconPerson'}>{ImgPerson()}</div>
-                    {/*{ImgPerson()}*/}
-                    <p className={'textPerson'}>회원 정보 수정</p>
-                    <div className={'iconArrow'}>{IconArrow()}</div>
-                </div>
-                <div className={'BtnLike'}>
-                    <div className={'iconLike'}>{ImgLike()}</div>
-                    {/*{ImgLike()}*/}
-                    <p className={'textLike'}>보관함</p>
-                    <div className={'iconArrow'}>{IconArrow()}</div>
-                </div>
-                <div className={'BtnDotori'}>
-                    <div className={'iconDotori'}>{ImgDotori()}</div>
-                    {/*{ImgDotori()}*/}
-                    <p className={'textDotori'}>MY 도토리</p>
-                    <div className={'iconArrow'}>{IconArrow()}</div>
-                </div>
+                <Link href={"/usermodify"}>
+                    <div className={'BtnUser'}>
+                        <div className={'iconPerson'}>{ImgPerson()}</div>
+                        {/*{ImgPerson()}*/}
+                        <p className={'textPerson'}>회원 정보 수정</p>
+                        <div className={'iconArrow'}>{IconArrow()}</div>
+                    </div>
+                </Link>
+                <Link href={"/favorites"}>
+                    <div className={'BtnLike'}>
+                        <div className={'iconLike'}>{ImgLike()}</div>
+                        {/*{ImgLike()}*/}
+                        <p className={'textLike'}>보관함</p>
+                        <div className={'iconArrow'}>{IconArrow()}</div>
+                    </div>
+                </Link>
+                <Link href={"mydotori"}>
+                    <div className={'BtnDotori'}>
+                        <div className={'iconDotori'}>{ImgDotori()}</div>
+                        {/*{ImgDotori()}*/}
+                        <p className={'textDotori'}>MY 도토리</p>
+                        <div className={'iconArrow'}>{IconArrow()}</div>
+                    </div>
+                </Link>
             </BtnCont>
         </>
     )
 }
-
+export default BtnContent;
 const BtnCont = styled.div`
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
   justify-content: center;
-  align-items: center;
-
+  //align-items: center;
+  
   margin-top: 5.62rem;
-  //margin-left: 3rem; (필요없음!)
-  margin-right: auto;
+  margin-left: 3rem;
+  margin-right: 3rem;
   margin-bottom: auto;
+  
+  //margin-left: 3rem; (필요없음!)
+  //margin-right: auto;
 
   cursor: pointer;
   .BtnUser{
@@ -93,7 +102,9 @@ const BtnCont = styled.div`
     margin-bottom: 1.87rem;
 
     //width: 40.75rem; (수정)
-    width: calc(100% - 6rem);
+    
+    //width값 고정값으로 정해야될듯
+    //width: calc(100% - 6rem);
     height: 6.25rem;
     flex-shrink: 0;
 
@@ -134,7 +145,9 @@ const BtnCont = styled.div`
     margin-bottom: 1.87rem;
 
     //width: 40.75rem; (수정)
-    width: calc(100% - 6rem);
+    
+    //width값 고정값으로 설정해야될듯
+    //width: calc(100% - 6rem);
     height: 6.25rem;
     flex-shrink: 0;
 
@@ -173,7 +186,9 @@ const BtnCont = styled.div`
     align-items: center;
 
     //width: 40.75rem; (수정)
-    width: calc(100% - 6rem);
+
+    //width값 고정값으로 설정해야될듯
+    //width: calc(100% - 6rem);
     height: 6.25rem;
     flex-shrink: 0;
 
@@ -206,4 +221,3 @@ const BtnCont = styled.div`
     }
   }
 `;
-export default BtnContent;
