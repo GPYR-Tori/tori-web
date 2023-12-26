@@ -3,9 +3,10 @@ import TripContents from "@/src/containers/landmarkDetail/components/TripContent
 import TripInfo from "@/src/containers/landmarkDetail/components/TripInfo";
 import TripReviewBar from "@/src/containers/landmarkDetail/components/TripReviewBar";
 import {useRouter} from "next/router";
-import axios from "axios";
 import AppBar from "@/src/components/AppBar";
 import NavBar from "@/src/components/NavBar/NavBar";
+import {getLandmarksDetailData} from "@/src/api/landmarks/landmarksApi";
+
 
 function LandmarkDetail() {
     const [data, setData] = useState({})
@@ -13,19 +14,12 @@ function LandmarkDetail() {
     const router = useRouter()
     const landmarkId = router.query.id;
 
-    const getLandmarksData = async () => {
-        const res = await axios({
-            url: `landmarks/${landmarkId}`,
-            method: 'get',
-        })
-        setData(res.data)
-    }
-
     useEffect(() => {
         if (!landmarkId) return
-        getLandmarksData()
+        getLandmarksDetailData(landmarkId).then(setData);
     }, [landmarkId]);
     console.log("data",data)
+
     if (!data) return <p>'loading...'</p>
 
     return (

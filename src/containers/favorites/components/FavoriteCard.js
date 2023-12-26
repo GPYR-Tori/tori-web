@@ -1,22 +1,31 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "@emotion/styled";
 import FavoriteBtn from "@/src/containers/favorites/components/FavoriteBtn";
 import Link from "next/link";
+import {deleteFavorites} from "@/src/api/favorites/favoritesApi";
 
 function FavoriteCard({landmarkId,userId,landmarkImage=[],landmarkName,landmarkCategory=[]}) {
+    const [isLiked, setIsLiked] = useState(true)
+
+    const handleDeleteLike = async (e) =>{
+        e.preventDefault()
+        const requestBody = {
+            userId: userId,
+            landmarkId :landmarkId,
+        }
+        await deleteFavorites(landmarkId,requestBody);
+        setIsLiked(!isLiked);
+    };
 
     return (
         <Wrapper>
             <Link href={`/landmarks/${landmarkId}?user=${userId}`}>
                 <ImgWrapper>
                     <Img src={landmarkImage[0]}/>
-                    <BtnWrap onClick={(event) => {
-                        event.preventDefault()
-                    }}>
-                        <FavoriteBtn/>
+                    <BtnWrap active={isLiked} onClick={(e) => handleDeleteLike(e)}>
+                        <FavoriteBtn />
                     </BtnWrap>
                 </ImgWrapper>
-
                 <Title>{landmarkName}</Title>
                 <CategoryWrap>
                     {landmarkCategory.map((item)=>(
@@ -45,7 +54,7 @@ const BtnWrap = styled.div`
   position: absolute;
   right: 1.5rem;
   bottom: 1.5rem;
-  color:#009A78;
+  color: ${p => p.active ?  "#009A78" :"#BABABA" };
   :hover{
     color: #BABABA;
   }

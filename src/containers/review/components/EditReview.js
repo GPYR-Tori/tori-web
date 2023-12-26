@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import styled from "@emotion/styled";
 import EditBtn from "@/src/containers/review/components/Btn/EditBtn";
 import {ImCancelCircle} from "react-icons/im";
-import axios  from "axios";
+import {deleteReviewData, patchReviewData} from "@/src/api/reviews/reviewsApi";
 
 function EditReview({reviewId, userId,content,nickname,nation,createDate,landmarkId,setIsShowEditReview,onUpdate}) {
     const [editedReview, setEditedReview] = useState(content);
@@ -11,37 +11,29 @@ function EditReview({reviewId, userId,content,nickname,nation,createDate,landmar
     };
 
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const requestBody = {
-                userId: {userId},
-                content: editedReview,
-            };
-            await axios.patch(`landmarks/${landmarkId}/reviews`, requestBody);
-            // 리뷰 창 닫기
-            setIsShowEditReview(false);
-            onUpdate(editedReview);
-            console.log("리뷰 수정 완료:", requestBody);
-
-        } catch (error) {
-            console.error("리뷰 수정 에러:", error);
-        }
+        const requestBody = {
+            userId: {userId},
+            content: editedReview,
+        };
+        //리뷰 수정 api 호출
+        await patchReviewData(landmarkId,reviewId,requestBody);
+        // 리뷰 창 닫기
+        setIsShowEditReview(false);
+        onUpdate(editedReview);
+        console.log("리뷰 수정 완료:", requestBody);
     };
 
     const handleDelete = async (e) => {
         e.preventDefault();
-        try {
-            const requestBody = {
-                userId: {userId},
-            };
-            await axios.delete(`landmarks/${landmarkId}/reviews/${reviewId}`,requestBody);
-            alert('Your review has been successfully deleted.')
-            console.log("삭제한 userId",userId)
-        } catch (error) {
-            console.error("리뷰 삭제 에러:", error);
-        }
+        const requestBody = {
+            userId: {userId},
+        };
+        //리뷰 삭제 api 호출
+        await deleteReviewData(landmarkId,reviewId,requestBody)
+        alert('Your review has been successfully deleted.')
+        console.log("리뷰 삭제 성공! 삭제한 userId",userId)
     };
 
 

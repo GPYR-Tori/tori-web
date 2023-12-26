@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import AppBar from "@/src/components/AppBar";
 import FavoriteCard from "@/src/containers/favorites/components/FavoriteCard";
 import NavBar from "@/src/components/NavBar/NavBar";
-import {getFavorites} from "@/src/api/favorites/favorites";
+import {getFavorites} from "@/src/api/favorites/favoritesApi";
 
 // 로그인한 유저
 const loginUser = 2

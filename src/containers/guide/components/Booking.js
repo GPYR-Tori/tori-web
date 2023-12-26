@@ -2,6 +2,41 @@ import React from "react";
 import styled from "@emotion/styled";
 import Link from "next/link";
 
+function Booking() {
+
+    return (
+        <Wrapper>
+            <Contents>
+                <p>Reservation</p>
+                <BtnWrap>
+                    <Link href="https://www.hanatouritc.com/">
+                        <button>ABC</button>
+                    </Link>
+                    <Link href="https://toursomeplace.com/">
+                        <button>D</button>
+                    </Link>
+                    <Link href="https://plusplanner.kr/">
+                        <button>EFG</button>
+                    </Link>
+                    <Link href="https://www.travelday.kr/">
+                        <button>HI</button>
+                    </Link>
+                    <Link href="https://ktourstory.com/">
+                        <button>JKL</button>
+                    </Link>
+                </BtnWrap>
+
+            </Contents>
+            <Link href="https://en.ggtour.or.kr/inc/img/sub/egtour_bus_2023.pdf">
+                <Guidebook>
+                    <button>Going to see the guidebook</button>
+                </Guidebook>
+            </Link>
+        </Wrapper>
+    );
+}
+
+
 const Wrapper = styled.div`
   border-radius: 0.5rem;
 `;
@@ -71,7 +106,6 @@ const Guidebook = styled.div`
   button {
     flex: 1;
     height: 6.25rem;
-    //width: 40.875rem;
     border-radius: 0.5rem;
     background: #009a78;
     border: none;
@@ -83,42 +117,7 @@ const Guidebook = styled.div`
     font-weight: 700;
     line-height: 3.125rem;
     text-decoration-line: none;
-    //margin-bottom: 6.14rem;
   }
 `;
-
-function Booking() {
-
-    return (
-        <Wrapper>
-            <Contents>
-                <p>예약하기</p>
-                <BtnWrap>
-                    <Link href="https://www.hanatouritc.com/">
-                        <button>ABC</button>
-                    </Link>
-                    <Link href="https://toursomeplace.com/">
-                        <button>D</button>
-                    </Link>
-                    <Link href="https://plusplanner.kr/">
-                        <button>EFG</button>
-                    </Link>
-                    <Link href="https://www.travelday.kr/">
-                        <button>HI</button>
-                    </Link>
-                    <Link href="https://ktourstory.com/">
-                        <button>JKL</button>
-                    </Link>
-                </BtnWrap>
-
-            </Contents>
-            <Link href="https://en.ggtour.or.kr/inc/img/sub/egtour_bus_2023.pdf">
-                <Guidebook>
-                    <button>가이드북 보러가기</button>
-                </Guidebook>
-            </Link>
-        </Wrapper>
-    );
-}
 
 export default Booking;
