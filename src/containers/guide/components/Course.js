@@ -6,37 +6,37 @@ function Course({A_course,B_course,C_course,D_course,E_course}) {
 
     return (
         <>
-            <Title>코스설명</Title>
+            <Title>Course Description</Title>
                 <Wrapper>
                     <Contents >
-                        <p>A코스</p>
-                        {A_course.map((a_item, index)=>(
-                            <Item key={index}>{a_item}</Item>
-                            ))}
+                        <p>Course A</p>
+                            <Item>{A_course.price}</Item>
+                            <Item>{A_course.tripPoint}</Item>
+                            <Item>{A_course.course}</Item>
                     </Contents>
-                    <Contents>
-                        <p>B코스</p>
-                        {B_course.map((b_item, index)=>(
-                            <Item key={index}>{b_item}</Item>
-                        ))}
+                    <Contents >
+                        <p>Course B</p>
+                        <Item>{B_course.price}</Item>
+                        <Item>{B_course.tripPoint}</Item>
+                        <Item>{B_course.course}</Item>
                     </Contents>
-                    <Contents>
-                        <p>C코스</p>
-                        {C_course.map((c_item, index)=>(
-                            <Item key={index}>{c_item}</Item>
-                        ))}
+                    <Contents >
+                        <p>Course C</p>
+                        <Item>{C_course.price}</Item>
+                        <Item>{C_course.tripPoint}</Item>
+                        <Item>{C_course.course}</Item>
                     </Contents>
-                    <Contents>
-                        <p>D코스</p>
-                        {D_course.map((d_item, index)=>(
-                            <Item key={index}>{d_item}</Item>
-                        ))}
+                    <Contents >
+                        <p>Course D</p>
+                        <Item>{D_course.price}</Item>
+                        <Item>{D_course.tripPoint}</Item>
+                        <Item>{D_course.course}</Item>
                     </Contents>
-                    <Contents>
-                        <p>E코스</p>
-                        {E_course.map((e_item, index)=>(
-                            <Item key={index}>{e_item}</Item>
-                        ))}
+                    <Contents >
+                        <p>Course E</p>
+                        <Item>{E_course.price}</Item>
+                        <Item>{E_course.tripPoint}</Item>
+                        <Item>{E_course.course}</Item>
                     </Contents>
                 </Wrapper>
 
@@ -65,7 +65,7 @@ const Contents = styled.div`
     font-style: normal;
     font-weight: 100;
     line-height: normal;
-    padding: 1.5rem 2rem 0;
+    padding: 1.5rem 2rem 1rem;
     
   }
 `;
@@ -73,7 +73,7 @@ const Contents = styled.div`
 const Item = styled.div`
   text-align: left;
   margin-left: 2rem;
-  padding-top: 0.3rem;
+  padding-top: 0.5rem;
   font-size: 1.3rem;
   color: #808080;
 `;

@@ -2,19 +2,21 @@ import React, {useEffect, useState} from "react";
 import styled from "@emotion/styled";
 import TripCards from "@/src/containers/landmarks/components/TripCards";
 import Category from "@/src/components/category";
-import {GetLandmarksData} from "@/src/api/landmarks/landmarks";
+import {getLandmarksData} from "@/src/api/landmarks/landmarksApi";
 
+// 로그인 된 유저 임시 정보
+const loginUser = 2
 function Landmarks() {
     const [data,setData] =useState([])
     useEffect(() => {
-        GetLandmarksData().then(setData);
+        getLandmarksData().then(setData);
     }, []);
 
     return (
         <>
             <Category/>
             <Wrapper>
-                <TripCards data={data} userId={'2'}/>
+                <TripCards data={data} userId={loginUser}/>
             </Wrapper>
         </>
     );

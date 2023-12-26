@@ -1,10 +1,29 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styled from "@emotion/styled";
 import FavoriteBtn from "@/src/containers/favorites/components/FavoriteBtn.js";
 import Link from "next/link";
+import {postFavorites} from "@/src/api/favorites/favoritesApi";
+import {error} from "next/dist/build/output/log";
 
 function TripCards({data,userId}) {
     if(!userId) userId=''
+    const [isLiked, setIsLiked] = useState(false);
+
+    // 좋아요 추가
+    const handleAddLike = async (e, landmarkId) =>{
+        if (!userId) {
+            alert('You need to log in.');
+            return;
+        }
+        e.preventDefault()
+        const requestBody = {
+            userId: userId,
+            landmarkId :landmarkId,
+        }
+        await postFavorites(landmarkId, requestBody);
+        setIsLiked(!isLiked);
+    };
+
     return (
         <>
             {data.map((item)=>(
@@ -12,9 +31,8 @@ function TripCards({data,userId}) {
                     <Link href={`/landmarks/${item.landmarkId}?user=${userId}`}>
                         <ImgWrapper>
                                 <Img src={item.imageList[0]}/>
-                            <BtnWrap  onClick={(event) => {
-                                event.preventDefault()
-                            }}>
+                            <BtnWrap active={isLiked} onClick={(e) => handleAddLike(e, item.landmarkId)}>
+                            {/*<BtnWrap active={isLiked}>*/}
                                 <FavoriteBtn/>
                             </BtnWrap>
                         </ImgWrapper>
@@ -54,14 +72,11 @@ const BtnWrap = styled.div`
   position: absolute;
   right: 1.5rem;
   bottom: 1.5rem;
-  color: #BABABA;
+  color: ${p => p.active ? "#009A78"  : "#BABABA"};
   :hover{
     color:#009A78;
   }
-  // 지역 선택 시 active값 유지 하도록 설정, 추후에 백엔드에 넘겨줄 때 용이
-  ${p => p.active?
-          `background: #009A78;
-          color: #FFF;`:''}
+
 `;
 
 const Img = styled.img`

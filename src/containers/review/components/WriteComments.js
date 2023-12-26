@@ -1,38 +1,44 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import styled from "@emotion/styled";
 import WriteBtn from "@/src/containers/review/components/Btn/WriteBtn";
-import axios from "axios";
+import {postCommentsData} from "@/src/api/reviews/reviewsApi";
 
 
 function WriteComments({userId, reviewId}) {
-    if (!userId) return alert('You need to log in.')
     const [content, setContent] = useState('');
+
+    if (!userId) {
+        alert('You need to log in.');
+        return;
+    }
+
+    const changeComment = (e) => {
+        setContent(e.target.value);
+    };
+
     const handleCommentSubmit = async () => {
-        try {
+        console.log("??/")
             const requestBody = {
                 userId: {userId},
                 content: content,
             };
-            await axios.post(`/reviews/${reviewId}/comments`, requestBody);
-            console.log("댓글 작성 완료:", requestBody);
-
-        } catch (error) {
-            console.error("댓글 작성 에러:", error);
-        }
+            await postCommentsData(reviewId, requestBody);
+            setContent('');
     };
 
-    useEffect(() => {
-        handleCommentSubmit()
-    }, []);
 
     return (
         <Wrapper>
-            <Write placeholder="댓글을 써주세요"
-                   value={content}
-                   onChange={(e) => setContent(e.target.value)} />
-               <Edit>
-                   <WriteBtn onClick={handleCommentSubmit} />
-               </Edit>
+            <form onSubmit={handleCommentSubmit}>
+                <Write placeholder="Please write a comment."
+                       value={content}
+                       onChange={changeComment} />
+                <Edit>
+                    <WriteBtn/>
+                </Edit>
+            </form>
+
+
         </Wrapper>
     );
 }

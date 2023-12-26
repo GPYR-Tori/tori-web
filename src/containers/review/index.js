@@ -8,8 +8,11 @@ import WatchComments from "@/src/containers/review/components/WatchComments";
 import WriteComments from "@/src/containers/review/components/WriteComments";
 import AppBar from "@/src/components/AppBar";
 import NavBar from "@/src/components/NavBar/NavBar";
-import axios from "axios";
 import {useRouter} from "next/router";
+import {getReviewData} from "@/src/api/reviews/reviewsApi";
+
+// 임시로 만든 loginUser입니다.
+const loginUser = 1
 
 function Reviews() {
     const [showWriteReviewBtn, setShowWriteReviewBtn] = useState(true);
@@ -19,8 +22,6 @@ function Reviews() {
     const [reviewData, setReviewData] = useState([]);
     const router = useRouter()
     const landmarkId = router.query.id;
-    // 임시로 만든 loginUser입니다.
-    const loginUser = 1
 
     const handleWriteReviewBtn = () => {
         setShowWriteReviewBtn(false);
@@ -33,19 +34,11 @@ function Reviews() {
         setIsWriteReview(false);
     };
 
-    const getData = async () => {
-        try {
-            const response = await axios.get(`landmarks/${landmarkId}/reviews`);
-            setReviewData(response.data);
-            console.log("response.data",response.data)
-        } catch (error) {
-            console.error('에러 발생:', error);
-        }
-    };
-
+    //api 호출
     useEffect(() => {
-        getData();
+        getReviewData(landmarkId).then(setReviewData);
     }, []);
+
 
     return (
         <>
@@ -60,9 +53,10 @@ function Reviews() {
                 )}
             </WriteReviewBtn>
             {isWriteReview ? (
-                <WriteReview landmarkId={landmarkId} userId={loginUser}/>
+                <WriteReview landmarkId={landmarkId} userId={loginUser} onUpdate={setIsWriteReview}/>
             ) :null}
-            {reviewData.map((item)=>(
+
+            {reviewData?.map((item)=>(
                 <Container>
                     {/*<SampleRWrap>*/}
                     {/*    <SampleReviews content={item.content}/>*/}

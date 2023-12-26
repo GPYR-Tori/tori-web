@@ -4,6 +4,7 @@ import EditReview from "@/src/containers/review/components/EditReview";
 import EditBtn from "@/src/containers/review/components/Btn/EditBtn";
 
 function WatchReviews({loginUser,reviewId,userId,content,nickname,nation,createDate,landmarkId}) {
+
     const [isShowEditReview, setIsShowEditReview] =useState(false);
     const [editedReview, setEditedReview] = useState(content);
 

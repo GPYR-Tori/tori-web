@@ -2,10 +2,10 @@ import React, {useState} from "react";
 import styled from "@emotion/styled";
 import {ImCancelCircle} from "react-icons/im";
 import EditBtn from "@/src/containers/review/components/Btn/EditBtn";
-import axios from "axios";
+import {deleteCommentData, patchCommentData} from "@/src/api/reviews/reviewsApi";
 
 function EditComments({content,reviewId,onUpdateComments,nickname,date,nation,commentId,setIsShowEditComments,userId}) {
-    // editedComments는 WatchComments 에서도 쓰임
+    // editedComments는 WatchComments.js 에서도 쓰임
     const [editedComments, setEditedComments] = useState(content);
     const handleCommentChange = (e) => {
         setEditedComments(e.target.value);
@@ -13,32 +13,23 @@ function EditComments({content,reviewId,onUpdateComments,nickname,date,nation,co
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const requestBody = {
-                userId: {userId},
-                content: editedComments,
-            };
-            await axios.patch(`/reviews/${reviewId}/comments/${commentId}`, requestBody);
-            // 리뷰 창 닫기
-            setIsShowEditComments(false);
-            onUpdateComments(editedComments);
-            console.log("댓글 수정 완료:", requestBody);
-        } catch (error) {
-            console.error("댓글 수정 에러:", error);
-        }
+        const requestBody = {
+            userId: {userId},
+            content: editedComments,
+        };
+        await patchCommentData(reviewId,commentId,requestBody);// 댓글 창 닫기
+        setIsShowEditComments(false);
+        onUpdateComments(editedComments);
+        console.log("댓글 수정 완료:", requestBody);
     };
     const handleDelete = async (e) => {
         e.preventDefault();
-        try {
-            const requestBody = {
-                userId: {userId},
-            };
-            await axios.delete(`/reviews/${reviewId}/comments/${commentId}`, requestBody);
-            alert('Your review has been successfully deleted.')
-            console.log("삭제한 userId",userId)
-        } catch (error) {
-            console.error("리뷰 삭제 에러:", error);
-        }
+        const requestBody = {
+            userId: {userId},
+        };
+        await deleteCommentData(reviewId,commentId,requestBody)
+        alert('Your review has been successfully deleted.')
+        console.log("댓글 삭제 완료! 삭제한 userId",userId)
     };
 
     return (
