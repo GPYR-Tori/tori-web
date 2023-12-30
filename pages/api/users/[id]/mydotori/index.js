@@ -1,7 +1,8 @@
 export default function handler(request, response) {
     response.status(200).json({
         "id": "chacha",
-        "num": "6",
+        "total": "13",
+        "num": "3",
         "totalRanking": [
             {
                 "id": "1등user",

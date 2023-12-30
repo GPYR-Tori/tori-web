@@ -9,10 +9,10 @@ export default function handler(request, response) {
         response.status(200).json([
             {
                 "landmarkId": "3",
-                "landmarkName": "수원화성",
-                "landmarkAddress": "수원시 어쩌구",
-                "landmarkLatitude": "37.365731",
-                "landmarkLongitude": "127.130701",
+                "name": "수원화성",
+                "address": "수원시 어쩌구",
+                "latitude": "37.365731",
+                "longitude": "127.130701",
             },
         ])
     }
