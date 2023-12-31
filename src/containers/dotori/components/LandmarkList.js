@@ -19,11 +19,13 @@ const Container = styled.div`
 }
 `
 
-export function LandmarkList() {
+export function LandmarkList(props) {
     return (
         <Container>
-            <LandmarkCard />
-            <LandmarkCard />
+            {props.data.map(item => {
+                return <LandmarkCard name={item.name} address={item.address} landmarkId={item.landmarkId}/>
+            })}
+            {/* <LandmarkCard name={"아무거나"} address={"fdd"}/> */}
         </Container>
 
     )

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Router from "next/router";
 
 const Container = styled.div`
     width: 25rem;
@@ -26,12 +27,21 @@ const LandmarkName = styled.div`
     font-weight: 100;
     line-height: normal;
 `
+const LandmarkAddress = styled.div`
+    color: #808080;
+    font-family: Inter;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+`
 
-export function LandmarkCard() {
+export function LandmarkCard(props) {
     return (
-        <Container>
+        <Container onClick={() => Router.push(`/landmarks/${props.landmarkId}`)} >
             <ImageContainer src="/images/dotori/Landmark_ex1.png"/>
-            <LandmarkName> 대충 </LandmarkName>
+            <LandmarkName> {props.name} </LandmarkName>
+            <LandmarkAddress>{props.address}</LandmarkAddress>
         </Container>
     )
 }
