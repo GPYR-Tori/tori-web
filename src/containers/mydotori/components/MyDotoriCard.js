@@ -30,7 +30,7 @@ export function MyDotoriCard(props) {
     return (
         <Container>
             <Label>보유도토리</Label>
-            <CountLabel>{props.num}개 / <span style={{fontSize: "1.75rem"}}>10개</span></CountLabel>
+            <CountLabel>{props.total}개 / <span style={{fontSize: "1.75rem"}}>10개</span></CountLabel>
         </Container>
     )
 }
