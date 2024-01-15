@@ -10,15 +10,19 @@ import {getGuide} from "@/src/api/guide/guideApi";
 const loginUserId = 'userId'
 
 function Guide() {
-    const [guide, setGuide] = useState({});
+    const [guide, setGuide] = useState(null); // 초기값 null로 설정
     console.log("guide",guide)
+    // 데이터를 받아온 후에 UI 렌더링 하도록 수정
     useEffect(() => {
-        getGuide(loginUserId).then(setGuide);
-    }, []);
+      getGuide(loginUserId)
+          .then((data) => setGuide(data))
+          .catch((error) => console.error('Error fetching guide data:', error));
+  }, []); 
+
+    if (!guide) return <p>'loading...'</p>
 
     const {content,A_course=[],B_course=[],C_course=[],D_course=[],E_course=[]}=guide
 
-    if (!guide) return <p>'loading...'</p>
     return (
     <>
       <Container>
