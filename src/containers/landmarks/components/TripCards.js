@@ -26,7 +26,8 @@ function TripCards({data,userId}) {
 
     return (
         <>
-            {data.map((item)=>(
+          {/* 초기값 없어서 에러나는 부분, 데이터가 존재할 때만 map 실행하도록 조건부 렌더링으로 수정 */}
+            {data && data.map((item)=>(
                 <Wrapper key={item.landmarkId}>
                     <Link href={`/landmarks/${item.landmarkId}?user=${userId}`}>
                         <ImgWrapper>
