@@ -29,7 +29,7 @@ const Mydotori = () => {
         <ContentContainer>
             <TopContainer>
               {/* 보유도토리 */}
-              <MyDotoriCard num={data.num}/>
+              <MyDotoriCard total={data.total}/>
               {/* 도토리순위 */}
               <RankingCard totalRanking={data.totalRanking}/>
             </TopContainer>

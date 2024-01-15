@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from '@emotion/styled';
+import { markLandmark } from '@/src/api/markLandmark';
 
 export function MapView(props) {
   const mapRef = useRef();
@@ -54,12 +55,12 @@ export function MapView(props) {
     renderUserPin(mapRef.current, clustererRef.current, lat, lon)
     console.log(props.data)
     for(const item of props.data){
-      renderMarker(mapRef.current, clustererRef.current, Number(item.landmarkLatitude), Number(item.landmarkLongitude))
+      renderMarker(mapRef.current, clustererRef.current, Number(item.latitude), Number(item.longitude), item.landmarkId, props.userId)
     }
   }
   useEffect(() => {
     for(const item of props.data){
-      renderMarker(mapRef.current, clustererRef.current, Number(item.landmarkLatitude), Number(item.landmarkLongitude))
+      renderMarker(mapRef.current, clustererRef.current, Number(item.latitude), Number(item.longitude), item.landmarkId, props.userId)
     }
   }, [props.data])
 
@@ -69,7 +70,7 @@ export function MapView(props) {
     </UserLocationBtn>
   </StyledMapView>;
 }
-function renderMarker(map, clusterer, lat, lon) {
+function renderMarker(map, clusterer, lat, lon, landmarkId, userId) {
   //alert()
   var imageSrc = "/images/dotori/filled_stamp.png", // 마커이미지의 주소입니다    
     imageSize = new kakao.maps.Size(25, 25), // 마커이미지의 크기입니다
@@ -88,6 +89,8 @@ function renderMarker(map, clusterer, lat, lon) {
   // 도토리 클릭시!! -> user, landmark ID 보내는 API 만들기
   kakao.maps.event.addListener(marker, "click", () => {
     //alert()
+    // 로그인 후에 받아오기
+    markLandmark(userId, landmarkId)
 
   });
 
